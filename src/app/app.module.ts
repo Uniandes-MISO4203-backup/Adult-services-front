@@ -27,7 +27,6 @@ import { SharedModule } from './shared/shared.module';
         ToastrModule.forRoot(),
         SharedModule
     ],
-
     bootstrap: [AppComponent]
 })
 export class AppModule { }
