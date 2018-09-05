@@ -26,7 +26,7 @@ export class BookSidebarComponent implements OnInit, OnChanges {
     /**
     * Shows/hides the button that shifts the list to left
     */
-    showLeft: boolean;
+    showLeft: boolean
 
     /**
     * Shows/hides the button that shifts the list to right
@@ -70,6 +70,9 @@ export class BookSidebarComponent implements OnInit, OnChanges {
         this.hideShowButtons();
     }
 
+    /**
+    * Hides or shows the buttons to go left or right on the list
+    */
     hideShowButtons(): void {
         if (this.list[0] == this.books[0]) this.showLeft = false;
         else this.showLeft = true;
