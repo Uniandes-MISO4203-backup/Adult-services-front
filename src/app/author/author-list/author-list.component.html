@@ -4,17 +4,17 @@
         <table class="table table-striped">
             <thead>
                 <tr>
-                    <th>Name</th>    
-                    <th>Birth Date</th>  
-                    
+                    <th>Name</th>
+                    <th>Birth Date</th>
+
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor = "let author of authors">
+                <tr *ngFor="let author of authors">
                     <td>
-                        <dd class="figure-caption" routerLink="/authors/{{author.id}}">{{author.name}}</dd>
+                        <dd id="author-name" class="figure-caption" routerLink="/authors/{{author.id}}">{{author.name}}</dd>
                     </td>
-                    <td>{{author.birthdate|date:'yyyy-MM-dd'}}</td>
+                    <td id="author-birthdate">{{author.birthdate|date:'yyyy-MM-dd'}}</td>
                 </tr>
             </tbody>
         </table>

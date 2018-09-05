@@ -1,9 +1,9 @@
-<div class="col-md-12">
-    <div class="container-fluid">   
-        <h1>{{editorial.name}}</h1>
-        <div class="row border margin">
-            <h4>Available books: </h4>
-            <app-book-sidebar [books]="editorial_books"></app-book-sidebar>
-        </div>
-    </div>
+<div class="container-fluid">
+    <hr>
+    <h1 id="editorial-name">{{editorial.name}}</h1>
+    <hr>
+    <h4>Published books: </h4>
+    <app-book-sidebar [books]="editorial_books"></app-book-sidebar>
+    <hr>
+    <br>
 </div>

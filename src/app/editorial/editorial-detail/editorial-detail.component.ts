@@ -65,6 +65,7 @@ export class EditorialDetailComponent implements OnInit {
     * We need to initialize the editorial so it is never considered as undefined
     */
     ngOnInit() {
+        this.editorial_books = [];
         this.editorial_id = +this.route.snapshot.paramMap.get('id');
         this.editorial = new Editorial();
         this.getBooks();

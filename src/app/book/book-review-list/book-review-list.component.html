@@ -1,0 +1,19 @@
+<div class="container-fluid">
+    <h2 *ngIf="reviews.length == 0">No reviews yet for this book!</h2>
+    <div *ngIf="reviews.length > 0">
+        <h3>Reviews of the book</h3>
+        <table class="table table-striped">
+            <tbody>
+                <tr *ngFor="let review of reviews | paginate: { itemsPerPage: 3, currentPage: page }">
+                    <td id="review-title"><b>{{review.title}}</b></td>
+                    <td><span id="book-reviewed"><b>{{review.book}}</b></span><span>: </span><span id="review-description">{{review.description}}</span></td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="row">
+            <div class="col-12 text-center">
+                <pagination-controls (pageChange)="page = $event"></pagination-controls>
+            </div>
+        </div>
+    </div>
+</div>

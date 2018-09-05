@@ -8,6 +8,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { SharedModule } from '../shared/shared.module';
 import { BookDetailComponent } from './book-detail/book-detail.component';
+import { BookReviewListComponent } from './book-review-list/book-review-list.component';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 @NgModule({
     imports: [
@@ -16,10 +18,11 @@ import { BookDetailComponent } from './book-detail/book-detail.component';
         HttpClientModule,
         CommonModule,
         FormsModule,
-        SharedModule
+        SharedModule,
+        NgxPaginationModule
     ],
     declarations: [
-        BookListComponent, BookDetailComponent
+        BookListComponent, BookDetailComponent, BookReviewListComponent
     ],
     providers: [BookService],
     bootstrap: [BookListComponent]

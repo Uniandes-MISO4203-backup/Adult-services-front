@@ -4,13 +4,13 @@
         <table class="table table-striped">
             <thead>
                 <tr>
-                    <th>Name</th>    
+                    <th>Name</th>
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor = "let editorial of editorials">
+                <tr *ngFor="let editorial of editorials">
                     <td>
-                        <dd class="figure-caption" routerLink="/editorials/{{editorial.id}}">{{editorial.name}}</dd>
+                        <dd id="editorial-name" class="figure-caption" routerLink="/editorials/{{editorial.id}}">{{editorial.name}}</dd>
                     </td>
                 </tr>
             </tbody>

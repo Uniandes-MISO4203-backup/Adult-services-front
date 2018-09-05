@@ -10,6 +10,8 @@ import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 import { SharedModule } from './shared/shared.module';
+import { AngularFontAwesomeModule } from 'angular-font-awesome';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 @NgModule({
     declarations: [
@@ -25,7 +27,9 @@ import { SharedModule } from './shared/shared.module';
         FormsModule,
         BrowserAnimationsModule,
         ToastrModule.forRoot(),
-        SharedModule
+        SharedModule,
+        AngularFontAwesomeModule,
+        NgxPaginationModule
     ],
     bootstrap: [AppComponent]
 })

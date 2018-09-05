@@ -19,7 +19,8 @@ const routes: Routes = [
             },
             {
                 path: ':id',
-                component: BookDetailComponent
+                component: BookDetailComponent,
+                runGuardsAndResolvers: 'always'
             }
         ]
     },

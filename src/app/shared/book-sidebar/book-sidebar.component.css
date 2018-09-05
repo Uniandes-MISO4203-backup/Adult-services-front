@@ -4,3 +4,7 @@
 .author-caption{
     color: grey;
 }
+.img-fluid {
+    max-height: 250px;
+    width: auto;
+}

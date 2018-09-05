@@ -91,6 +91,7 @@ export class BookDetailComponent implements OnInit, OnDestroy {
         this.book_id = +this.route.snapshot.paramMap.get('id');
         this.book = new Book();
         this.book.editorial = new Editorial();
+        this.other_books = [];
         this.getBook();
         this.getAllBooks();
     }
