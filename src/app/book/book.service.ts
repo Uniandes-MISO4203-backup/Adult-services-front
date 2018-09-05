@@ -34,7 +34,7 @@ export class BookService {
     }
 
     /**
-    * Returns the Observable object with the details of an author retrieved from the API
+    * Returns the Observable object with the details of the book retrieved from the API
     * @returns The author details
     */
     getBook(bookId): Observable<Book> {
@@ -42,7 +42,7 @@ export class BookService {
     }
 
     /**
-    * Returns the Observable object with the details of an author retrieved from the API
+    * Returns the Observable object with the authors of a book retrieved from the API
     * @returns The author details
     */
     getBookAuthors(bookId): Observable<Author[]> {
@@ -50,7 +50,7 @@ export class BookService {
     }
 
     /**
-    * Returns the Observable object with the details of an author retrieved from the API
+    * Returns the Observable object with the reviews of a book retrieved from the API
     * @returns The author details
     */
     getReviews(bookId): Observable<Review[]> {
