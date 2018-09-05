@@ -81,7 +81,7 @@ export class BookSidebarComponent implements OnInit, OnChanges {
     }
 
     /**
-    * The method which initializes the component
+    * This function which initializes the component
     */
     ngOnInit() {
         this.maxPerPage = 5;
@@ -90,6 +90,9 @@ export class BookSidebarComponent implements OnInit, OnChanges {
         this.initializeList();
     }
 
+    /**
+     * This function updates the list whenever there is a change 
+     */
     ngOnChanges() {
         this.showLeft = false;
         this.showRight = false;
