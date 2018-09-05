@@ -30,6 +30,11 @@ export class BookReviewListComponent implements OnInit, OnChanges {
     page: number;
 
     /**
+    * The max number of reviews per page
+    */
+    itemsPerPage: number;
+
+    /**
     * The method which obtains the reviews of the book
     */
     getReviews(): void {
@@ -43,6 +48,7 @@ export class BookReviewListComponent implements OnInit, OnChanges {
     ngOnInit() {
         this.reviews = [];
         this.page = 1;
+        this.itemsPerPage = 2;
         if (this.book_id != undefined) {
             this.getReviews();
         }
