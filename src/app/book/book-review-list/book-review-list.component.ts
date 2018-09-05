@@ -48,7 +48,7 @@ export class BookReviewListComponent implements OnInit, OnChanges {
     ngOnInit() {
         this.reviews = [];
         this.page = 1;
-        this.itemsPerPage = 2;
+        this.itemsPerPage = 3;
         if (this.book_id != undefined) {
             this.getReviews();
         }
