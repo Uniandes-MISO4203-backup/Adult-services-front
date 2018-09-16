@@ -8,8 +8,8 @@ import { UserModel } from '../adultModel';
 })
 export class AdultFormComponent implements OnInit {
 
-  private gender: string[];
-  private user: UserModel;
+  public gender: string[];
+  public user: UserModel;
 
   constructor() { }
 

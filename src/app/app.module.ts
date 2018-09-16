@@ -3,12 +3,9 @@ import { NgModule, APP_INITIALIZER } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './routing-module/app-routing.module';
-import { AuthorModule } from './author/author.module';
-import { BookModule } from './book/book.module';
 import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
-import { SharedModule } from './shared/shared.module';
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { AuthGuardService } from './services/auth-guard.service';
@@ -26,12 +23,9 @@ export function jokesProviderFactory(authGuardService: AuthGuardService) {
         BrowserModule,
         AppRoutingModule,
         HttpClientModule,
-        AuthorModule,
-        BookModule,
         FormsModule,
         BrowserAnimationsModule,
         ToastrModule.forRoot(),
-        SharedModule,
         AngularFontAwesomeModule,
         NgxPaginationModule,
         AdultFormModule

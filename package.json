@@ -1,5 +1,5 @@
 {
-    "name": "bookstore",
+    "name": "adultservices",
     "version": "0.0.0",
     "license": "MIT",
     "scripts": {
@@ -9,7 +9,8 @@
         "test": "ng test",
         "lint": "ng lint",
         "e2e": "ng e2e",
-        "compodoc": "./node_modules/.bin/compodoc -p src/tsconfig.app.json -w -s"
+        "compodoc": "./node_modules/.bin/compodoc -p src/tsconfig.app.json -w -s",
+        "postinstall": "ng build --aot --prod"
     },
     "private": true,
     "dependencies": {
@@ -30,6 +31,7 @@
         "bootstrap-duallistbox": "^3.0.6",
         "core-js": "^2.4.1",
         "dual-pick-list-ng": "^1.0.11",
+        "express": "^4.16.3",
         "font-awesome": "^4.7.0",
         "glyphicons": "^0.2.0",
         "intl": "^1.2.5",
@@ -39,6 +41,7 @@
         "ngx-pagination": "^3.2.0",
         "ngx-toastr": "^9.0.2",
         "octicons": "^7.1.0",
+        "path": "^0.12.7",
         "popper.js": "^1.14.4",
         "primeicons": "^1.0.0-beta.9",
         "primeng": "^6.0.0",
@@ -49,9 +52,9 @@
     },
     "devDependencies": {
         "@angular-devkit/build-angular": "~0.7.0",
-        "@angular/cli": "^6.1.1",
-        "@angular/compiler-cli": "^6.0.0",
-        "@angular/language-service": "^6.0.0",
+        "@angular/cli": "^6.2.2",
+        "@angular/compiler-cli": "^6.1.7",
+        "@angular/language-service": "^6.1.7",
         "@types/jasmine": "~2.8.3",
         "@types/jasminewd2": "~2.0.2",
         "@types/node": "~6.0.60",
@@ -68,5 +71,9 @@
         "protractor": "^5.3.2",
         "ts-node": "~4.1.0",
         "tslint": "~5.9.1"
+    },
+    "engines": {
+        "node": "~8.9.1",
+        "npm": "~6.0.0"
     }
 }
