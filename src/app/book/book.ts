@@ -1,5 +1,4 @@
 import { Author } from '../author/author';
-import { Editorial } from '../editorial/editorial';
 
 /**
 * This class represents a book of the BookStore. 
@@ -44,5 +43,4 @@ export class Book {
     /**
     * The editorial of the book
     */
-    editorial: Editorial;
 }

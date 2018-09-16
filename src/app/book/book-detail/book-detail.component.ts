@@ -4,7 +4,6 @@ import { ToastrService } from 'ngx-toastr';
 
 import { BookService } from '../book.service';
 import { Book } from '../book';
-import { Editorial } from '../../editorial/editorial';
 
 @Component({
     selector: 'app-book-detail',
@@ -90,7 +89,7 @@ export class BookDetailComponent implements OnInit, OnDestroy {
     ngOnInit() {
         this.book_id = +this.route.snapshot.paramMap.get('id');
         this.book = new Book();
-        this.book.editorial = new Editorial();
+        // this.book.editorial = new Editorial();
         this.other_books = [];
         this.getBook();
         this.getAllBooks();

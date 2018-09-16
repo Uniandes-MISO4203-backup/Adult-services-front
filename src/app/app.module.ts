@@ -5,7 +5,6 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './routing-module/app-routing.module';
 import { AuthorModule } from './author/author.module';
 import { BookModule } from './book/book.module';
-import { EditorialModule } from './editorial/editorial.module';
 import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
@@ -13,7 +12,7 @@ import { SharedModule } from './shared/shared.module';
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { AuthGuardService } from './services/auth-guard.service';
-import {AdultFormModule} from './adult-form/adult-form.module'
+import { AdultFormModule } from './adult-form/adult-form.module'
 
 export function jokesProviderFactory(authGuardService: AuthGuardService) {
     return () => authGuardService.loadSession();
@@ -29,7 +28,6 @@ export function jokesProviderFactory(authGuardService: AuthGuardService) {
         HttpClientModule,
         AuthorModule,
         BookModule,
-        EditorialModule,
         FormsModule,
         BrowserAnimationsModule,
         ToastrModule.forRoot(),
