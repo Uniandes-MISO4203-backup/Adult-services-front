@@ -1,167 +1,138 @@
-<div class="row custom-row">
-  <div class= "col-sm-5 custom-container jumbotron">
-       
-    <form novalidate 
-      (ngSubmit)="onFormSubmit(signupForm)" 
-      #signupForm="ngForm">
-        <fieldset>
-          <legend>Registro de adulto mayor</legend>
-         
-          <!--- Full Name Block --->
-          <div class="form-group">
-            <label for="inputFullName">Nombres</label>
-            <input type="text" class = "form-control" 
-              [ngModel] = "user.fullName" name="fullName"
-              #fullName = "ngModel" id="inputFullName" 
-              placeholder="Nombre Completo"
-              required>
+<div class="col-12">
+  <div class="col-12 col-sm-8 offset-sm-2 col-md-6 offset-md-3 col-lg-4 offset-lg-4 jumbotron">
 
-              <!-- Full Name error block -->
+    <form novalidate (ngSubmit)="onFormSubmit(signupForm)" #signupForm="ngForm">
+      <fieldset>
+        <legend>Registro de adulto mayor</legend>
 
-              <div *ngIf="( fullName.touched)"
-              class="col-sm-3 text-danger">
-              <div *ngIf = "fullName.errors?.required">
-                Ingrese sus nombres completos
-              </div>
+        <!--- Full Name Block --->
+        <div class="form-group">
+          <label for="inputFullName">Nombres</label>
+          <input type="text" class="form-control" [ngModel]="user.fullName" name="fullName" #fullName="ngModel" id="inputFullName"
+            placeholder="Nombre Completo" required>
+
+          <!-- Full Name error block -->
+
+          <div *ngIf="( fullName.touched)" class="col-sm-3 text-danger">
+            <div *ngIf="fullName.errors?.required">
+              Ingrese sus nombres completos
             </div>
           </div>
-          <!--- End of Full Name Block --->
+        </div>
+        <!--- End of Full Name Block --->
 
-          <!--- Last Name Block --->
-          <div class="form-group">
-            <label for="inputLastName">Apellidos</label>
-            <input type="text" class = "form-control" 
-              [ngModel] = "user.lastName" name="lastName"
-              #lastName = "ngModel" id="inputLastName" 
-              placeholder="Apellidos"
-              required>
+        <!--- Last Name Block --->
+        <div class="form-group">
+          <label for="inputLastName">Apellidos</label>
+          <input type="text" class="form-control" [ngModel]="user.lastName" name="lastName" #lastName="ngModel" id="inputLastName"
+            placeholder="Apellidos" required>
 
-              <!-- Last Name error block -->
+          <!-- Last Name error block -->
 
-              <div *ngIf="( lastName.touched)"
-              class="col-sm-3 text-danger">
-              <div *ngIf = "lastName.errors?.required">
-                Ingrese sus apellidos completos
-              </div>
+          <div *ngIf="( lastName.touched)" class="col-sm-3 text-danger">
+            <div *ngIf="lastName.errors?.required">
+              Ingrese sus apellidos completos
             </div>
           </div>
-          <!--- End of Last Name Block --->
+        </div>
+        <!--- End of Last Name Block --->
 
-          <!--- date of birth Block --->
-          <div class="form-group">
-            <label for="dateOfBirth">Fecha de nacimiento</label>
-            <input type="datetime" class = "form-control" 
-              [ngModel] = "user.dateOfBirth" name="dateOfBirth"
-              #dateOfBirth = "ngModel" id="dateOfBirth" 
-              placeholder="Fecha de nacimiento"
-              required>
+        <!--- date of birth Block --->
+        <div class="form-group">
+          <label for="dateOfBirth">Fecha de nacimiento</label>
+          <input type="datetime" class="form-control" [ngModel]="user.dateOfBirth" name="dateOfBirth" #dateOfBirth="ngModel"
+            id="dateOfBirth" placeholder="Fecha de nacimiento" required>
 
-              <!-- date of birth error block -->
+          <!-- date of birth error block -->
 
-              <div *ngIf="( dateOfBirth.touched)"
-              class="col-sm-3 text-danger">
-              <div *ngIf = "dateOfBirth.errors?.required">
-                Ingrese su fecha de nacimiento
-              </div>
+          <div *ngIf="( dateOfBirth.touched)" class="col-sm-3 text-danger">
+            <div *ngIf="dateOfBirth.errors?.required">
+              Ingrese su fecha de nacimiento
             </div>
           </div>
-          <!--- date of birth Name Block --->
+        </div>
+        <!--- date of birth Name Block --->
 
-            <!--- Email Block --->
-            <div class="form-group">
-              <label for="inputEmail">Email</label>
-              <input type="text" class = "form-control" 
-                [ngModel] = "user.email" name="email"
-                #email = "ngModel" id="inputEmail" 
-                placeholder="Email"
-                pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"
-                required>
+        <!--- Email Block --->
+        <div class="form-group">
+          <label for="inputEmail">Email</label>
+          <input type="text" class="form-control" [ngModel]="user.email" name="email" #email="ngModel" id="inputEmail"
+            placeholder="Email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" required>
 
-                <!-- Email error block -->
+          <!-- Email error block -->
 
-                <div *ngIf="email.invalid && ( email.touched)"
-                class="col-sm-3 text-danger">
-                <div *ngIf = "email.errors?.required">
-                  Email field can't be blank
-                </div>
-                <div *ngIf = "email.errors?.pattern && email.touched">
-                  The email id doesn't seem right
-                </div>
-              </div>
-
+          <div *ngIf="email.invalid && ( email.touched)" class="col-sm-3 text-danger">
+            <div *ngIf="email.errors?.required">
+              Email field can't be blank
             </div>
+            <div *ngIf="email.errors?.pattern && email.touched">
+              The email id doesn't seem right
+            </div>
+          </div>
+
+        </div>
 
 
-            
 
-            <div ngModelGroup="password" #userPassword="ngModelGroup">
-              <!--- Password Block --->
-              <div class="form-group">
-                <label for="inputPassword">Password</label>
-                <input type="password" class="form-control"
-				          ngModel name="pwd"
-			            id="inputPassword" placeholder="Password"
-			            minlength ="8" required>
-              </div>
 
-              <div class="form-group">
-                <label for="confirmPassword" >Confirm Password</label>
-                <input type="password" class="form-control"
-				          ngModel name="confirmPwd"
-			            id="confirmPassword" placeholder="Confirm Password">
-              </div>
+        <div ngModelGroup="password" #userPassword="ngModelGroup">
+          <!--- Password Block --->
+          <div class="form-group">
+            <label for="inputPassword">Password</label>
+            <input type="password" class="form-control" ngModel name="pwd" id="inputPassword" placeholder="Password"
+              minlength="8" required>
+          </div>
 
-              <!-- Password error block -->
-			    <div *ngIf="(userPassword.invalid|| userPassword.value?.pwd != userPassword.value?.confirmPwd) && (userPassword.touched)"
-          class="col-sm-3 text-danger">
-          
-            <div *ngIf = "userPassword.invalid; else nomatch">
+          <div class="form-group">
+            <label for="confirmPassword">Confirm Password</label>
+            <input type="password" class="form-control" ngModel name="confirmPwd" id="confirmPassword" placeholder="Confirm Password">
+          </div>
+
+          <!-- Password error block -->
+          <div *ngIf="(userPassword.invalid|| userPassword.value?.pwd != userPassword.value?.confirmPwd) && (userPassword.touched)"
+            class="col-sm-3 text-danger">
+
+            <div *ngIf="userPassword.invalid; else nomatch">
               Password needs to be more than 8 characters
             </div>
-            <ng-template #nomatch >
+            <ng-template #nomatch>
               Passwords don't match
             </ng-template>
-        
+
           </div>
 
-            </div>
-             
-            <!--- Select gender Block --->
-            <div class="form-group">
-              <label for="select">Gender</label>
-                <select id="select" [ngModel] = "user.gender" name = "gender"
-                required>
-                  <option *ngFor = "let g of gender"
-                       [value] = "g"> {{g}} 
-                  </option>
-                </select>
-            </div>
-             
-            <!--- Terms and conditions Block --->
-             <div class="form-group checkbox">
-              <label>
-                <input type="checkbox" 
-                ngModel name = "terms"
-                #terms = "ngModel"
-                required> Confirm that you've read the Terms and 
-                Conditions
-              </label>
+        </div>
 
-              <!-- Terms checkbox error block -->
-	            <div *ngIf="(terms.invalid && terms.touched)"
-              class="col-lg-4 text-danger">
-              You need to check this box to continue
-                 </div>
+        <!--- Select gender Block --->
+        <div class="form-group">
+          <label for="select">Gender</label>
+          <select id="select" [ngModel]="user.gender" name="gender" required>
+            <option *ngFor="let g of gender" [value]="g"> {{g}}
+            </option>
+          </select>
+        </div>
 
-            </div>
-            
-           <!--- Buttons Block --->
-            <div class="form-group">
-                <button type="reset" class="btn btn-default">Cancel</button>
-                <button type="submit" class="btn btn-primary"
-                 [disabled]="!signupForm.form.valid">Submit</button>
-            </div>
-        </fieldset>
+        <!--- Terms and conditions Block --->
+        <div class="form-group checkbox">
+          <label>
+            <input type="checkbox" ngModel name="terms" #terms="ngModel" required> Confirm that you've read the Terms
+            and
+            Conditions
+          </label>
+
+          <!-- Terms checkbox error block -->
+          <div *ngIf="(terms.invalid && terms.touched)" class="col-lg-4 text-danger">
+            You need to check this box to continue
+          </div>
+
+        </div>
+
+        <!--- Buttons Block --->
+        <div class="form-group">
+          <button type="reset" class="btn btn-default">Cancel</button>
+          <button type="submit" class="btn btn-primary" [disabled]="!signupForm.form.valid">Submit</button>
+        </div>
+      </fieldset>
     </form>
   </div>
 </div>
