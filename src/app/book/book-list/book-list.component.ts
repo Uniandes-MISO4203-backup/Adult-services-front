@@ -33,12 +33,12 @@ export class BookListComponent implements OnInit {
     * This method retrieves all the books in the Bookstore to show them in the list
     */
     getBooks(): void {
-        this.bookService.getBooks()
-            .subscribe(books => {
-                this.books = books;
-            }, err => {
-                this.toastrService.error(err, "Error");
-            });
+        // this.bookService.getBooks()
+        //     .subscribe(books => {
+        //         this.books = books;
+        //     }, err => {
+        //         this.toastrService.error(err, "Error");
+        //     });
     }
 
     /**

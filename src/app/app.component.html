@@ -1,30 +1,27 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <a class="navbar-brand" href="#">
         <div class="form-inline">
-            <img id="logo" src="../assets/img_tree.png" class="center-block"> <h2 class="mainTitle">B O O K S T O R E</h2>
+            <img id="logo" src="../assets/images/logo.png" class="center-block">
+            <h2 class="mainTitle">El Compañero</h2>
         </div>
     </a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-        aria-expanded="false" aria-label="Toggle navigation">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <div class="navbar-nav mr-auto mt-0">
-            <a id="books-navbar-item" class="nav-item nav-link" routerLink="/books/list">Books</a>
-            <a id="authors-navbar-item" class="nav-item nav-link" routerLink="/authors/list">Authors</a>
-            <a id="editorials-navbar-item" class="nav-item nav-link" routerLink="/editorials/list">Editorials</a>
             <a id="adult-navbar-item" class="nav-item nav-link" routerLink="/register/adult">Registro adulto</a>
+            <a id="editorials-navbar-item" class="nav-item nav-link text-light" routerLink="{{menu.link}}" *ngFor="let menu of menus">{{menu.name}}</a>
         </div>
         <div class="navbar-nav ml-auto flex-column">
             <div class="flex-row">
                 <div class="form-inline">
-                    <li class="right-space"><a id="signup-navbar-item" routerLink="/books/list"><span class="fa fa-user"></span> Sign Up</a></li>
-                    <li><a id="login-navbar-item" routerLink="/books/list"><span class="fa fa-sign-in"></span>Login</a></li>
+                    <li><a id="login-navbar-item" class="text-light" (click)=" login()"><span class="fa fa-user"></span>Registrar</a></li>
+                    <li><a id="login-navbar-item" class="text-light" (click)=" login()"><span class="fa fa-sign-in"></span>Ingresar</a></li>
+                    <li><a id="login-navbar-item" class="text-light" (click)="logout()"><span class="fa fa-sign-in"></span>Salir</a></li>
                 </div>
             </div>
-            <button id="checkout-navbar-item" type="button" class="btn btn-default">
-                <a href="#"><span class="fa fa-shopping-cart"></span>Checkout</a>
-            </button>
         </div>
     </div>
 </nav>
@@ -35,11 +32,11 @@
     <br>
 </div>
 
-<footer class="footer bg-light" id="footer">
+<footer class="footer bg-dark" id="footer">
     <div class="container">
         <p class="navbar-text text-center">
-            <img src="../assets/uniandes.png" alt="logo" width="8%" /><span id="footer-text">© Ejemplo Desarrollo de Sw en Equipos</span>
-            <a routerLink="/books/list"> Bookstore</a>
+            <img src="../assets/uniandes.png" alt="logo" width="8%" /><span id="footer-text">© El Compañero By Adult
+                Services</span>
         </p>
     </div>
 </footer>

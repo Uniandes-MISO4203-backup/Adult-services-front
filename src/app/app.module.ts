@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, APP_INITIALIZER } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './routing-module/app-routing.module';
@@ -12,8 +12,12 @@ import { ToastrModule } from 'ngx-toastr';
 import { SharedModule } from './shared/shared.module';
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
 import { NgxPaginationModule } from 'ngx-pagination';
-// module for th adult form
+import { AuthGuardService } from './services/auth-guard.service';
 import {AdultFormModule} from './adult-form/adult-form.module'
+
+export function jokesProviderFactory(authGuardService: AuthGuardService) {
+    return () => authGuardService.loadSession();
+}
 
 @NgModule({
     declarations: [
@@ -34,6 +38,12 @@ import {AdultFormModule} from './adult-form/adult-form.module'
         NgxPaginationModule,
         AdultFormModule
     ],
-    bootstrap: [AppComponent]
+    bootstrap: [AppComponent],
+    providers: [
+        AuthGuardService,
+        {
+            provide: APP_INITIALIZER, useFactory: jokesProviderFactory, deps: [AuthGuardService], multi: true
+        }
+    ]
 })
 export class AppModule { }
