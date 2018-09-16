@@ -12,10 +12,12 @@ import { ToastrModule } from 'ngx-toastr';
 import { SharedModule } from './shared/shared.module';
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
 import { NgxPaginationModule } from 'ngx-pagination';
+// module for th adult form
+import {AdultFormModule} from './adult-form/adult-form.module'
 
 @NgModule({
     declarations: [
-        AppComponent
+        AppComponent,
     ],
     imports: [
         BrowserModule,
@@ -29,7 +31,8 @@ import { NgxPaginationModule } from 'ngx-pagination';
         ToastrModule.forRoot(),
         SharedModule,
         AngularFontAwesomeModule,
-        NgxPaginationModule
+        NgxPaginationModule,
+        AdultFormModule
     ],
     bootstrap: [AppComponent]
 })

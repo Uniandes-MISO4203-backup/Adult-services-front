@@ -8,6 +8,9 @@ import { BookDetailComponent } from '../book/book-detail/book-detail.component';
 import { AuthorDetailComponent } from '../author/author-detail/author-detail.component';
 import { EditorialDetailComponent } from '../editorial/editorial-detail/editorial-detail.component';
 
+// adult registering component
+import {AdultFormComponent} from '../adult-form/form/form.component'
+
 const routes: Routes = [
 
     {
@@ -49,7 +52,16 @@ const routes: Routes = [
                 component: EditorialDetailComponent
             }
         ]
-    }
+    },
+    {
+        path: 'register',
+        children: [
+            {
+                path: 'adult',
+                component: AdultFormComponent
+            },
+        ]
+    },
 ];
 
 @NgModule({
