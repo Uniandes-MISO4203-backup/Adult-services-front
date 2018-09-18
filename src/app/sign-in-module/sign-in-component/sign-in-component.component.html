@@ -9,7 +9,7 @@
         <div class="form-group">
           <label for="inputEmail">Email</label>
           <input type="text" class="form-control" [ngModel]="user.email" name="email" #email="ngModel" id="inputEmail"
-            placeholder="Email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" required>
+            placeholder="Email" required>
 
           <!-- Email error block -->
 
@@ -28,7 +28,7 @@
         <div class="form-group">
           <label for="inputPassword">Password</label>
           <input type="password"  class="form-control" [ngModel]="user.password" 
-            name="pwd" id="inputPassword" placeholder="Password" #userPassword="ngModel"
+            name="password" id="inputPassword" placeholder="Password" #userPassword="ngModel"
             minlength="8" required>
         </div>
 
