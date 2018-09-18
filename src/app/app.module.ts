@@ -9,7 +9,8 @@ import { ToastrModule } from 'ngx-toastr';
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { AuthGuardService } from './services/auth-guard.service';
-import { AdultFormModule } from './adult-form/adult-form.module'
+import { AdultFormModule } from './adult-form/adult-form.module';
+import { SignInModuleModule } from './sign-in-module/sign-in-module.module';
 
 export function jokesProviderFactory(authGuardService: AuthGuardService) {
     return () => authGuardService.loadSession();
@@ -28,7 +29,8 @@ export function jokesProviderFactory(authGuardService: AuthGuardService) {
         ToastrModule.forRoot(),
         AngularFontAwesomeModule,
         NgxPaginationModule,
-        AdultFormModule
+        AdultFormModule,
+        SignInModuleModule
     ],
     bootstrap: [AppComponent],
     providers: [
