@@ -5,6 +5,9 @@ import { RouterModule, Routes } from '@angular/router';
 // adult registering component
 import { AdultFormComponent } from '../adult-form/form/form.component'
 
+//sign in component
+import { SignInComponentComponent } from '../sign-in-module/sign-in-component/sign-in-component.component'
+
 const routes: Routes = [
     {
         path: 'register',
@@ -14,6 +17,10 @@ const routes: Routes = [
                 component: AdultFormComponent
             },
         ]
+    },
+    {
+        path: 'signIn',
+        component: SignInComponentComponent
     },
 ];
 
