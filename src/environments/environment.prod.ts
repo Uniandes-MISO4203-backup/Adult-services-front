@@ -3,5 +3,5 @@
  */
 export const environment = {
   production: true,
-  apiURL: 'http://localhost:8000/bookstore/api'
+  apiURL: 'https://adultservices-back.herokuapp.com/adult-services'
 };
