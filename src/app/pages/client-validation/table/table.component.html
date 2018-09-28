@@ -1,0 +1,10 @@
+<table class="table table-bordered top30 table-responsive-xs">
+  <tr>
+    <th *ngFor="let c of columns">{{c}}</th>
+  </tr>
+  <tr *ngFor="let client of clients | async" 
+    app-table-row 
+    [client]="client" 
+    [columns]="columns">
+  </tr>
+</table>

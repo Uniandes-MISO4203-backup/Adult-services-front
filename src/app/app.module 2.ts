@@ -11,15 +11,8 @@ import { NgxPaginationModule } from 'ngx-pagination';
 import { AuthGuardService } from './services/auth-guard.service';
 import { AdultFormModule } from './adult-form/adult-form.module';
 import { SignInModuleModule } from './sign-in-module/sign-in-module.module';
+import { RouterModule } from '@angular/router';
 import { HomeComponent } from './pages/home/home.component';
-import { FooterComponent } from './ui-elements/footer/footer.component';
-import { NurseRegistrationComponent } from './pages/nurse-registration/nurse-registration.component';
-import { ClientValidationComponent } from './pages/client-validation/client-validation.component';
-import { TableComponent } from './pages/client-validation/table/table.component';
-import { TableRowComponent } from './pages/client-validation/table-row/table-row.component';
-
-
-
 
 export function jokesProviderFactory(authGuardService: AuthGuardService) {
     return () => authGuardService.loadSession();
@@ -29,11 +22,6 @@ export function jokesProviderFactory(authGuardService: AuthGuardService) {
     declarations: [
         AppComponent,
         HomeComponent,
-        FooterComponent,
-        NurseRegistrationComponent,
-        ClientValidationComponent,
-        TableComponent,
-        TableRowComponent,
     ],
     imports: [
         BrowserModule,
@@ -46,6 +34,12 @@ export function jokesProviderFactory(authGuardService: AuthGuardService) {
         NgxPaginationModule,
         AdultFormModule,
         SignInModuleModule,
+        RouterModule.forRoot([
+            {
+              path: '',
+              component: HomeComponent
+            },
+          ])
     ],
     bootstrap: [AppComponent],
     providers: [

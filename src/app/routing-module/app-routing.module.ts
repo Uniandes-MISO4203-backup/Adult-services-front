@@ -7,8 +7,15 @@ import { AdultFormComponent } from '../adult-form/form/form.component'
 
 //sign in component
 import { SignInComponentComponent } from '../sign-in-module/sign-in-component/sign-in-component.component'
+import { NurseRegistrationComponent } from '../pages/nurse-registration/nurse-registration.component';
+import { HomeComponent } from '../pages/home/home.component';
+import { ClientValidationComponent } from '../pages/client-validation/client-validation.component';
 
 const routes: Routes = [
+    {
+        path: '',
+        component: HomeComponent
+      },
     {
         path: 'register',
         children: [
@@ -16,11 +23,19 @@ const routes: Routes = [
                 path: 'adult',
                 component: AdultFormComponent
             },
+            {
+                path: 'nurse',
+                component: NurseRegistrationComponent
+            },
         ]
     },
     {
         path: 'signIn',
         component: SignInComponentComponent
+    },
+    {
+        path: 'solicitudes',
+        component: ClientValidationComponent
     },
 ];
 
