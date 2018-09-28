@@ -34,7 +34,7 @@ export class AppComponent implements OnInit {
             if (active) {
                 this.menus = [
                     {
-                        id: "pendientes_aprobacion", name: "Usuarios pendientes", icon: "user", link: "pendients/list"
+                        id: "pendientes_aprobacion", name: "Usuarios pendientes", icon: "user", link: "solicitudes"
                     }
                 ];
             } else {
