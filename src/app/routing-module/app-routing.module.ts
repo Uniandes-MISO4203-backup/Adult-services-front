@@ -9,6 +9,7 @@ import { AdultFormComponent } from '../adult-form/form/form.component'
 import { SignInComponentComponent } from '../sign-in-module/sign-in-component/sign-in-component.component'
 import { NurseRegistrationComponent } from '../pages/nurse-registration/nurse-registration.component';
 import { HomeComponent } from '../pages/home/home.component';
+import { ClientValidationComponent } from '../pages/client-validation/client-validation.component';
 
 const routes: Routes = [
     {
@@ -31,6 +32,10 @@ const routes: Routes = [
     {
         path: 'signIn',
         component: SignInComponentComponent
+    },
+    {
+        path: 'solicitudes',
+        component: ClientValidationComponent
     },
 ];
 
