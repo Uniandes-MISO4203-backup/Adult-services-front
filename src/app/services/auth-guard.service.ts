@@ -4,6 +4,7 @@ import { UserDto } from '../../dto/user-dto';
 import { userModel } from '../../dto/userInfoResponseModel';
 import { HttpClient } from '@angular/common/http';
 import { environment } from '../../environments/environment';
+import { SignInServiceService } from '../sign-in-module/sign-in-service.service';
 const API_URL = environment.apiURL;
 
 @Injectable()
@@ -13,21 +14,24 @@ export class AuthGuardService {
   active$ = new BehaviorSubject(false);
   token;
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, private signInService: SignInServiceService,) {
     console.log("Loading session");
     this.token = localStorage.getItem("adult-services-token");
     console.log("User token", this.token);
   }
 
   public loadSession() {
+    console.log("Loading session 2");
     return new Promise(async (resolve, reject) => {
       let adultServicesUser = localStorage.getItem("adult-services-user");
       if (adultServicesUser !== null) {
-        let user = await this.http.get(API_URL + "/users/" + adultServicesUser).toPromise();
-        this.active$.next(true);
-        this.user$.next(user);
+        this.signInService.getInfo(this.token).subscribe(data => {
+          console.log("Service response: " + data.first_name + " rol: " + data.Role.name);
+          this.active$.next(true);
+          this.user$.next(data);
+          resolve(true);
+        });
       }
-      resolve(true);
     });
   }
 
