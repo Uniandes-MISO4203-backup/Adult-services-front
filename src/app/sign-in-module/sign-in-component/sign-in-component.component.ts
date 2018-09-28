@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
-import { SignInModel } from '../signInModel';
+import { SignInModel } from '../../../dto/signInModel';
 import {Router} from "@angular/router";
 import { SignInServiceService } from '../sign-in-service.service';
 import { AuthGuardService } from '../../services/auth-guard.service';
@@ -42,7 +42,6 @@ export class SignInComponentComponent implements OnInit {
         var token = data.token;
         /*call here the token service*/
         this.login(this.user, token);
-        this.router.navigate(['/solicitudes']);
         console.log("Service response: " + token);
     },error=>{
       this.toastrService.error(error, "Error");
@@ -54,20 +53,19 @@ export class SignInComponentComponent implements OnInit {
 
   login(user: SignInModel, token: string) {
     this.signInService.getInfo(token).subscribe(data => {
-      console.log("Service response: " + data.first_name);
+      console.log("Service response: " + data.first_name + " rol: " + data.Role.name);
+      //logIn the user
+      this.authGuardService.loadUser(data);
+      this.authGuardService.loadToken(token);
+      this.authGuardService.activeSession();
+      this.router.navigate(['/solicitudes']);
       },error=>{
         this.toastrService.error(error, "Error");
         console.log("service error: " + error);
     });
 
-    let userDto = {
-      id: 1,
-      firstName: user.email,
-      lastName: "prueba"
-    }
-    this.authGuardService.activeSession();
-    this.authGuardService.loadUser(userDto);
-    this.authGuardService.loadToken(token);
+    
+    
 }
 
 }

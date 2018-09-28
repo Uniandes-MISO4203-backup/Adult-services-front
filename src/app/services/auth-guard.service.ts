@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 import { UserDto } from '../../dto/user-dto';
+import { userModel } from '../../dto/userInfoResponseModel';
 import { HttpClient } from '@angular/common/http';
 import { environment } from '../../environments/environment';
 const API_URL = environment.apiURL;
@@ -33,7 +34,7 @@ export class AuthGuardService {
   public activeSession() {
     this.active$.next(true);
   }
-  public loadUser(user: UserDto) {
+  public loadUser(user: userModel) {
     localStorage.setItem("adult-services-user", user.id.toString());
     this.user$.next(user);
   }

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Observable, throwError } from 'rxjs';
 import { AuthResponseModel } from './authResponseModel';
-import { userInfoResponseModel } from './userInfoResponseModel';
+import { userModel } from '../../dto/userInfoResponseModel';
 
 import { HttpClient, HttpHeaders, HttpParams  } from '@angular/common/http';
 import 'rxjs/add/operator/catch';
@@ -37,12 +37,12 @@ export class SignInServiceService {
     return this.http.post<AuthResponseModel>(API_URL + auth,body, httpOptions);
   }
 
-  getInfo(token): Observable<userInfoResponseModel> {
+  getInfo(token): Observable<userModel> {
     const httpOptions = {
       headers: new HttpHeaders({
         'x-access-token':  token
       })};
-    return this.http.get<userInfoResponseModel>(API_URL + info, httpOptions);
+    return this.http.get<userModel>(API_URL + info, httpOptions);
   }
 
     /**
