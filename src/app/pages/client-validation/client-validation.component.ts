@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Doctor } from './doctor';
+import { Client } from './client';
 
 @Component({
   selector: 'app-client-validation',
@@ -7,9 +9,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ClientValidationComponent implements OnInit {
 
+  doctor: Doctor;
+  clients: [Client];
+
   constructor() { }
 
   ngOnInit() {
+    this.doctor = new Doctor();
+    this.doctor.name = 'Jose';
   }
 
 }
