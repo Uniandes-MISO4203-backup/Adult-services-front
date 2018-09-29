@@ -53,7 +53,7 @@ export class SignInComponentComponent implements OnInit {
 
   login(user: SignInModel, token: string) {
     this.signInService.getInfo(token).subscribe(data => {
-      console.log("Service response: " + data.first_name + " rol: " + data.Role.name);
+      console.log("Service response in sigin: " + data.first_name + " rol: " + data.Role.name);
       //logIn the user
       this.authGuardService.loadUser(data);
       this.authGuardService.loadToken(token);

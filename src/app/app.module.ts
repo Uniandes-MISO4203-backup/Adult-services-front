@@ -18,9 +18,6 @@ import { ClientValidationComponent } from './pages/client-validation/client-vali
 import { TableComponent } from './pages/client-validation/table/table.component';
 import { TableRowComponent } from './pages/client-validation/table-row/table-row.component';
 
-
-
-
 export function jokesProviderFactory(authGuardService: AuthGuardService) {
     return () => authGuardService.loadSession();
 }
