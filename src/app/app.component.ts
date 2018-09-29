@@ -56,6 +56,7 @@ export class AppComponent implements OnInit {
                 });
                 
             } else {
+                this.active = false;
                 this.router.navigate(['/']);
             }
         });
