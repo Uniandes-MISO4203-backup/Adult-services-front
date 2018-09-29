@@ -10,7 +10,7 @@ const API_URL = environment.apiURL;
 @Injectable()
 export class AuthGuardService {
 
-  user$ = new BehaviorSubject(undefined);
+  user$ = new BehaviorSubject(new userModel);
   active$ = new BehaviorSubject(false);
   token;
 
@@ -26,12 +26,12 @@ export class AuthGuardService {
       let adultServicesUser = localStorage.getItem("adult-services-user");
       if (adultServicesUser !== null) {
         this.signInService.getInfo(this.token).subscribe(data => {
-          console.log("Service response: " + data.first_name + " rol: " + data.Role.name);
+          console.log("Service response load session: " + data.first_name + " rol: " + data.Role.name);
           this.active$.next(true);
           this.user$.next(data);
-          resolve(true);
         });
       }
+      resolve(true);
     });
   }
 
@@ -39,6 +39,7 @@ export class AuthGuardService {
     this.active$.next(true);
   }
   public loadUser(user: userModel) {
+    console.log("user " + user.first_name + " rol: " + user.Role.name);
     localStorage.setItem("adult-services-user", user.id.toString());
     this.user$.next(user);
   }

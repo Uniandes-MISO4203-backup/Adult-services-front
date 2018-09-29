@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Doctor } from './doctor';
 import { Client } from './client';
+import { roleModel } from '../../../dto/roleModel';
+import { AuthGuardService } from '../../services/auth-guard.service';
+import { userModel } from '../../../dto/userInfoResponseModel';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-client-validation',
@@ -9,14 +13,32 @@ import { Client } from './client';
 })
 export class ClientValidationComponent implements OnInit {
 
-  doctor: Doctor;
   clients: [Client];
+  rol: string;
+  user_name: string;
+  loggedUser: userModel;
 
-  constructor() { }
+  constructor(private authGuardService: AuthGuardService, private router: Router) { 
+    this.authGuardService.active$.subscribe(active => {
+      console.log("Is active", active);
+      if (active) {
+        this.authGuardService.user$.subscribe(user => {   
+          if (user != undefined){           
+            this.loggedUser = user;
+            if (user.first_name !== undefined ){
+                this.user_name = user.first_name;
+                if(user.Role.name == "doctor") this.rol = "Dr.";
+            }
+          }              
+        });          
+      }else {
+        this.router.navigate(['/']);
+    }
+  });
+
+  }
 
   ngOnInit() {
-    this.doctor = new Doctor();
-    this.doctor.name = 'Jose';
   }
 
 }
