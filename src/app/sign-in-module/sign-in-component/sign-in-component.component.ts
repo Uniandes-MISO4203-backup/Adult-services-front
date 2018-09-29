@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
-import { SignInModel } from '../signInModel';
+import { SignInModel } from '../../../dto/signInModel';
+import {Router} from "@angular/router";
 import { SignInServiceService } from '../sign-in-service.service';
 import { AuthGuardService } from '../../services/auth-guard.service';
 
@@ -15,7 +16,9 @@ export class SignInComponentComponent implements OnInit {
 
   constructor(
     private signInService: SignInServiceService,
-    private toastrService: ToastrService
+    private toastrService: ToastrService,
+    private authGuardService: AuthGuardService,
+    private router: Router
     ) {
    }
 
@@ -38,6 +41,7 @@ export class SignInComponentComponent implements OnInit {
       data => {
         var token = data.token;
         /*call here the token service*/
+        this.login(this.user, token);
         console.log("Service response: " + token);
     },error=>{
       this.toastrService.error(error, "Error");
@@ -46,5 +50,22 @@ export class SignInComponentComponent implements OnInit {
 
     
   }
+
+  login(user: SignInModel, token: string) {
+    this.signInService.getInfo(token).subscribe(data => {
+      console.log("Service response in sigin: " + data.first_name + " rol: " + data.Role.name);
+      //logIn the user
+      this.authGuardService.loadUser(data);
+      this.authGuardService.loadToken(token);
+      this.authGuardService.activeSession();
+      this.router.navigate(['/solicitudes']);
+      },error=>{
+        this.toastrService.error(error, "Error");
+        console.log("service error: " + error);
+    });
+
+    
+    
+}
 
 }
