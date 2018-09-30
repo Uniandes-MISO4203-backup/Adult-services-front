@@ -3,10 +3,10 @@ import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
 
 // adult registering component
-import { AdultFormComponent } from '../adult-form/form/form.component'
+import { AdultFormComponent } from '../pages/adult-form/form/form.component'
 
 //sign in component
-import { SignInComponentComponent } from '../sign-in-module/sign-in-component/sign-in-component.component'
+import { SignInComponentComponent } from '../pages/sign-in-module/sign-in-component/sign-in-component.component'
 import { NurseRegistrationComponent } from '../pages/nurse-registration/nurse-registration.component';
 import { HomeComponent } from '../pages/home/home.component';
 import { ClientValidationComponent } from '../pages/client-validation/client-validation.component';

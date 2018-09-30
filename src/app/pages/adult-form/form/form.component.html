@@ -7,14 +7,14 @@
 
         <!--- Full Name Block --->
         <div class="form-group">
-          <label for="inputFullName">Nombres</label>
-          <input type="text" class="form-control" [ngModel]="user.fullName" name="fullName" #fullName="ngModel" id="inputFullName"
+          <label for="inputfirstNamee">Nombres</label>
+          <input type="text" class="form-control" [ngModel]="user.firstName" name="firstName" #firstName="ngModel" id="inputfirstName"
             placeholder="Nombre Completo" required>
 
           <!-- Full Name error block -->
 
-          <div *ngIf="( fullName.touched)" class="col-sm-3 text-danger">
-            <div *ngIf="fullName.errors?.required">
+          <div *ngIf="( firstName.touched)" class="col-sm-3 text-danger">
+            <div *ngIf="firstName.errors?.required">
               Ingrese sus nombres completos
             </div>
           </div>

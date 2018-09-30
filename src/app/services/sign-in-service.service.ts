@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Observable, throwError } from 'rxjs';
-import { AuthResponseModel } from './authResponseModel';
-import { userModel } from '../../dto/userInfoResponseModel';
+import { AuthResponseModel } from '../../models/authResponseModel';
+import { userModel } from '../../models/userInfoResponseModel';
 
 import { HttpClient, HttpHeaders, HttpParams  } from '@angular/common/http';
 import 'rxjs/add/operator/catch';

@@ -4,6 +4,7 @@ export class Doctor {
     firstName: string;
     lastName: string;
     dateOfBirth: Date;
+    gender: string;
     //resume: File;
 
     email: string;

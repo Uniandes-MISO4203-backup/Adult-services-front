@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ClientRequestsService } from '../client-requests.service';
+import { ClientRequestsService } from '../../../services/client-requests.service';
 import { Observable } from 'rxjs/Observable';
 
 @Component({

@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
-import { SignInModel } from '../../../dto/signInModel';
+import { SignInModel } from '../../../../models/signInModel';
 import {Router} from "@angular/router";
-import { SignInServiceService } from '../sign-in-service.service';
-import { AuthGuardService } from '../../services/auth-guard.service';
+import { SignInServiceService } from '../../../services/sign-in-service.service';
+import { AuthGuardService } from '../../../services/auth-guard.service';
 
 @Component({
   selector: 'app-sign-in-component',

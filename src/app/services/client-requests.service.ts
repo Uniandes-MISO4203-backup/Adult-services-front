@@ -5,7 +5,7 @@ import { Observable } from 'rxjs/Rx';
 
 import 'rxjs/add/observable/of';
 import 'rxjs/add/operator/delay';
-import { CLIENTS } from './mock-data';
+import { CLIENTS } from '../../models/mock-data';
 
 @Injectable()
 

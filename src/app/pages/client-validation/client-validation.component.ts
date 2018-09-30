@@ -1,9 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Doctor } from './doctor';
-import { Client } from './client';
-import { roleModel } from '../../../dto/roleModel';
+import { Client } from '../../../models/client';
 import { AuthGuardService } from '../../services/auth-guard.service';
-import { userModel } from '../../../dto/userInfoResponseModel';
+import { userModel } from '../../../models/userInfoResponseModel';
 import { Router } from '@angular/router';
 
 @Component({

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthGuardService } from './services/auth-guard.service';
-import { userModel } from '../dto/userInfoResponseModel';
+import { userModel } from '../models/userInfoResponseModel';
 import { Router } from '@angular/router';
 
 /**

@@ -1,10 +1,9 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
-import { UserDto } from '../../dto/user-dto';
-import { userModel } from '../../dto/userInfoResponseModel';
+import { userModel } from '../../models/userInfoResponseModel';
 import { HttpClient } from '@angular/common/http';
 import { environment } from '../../environments/environment';
-import { SignInServiceService } from '../sign-in-module/sign-in-service.service';
+import { SignInServiceService } from './sign-in-service.service';
 const API_URL = environment.apiURL;
 
 @Injectable()

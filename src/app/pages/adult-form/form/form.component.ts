@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { RegisterService } from '../../services/register-service.service';
+import { RegisterService } from '../../../services/register-service.service';
 import { ToastrService } from 'ngx-toastr';
-import { userModel } from '../../../dto/userInfoResponseModel';
+import { Adult } from '../../../../models/adult';
 
 @Component({
   selector: 'app-form',
@@ -11,7 +11,7 @@ import { userModel } from '../../../dto/userInfoResponseModel';
 export class AdultFormComponent implements OnInit {
 
   public gender: string[];
-  public user: userModel;
+  public user: Adult;
 
   constructor(private registerService: RegisterService, private toastrService: ToastrService) {    
   }
@@ -19,14 +19,18 @@ export class AdultFormComponent implements OnInit {
   ngOnInit() {
     this.gender = ['Masculino', 'Femenino'];
     //Create a new user object
-    this.user = new userModel();
+    this.user = new Adult({
+      firstName: "", lastName: "", dateOfBirth: "",
+      email: "", password: { pwd: "", confirm_pwd: "" },
+      terms: false
+    });
   }
 
   log(object) {
     console.log(object);
   }
 
-  onFormSubmit({ value, valid }: { value: userModel, valid: boolean }) {
+  onFormSubmit({ value, valid }: { value: Adult, valid: boolean }) {
     this.user = value;
     //Web Service
     this.registerService.postUserReg(this.user).subscribe(

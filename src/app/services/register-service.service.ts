@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Observable, throwError } from 'rxjs';
-import { userModel } from '../../dto/userInfoResponseModel';
+import { userModel } from '../../models/userInfoResponseModel';
 
 import { HttpClient, HttpHeaders, HttpParams  } from '@angular/common/http';
 import 'rxjs/add/operator/catch';
