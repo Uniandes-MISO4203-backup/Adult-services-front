@@ -2,6 +2,7 @@ import { roleModel } from './roleModel';
 
 export class userModel {
     id:number;
+    email: string;
     first_name: string;
     last_name: string;
     adult_birth_date: Date;

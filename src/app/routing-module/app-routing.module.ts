@@ -10,6 +10,7 @@ import { SignInComponentComponent } from '../sign-in-module/sign-in-component/si
 import { NurseRegistrationComponent } from '../pages/nurse-registration/nurse-registration.component';
 import { HomeComponent } from '../pages/home/home.component';
 import { ClientValidationComponent } from '../pages/client-validation/client-validation.component';
+import { DoctorRegistrationComponent } from '../pages/doctor-registration/doctor-registration.component';
 
 const routes: Routes = [
     {
@@ -26,6 +27,10 @@ const routes: Routes = [
             {
                 path: 'nurse',
                 component: NurseRegistrationComponent
+            },
+            {
+                path: 'doctor',
+                component: DoctorRegistrationComponent
             },
         ]
     },

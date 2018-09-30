@@ -1,9 +1,10 @@
-export class UserModel {
+export class Doctor {
  
     id: number;
-    fullName: string;
+    firstName: string;
     lastName: string;
     dateOfBirth: Date;
+    //resume: File;
 
     email: string;
     //Both the passwords are in a single object
@@ -11,7 +12,7 @@ export class UserModel {
       pwd: string;
       confirmPwd: string;
     };
-    gender: string;
+    
     terms: boolean;
  
     constructor(values: Object = {}) {

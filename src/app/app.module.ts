@@ -9,7 +9,6 @@ import { ToastrModule } from 'ngx-toastr';
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { AuthGuardService } from './services/auth-guard.service';
-import { AdultFormModule } from './adult-form/adult-form.module';
 import { SignInModuleModule } from './sign-in-module/sign-in-module.module';
 import { HomeComponent } from './pages/home/home.component';
 import { FooterComponent } from './ui-elements/footer/footer.component';
@@ -17,6 +16,8 @@ import { NurseRegistrationComponent } from './pages/nurse-registration/nurse-reg
 import { ClientValidationComponent } from './pages/client-validation/client-validation.component';
 import { TableComponent } from './pages/client-validation/table/table.component';
 import { TableRowComponent } from './pages/client-validation/table-row/table-row.component';
+import { DoctorRegistrationComponent } from './pages/doctor-registration/doctor-registration.component';
+import { AdultFormComponent } from './adult-form/form/form.component';
 
 export function jokesProviderFactory(authGuardService: AuthGuardService) {
     return () => authGuardService.loadSession();
@@ -31,6 +32,8 @@ export function jokesProviderFactory(authGuardService: AuthGuardService) {
         ClientValidationComponent,
         TableComponent,
         TableRowComponent,
+        DoctorRegistrationComponent,
+        AdultFormComponent
     ],
     imports: [
         BrowserModule,
@@ -41,7 +44,6 @@ export function jokesProviderFactory(authGuardService: AuthGuardService) {
         ToastrModule.forRoot(),
         AngularFontAwesomeModule,
         NgxPaginationModule,
-        AdultFormModule,
         SignInModuleModule,
     ],
     bootstrap: [AppComponent],
