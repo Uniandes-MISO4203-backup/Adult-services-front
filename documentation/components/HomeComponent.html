@@ -1,0 +1,396 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>adultservices documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	      <link rel="stylesheet" href="../styles/style.css">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+            <a href="../" class="navbar-brand">adultservices documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search">
+</div>
+            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li>Components</li>
+  <li>HomeComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="active">
+            <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li >
+            <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li >
+            <a href="#templateData" role="tab" id="templateData-tab" data-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li >
+            <a href="#tree" role="tab" id="tree-tab" data-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="c-info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/pages/home/home.component.ts</code>
+</p>
+
+
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                <code><a href="https://angular.io/api/core/OnInit" target="_blank" >OnInit</a></code>
+    </p>
+
+
+<section>
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-home</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>home.component.scss</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./home.component.html</code></td>
+            </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#ngOnInit">ngOnInit</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor()</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="8" class="link-to-prism">src/app/pages/home/home.component.ts:8</a></div>
+                            </td>
+                        </tr>
+
+            </tbody>
+        </table>
+</section>
+
+
+
+
+
+    <section>
+    
+        <h3 id="methods">
+            Methods
+        </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="ngOnInit"></a>
+                        <span class="name">
+                            <b>
+                            ngOnInit
+                            </b>
+                            <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>ngOnInit()</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">src/app/pages/home/home.component.ts:12</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="c-source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnInit } from &#x27;@angular/core&#x27;;
+
+@Component({
+  selector: &#x27;app-home&#x27;,
+  templateUrl: &#x27;./home.component.html&#x27;,
+  styleUrls: [&#x27;./home.component.scss&#x27;]
+})
+export class HomeComponent implements OnInit {
+
+  constructor() { }
+
+  ngOnInit() {
+  }
+
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;div class&#x3D;&quot;banner&quot;&gt;
+  &lt;div class&#x3D;&quot;container jumbotron-fluid&quot;&gt;
+    &lt;div class&#x3D;&quot;text-center&quot;&gt;
+      &lt;h1&gt;Bienvenidos a la mejor experiencia de acompañamiento.&lt;/h1&gt;
+      &lt;h3 class&#x3D;&quot;top30&quot;&gt;
+        Tu cuidador personal a un solo clic ! 
+      &lt;/h3&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class&#x3D;&quot;container top50&quot;&gt;
+  &lt;div class&#x3D;&quot;row&quot;&gt;
+    &lt;div class&#x3D;&quot;col-xs-12 col-sm-12 col-md-6 col-lg-6&quot;&gt;
+      &lt;img src&#x3D;&quot;../../../assets/placeholder.png&quot; width&#x3D;&quot;50%&quot; class&#x3D;&quot;mx-auto d-block float-mg-right float-lg-right img-responsive&quot;&gt;
+    &lt;/div&gt;
+    &lt;div class&#x3D;&quot;col-xs-12 col-sm-12 col-md-5 col-lg-5&quot;&gt;
+      &lt;span class&#x3D;&quot;text-center text-md-left&quot;&gt;
+        &lt;h2&gt;Fácil y amigable&lt;/h2&gt;
+        &lt;p class&#x3D;&quot;top15&quot;&gt;gfgh,fgjhdsgfjhsdgfjhsdgfjhsdgfjhsdgfjsdgfjh gdfsdfgfgh,fgj hdsgfjhsd&lt;br&gt;gfjhsdgfjhsdg fjhsdgfjs dgfjhgdfsdf&lt;/p&gt;
+      &lt;/span&gt;
+
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class&#x3D;&quot;container top50&quot;&gt;
+  &lt;div class&#x3D;&quot;row&quot;&gt;
+    &lt;div class&#x3D;&quot;col-xs-12 col-sm-12 col-md-6 col-lg-6&quot;&gt;
+      &lt;img src&#x3D;&quot;../../../assets/placeholder.png&quot; width&#x3D;&quot;50%&quot; class&#x3D;&quot;mx-auto d-block float-mg-right float-lg-right img-responsive&quot;&gt;
+    &lt;/div&gt;
+    &lt;div class&#x3D;&quot;col-xs-12 col-sm-12 col-md-5 col-lg-5&quot;&gt;
+      &lt;span class&#x3D;&quot;text-center text-md-left text-lg-left&quot;&gt;
+        &lt;h2&gt;Al alcance de un clic&lt;/h2&gt;
+        &lt;p class&#x3D;&quot;top15&quot;&gt;gfgh,fgjhdsg fjhsdg fjhsdgfj hsdgfjhsd gfjsdgfjhgdf sdf&lt;/p&gt;
+      &lt;/span&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class &#x3D;&quot;banner top50&quot;&gt;
+&lt;div class&#x3D;&quot;container &quot;&gt;
+  &lt;h1 class&#x3D;&quot;text-center&quot;&gt;Equipo&lt;/h1&gt;
+  &lt;div class&#x3D;&quot;container&quot;&gt;
+    &lt;div class&#x3D;&quot;row top30 text-center&quot;&gt;
+      &lt;figure class&#x3D;&quot;col-xs-12 col-sm-12 col-md-4 col-lg-4&quot;&gt;
+        &lt;img src&#x3D;&quot;../../../assets/avatar.png&quot; width&#x3D;&quot;50%&quot; class&#x3D;&quot;img-responsive&quot;&gt;
+        &lt;h3&gt;Yanerys&lt;/h3&gt;
+      &lt;/figure&gt;
+      &lt;figure class&#x3D;&quot;col-xs-12 col-sm-12 col-md-4 col-lg-4&quot;&gt;
+        &lt;img src&#x3D;&quot;../../../assets/avatar.png&quot; width&#x3D;&quot;50%&quot; class&#x3D;&quot;img-responsive&quot;&gt;
+        &lt;h3&gt;Thomas&lt;/h3&gt;
+      &lt;/figure&gt;
+      &lt;figure class&#x3D;&quot;col-xs-12 col-sm-12 col-md-4 col-lg-4&quot;&gt;
+        &lt;img src&#x3D;&quot;../../../assets/avatar.png&quot; width&#x3D;&quot;50%&quot; class&#x3D;&quot;img-responsive&quot;&gt;
+        &lt;h3&gt;Nestor&lt;/h3&gt;
+      &lt;/figure&gt;
+
+      &lt;figure class&#x3D;&quot;col-xs-12 col-sm-12 col-md-4 col-lg-4 offset-md-2 offset-lg-2&quot;&gt;
+        &lt;img src&#x3D;&quot;../../../assets/avatar.png&quot; width&#x3D;&quot;50%&quot; class&#x3D;&quot;img-responsive&quot;&gt;
+        &lt;h3&gt;Fabián&lt;/h3&gt;
+      &lt;/figure&gt;
+      &lt;figure class&#x3D;&quot;col-xs-12 col-sm-12 col-md-4 col-lg-4&quot; &gt;
+          &lt;img src&#x3D;&quot;../../../assets/avatar.png&quot; width&#x3D;&quot;50%&quot; class&#x3D;&quot;img-responsive&quot;&gt;
+          &lt;h3&gt;Iván&lt;/h3&gt;
+      &lt;/figure&gt;
+
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><div class="banner">  <div class="container jumbotron-fluid">    <div class="text-center">      <h1>Bienvenidos a la mejor experiencia de acompañamiento.</h1>      <h3 class="top30">        Tu cuidador personal a un solo clic !       </h3>    </div>  </div></div><div class="container top50">  <div class="row">    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">      <img src="../../../assets/placeholder.png" width="50%" class="mx-auto d-block float-mg-right float-lg-right img-responsive">    </div>    <div class="col-xs-12 col-sm-12 col-md-5 col-lg-5">      <span class="text-center text-md-left">        <h2>Fácil y amigable</h2>        <p class="top15">gfgh,fgjhdsgfjhsdgfjhsdgfjhsdgfjhsdgfjsdgfjh gdfsdfgfgh,fgj hdsgfjhsd<br>gfjhsdgfjhsdg fjhsdgfjs dgfjhgdfsdf</p>      </span>    </div>  </div></div><div class="container top50">  <div class="row">    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">      <img src="../../../assets/placeholder.png" width="50%" class="mx-auto d-block float-mg-right float-lg-right img-responsive">    </div>    <div class="col-xs-12 col-sm-12 col-md-5 col-lg-5">      <span class="text-center text-md-left text-lg-left">        <h2>Al alcance de un clic</h2>        <p class="top15">gfgh,fgjhdsg fjhsdg fjhsdgfj hsdgfjhsd gfjsdgfjhgdf sdf</p>      </span>    </div>  </div></div><div class ="banner top50"><div class="container ">  <h1 class="text-center">Equipo</h1>  <div class="container">    <div class="row top30 text-center">      <figure class="col-xs-12 col-sm-12 col-md-4 col-lg-4">        <img src="../../../assets/avatar.png" width="50%" class="img-responsive">        <h3>Yanerys</h3>      </figure>      <figure class="col-xs-12 col-sm-12 col-md-4 col-lg-4">        <img src="../../../assets/avatar.png" width="50%" class="img-responsive">        <h3>Thomas</h3>      </figure>      <figure class="col-xs-12 col-sm-12 col-md-4 col-lg-4">        <img src="../../../assets/avatar.png" width="50%" class="img-responsive">        <h3>Nestor</h3>      </figure>      <figure class="col-xs-12 col-sm-12 col-md-4 col-lg-4 offset-md-2 offset-lg-2">        <img src="../../../assets/avatar.png" width="50%" class="img-responsive">        <h3>Fabián</h3>      </figure>      <figure class="col-xs-12 col-sm-12 col-md-4 col-lg-4" >          <img src="../../../assets/avatar.png" width="50%" class="img-responsive">          <h3>Iván</h3>      </figure>    </div>  </div></div></div>'
+    var COMPONENTS = [{'name': 'AdultFormComponent', 'selector': 'app-form'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'ClientValidationComponent', 'selector': 'app-client-validation'},{'name': 'DoctorRegistrationComponent', 'selector': 'app-doctor-registration'},{'name': 'FooterComponent', 'selector': 'app-footer'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'NurseRegistrationComponent', 'selector': 'app-nurse-registration'},{'name': 'SignInComponentComponent', 'selector': 'app-sign-in-component'},{'name': 'TableComponent', 'selector': 'app-table'},{'name': 'TableRowComponent', 'selector': '[app-table-row]'}];
+    var DIRECTIVES = [];
+    var ACTUAL_COMPONENT = {'name': 'HomeComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> result-matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'HomeComponent.html';
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+       <script src="../js/menu-wc.js"></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

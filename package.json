@@ -10,7 +10,8 @@
         "lint": "ng lint",
         "e2e": "ng e2e",
         "compodoc": "./node_modules/.bin/compodoc -p src/tsconfig.app.json -w -s",
-        "postinstall": "ng build --aot --prod"
+        "compodoc-jenkins": "./node_modules/.bin/compodoc -p src/tsconfig.app.json",
+        "postinstall": "ng build --aot --prod"        
     },
     "private": true,
     "dependencies": {
