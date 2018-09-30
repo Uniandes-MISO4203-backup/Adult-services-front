@@ -11,6 +11,7 @@
         "e2e": "ng e2e",
         "compodoc": "./node_modules/.bin/compodoc -p src/tsconfig.app.json -w -s",
         "compodoc-jenkins": "./node_modules/.bin/compodoc -p src/tsconfig.app.json",
+        "cibuild": "ng test --code-coverage  && ng build --prod --no-progress",
         "postinstall": "ng build --aot --prod"        
     },
     "private": true,
