@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { RegisterService } from '../../services/register-service.service';
 import { ToastrService } from 'ngx-toastr';
 import { Doctor } from '../../../dto/doctor';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -14,8 +15,9 @@ export class DoctorRegistrationComponent implements OnInit {
   public gender: string[];
   public user: Doctor;
   
-  constructor(private registerService: RegisterService, private toastrService: ToastrService) {    
-  }
+  constructor(private registerService: RegisterService,
+     private toastrService: ToastrService,
+     private router: Router) {  }
 
   ngOnInit() {
     this.gender = ['Masculino', 'Femenino'];
@@ -33,8 +35,9 @@ export class DoctorRegistrationComponent implements OnInit {
     this.registerService.postUserReg(this.user).subscribe(
       data => {
         console.log("DoctorRegService Response: " + data);
+        this.router.navigate(['/solicitudes']);
     },error=>{
-        this.toastrService.error(error, "Error");
+        this.toastrService.error(error.toString(), "Error");
     });
 
   }
