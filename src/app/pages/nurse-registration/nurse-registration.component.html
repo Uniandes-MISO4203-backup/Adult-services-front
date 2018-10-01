@@ -15,7 +15,7 @@
 
           <!-- First Name error block -->
 
-          <div *ngIf="( firstName.touched)" class="col-sm-3 text-danger">
+          <div *ngIf="( firstName.touched)" class=" text-danger">
             <div *ngIf="firstName.errors?.required">
               Ingrese sus nombres completos
             </div>
@@ -31,7 +31,7 @@
 
           <!-- Last Name error block -->
 
-          <div *ngIf="( lastName.touched)" class="col-sm-3 text-danger">
+          <div *ngIf="( lastName.touched)" class=" text-danger">
             <div *ngIf="lastName.errors?.required">
               Ingrese sus apellidos completos
             </div>
@@ -47,7 +47,7 @@
 
           <!-- date of birth error block -->
 
-          <div *ngIf="( dateOfBirth.touched)" class="col-sm-3 text-danger">
+          <div *ngIf="( dateOfBirth.touched)" class="text-danger">
             <div *ngIf="dateOfBirth.errors?.required">
               Ingrese su fecha de nacimiento
             </div>
@@ -63,7 +63,7 @@
 
           <!-- Email error block -->
 
-          <div *ngIf="email.invalid && ( email.touched)" class="col-sm-3 text-danger">
+          <div *ngIf="email.invalid && ( email.touched)" class="text-danger">
             <div *ngIf="email.errors?.required">
               Email field can't be blank
             </div>
@@ -92,7 +92,7 @@
 
           <!-- Password error block -->
           <div *ngIf="(userPassword.invalid|| userPassword.value?.pwd != userPassword.value?.confirmPwd) && (userPassword.touched)"
-            class="col-sm-3 text-danger">
+            class="text-danger">
 
             <div *ngIf="userPassword.invalid; else nomatch">
               Password needs to be more than 8 characters
@@ -124,7 +124,7 @@
           </label>
 
           <!-- Terms checkbox error block -->
-          <div *ngIf="(terms.invalid && terms.touched)" class="col-lg-4 text-danger">
+          <div *ngIf="(terms.invalid && terms.touched)" class=" text-danger">
             You need to check this box to continue
           </div>
 

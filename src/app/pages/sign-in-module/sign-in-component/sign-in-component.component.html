@@ -13,7 +13,7 @@
 
           <!-- Email error block -->
 
-          <div *ngIf="email.invalid && ( email.touched)" class="col-sm-3 text-danger">
+          <div *ngIf="email.invalid && ( email.touched)" class="text-danger">
             <div *ngIf="email.errors?.required">
               Debe ingresar un correo
             </div>
@@ -34,7 +34,7 @@
 
         <!-- Password error block -->
         <div *ngIf="(userPassword.invalid && (userPassword.touched))"
-          class="col-sm-3 text-danger">
+          class="text-danger">
           <div *ngIf="userPassword.errors?.required">
             Debe ingresar una contraseña
           </div>
