@@ -1,37 +1,7 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-    <a class="navbar-brand" routerLink="">
-        <div class="form-inline">
-            <img id="logo" src="../assets/images/logo.png" class="center-block">
-            <h2 class="mainTitle">El Compañero</h2>
-        </div>
-    </a>
-    <div id="navbarNavDropdown" class="navbar-collapse collapse">
-        <ul class="navbar-nav mr-auto">
-            <li class="nav-item dropdown" *ngIf="!active">
-                <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
-                    aria-expanded="false">
-                    Registrarse
-                </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                    <a id="adult-navbar-item" class="dropdown-item" routerLink="/register/adult">Adulto</a>
-                    <a id="adult-navbar-item" class="dropdown-item" routerLink="/register/doctor">Doctor</a>
-                    <a id="adult-navbar-item" class="dropdown-item" routerLink="/register/nurse">Enfermero</a>
-                </div>
-            </li>
-            <li class="nav-item active">
-                <a id="editorials-navbar-item" class="text-light" routerLink="{{menu.link}}" *ngFor="let menu of menus">{{menu.name}}</a>
-            </li>
-        </ul>
-        <ul class="navbar-nav">
-            <li *ngIf="!active" class="nav-item"><a id="login-navbar-item" class="text-light" routerLink="/signIn"><span
-                        class="ml-2 mr-2 fa fa-sign-in"></span>Ingresar</a></li>
-            <li *ngIf="active" class="nav-item"><a id="login-navbar-item" class="text-light" (click)="logout()"><span
-                        class="ml-2 mr-2 fa fa-times-circle"></span>Cerrar Sesión</a>
-        </ul>
-    </div>
-</nav>
+<app-header></app-header>
 
 <body>
     <router-outlet></router-outlet>
 </body>
+
 <app-footer></app-footer>
