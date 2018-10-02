@@ -3,7 +3,7 @@ import { NgModule, APP_INITIALIZER } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './routing-module/app-routing.module';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
@@ -19,6 +19,8 @@ import { TableRowComponent } from './pages/client-validation/table-row/table-row
 import { DoctorRegistrationComponent } from './pages/doctor-registration/doctor-registration.component';
 import { AdultFormComponent } from './pages/adult-form/form/form.component';
 import { RegisterService } from './services/register-service.service';
+import { InterviewInformationsComponent } from './pages/interview-informations/interview-informations.component';
+import { LandingPageComponent } from './pages/landing-page/landing-page.component';
 
 export function jokesProviderFactory(authGuardService: AuthGuardService) {
     return () => authGuardService.loadSession();
@@ -34,13 +36,16 @@ export function jokesProviderFactory(authGuardService: AuthGuardService) {
         TableComponent,
         TableRowComponent,
         DoctorRegistrationComponent,
-        AdultFormComponent
+        AdultFormComponent,
+        InterviewInformationsComponent,
+        LandingPageComponent,
     ],
     imports: [
         BrowserModule,
         AppRoutingModule,
         HttpClientModule,
         FormsModule,
+        ReactiveFormsModule,
         BrowserAnimationsModule,
         ToastrModule.forRoot(),
         AngularFontAwesomeModule,

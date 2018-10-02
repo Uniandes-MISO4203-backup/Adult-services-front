@@ -1,53 +1,31 @@
 <div class="col-12 top50">
   <div class="col-12 col-sm-8 offset-sm-2 col-md-6 offset-md-3 col-lg-4 offset-lg-4 jumbotron">
 
-    <form novalidate (ngSubmit)="onFormSubmit(signInForm)" #signInForm="ngForm">
+    <form class="form-group" [formGroup]="loginForm" (ngSubmit)="onFormSubmit(signInForm)" #signInForm="ngForm">
       <fieldset>
-        <legend>Ingreso al sistema Compañero</legend>
-
-        <!--- Email Block --->
-        <div class="form-group">
-          <label for="inputEmail">Email</label>
-          <input type="text" class="form-control" [ngModel]="user.email" name="email" #email="ngModel" id="inputEmail"
-            placeholder="Email" required>
-
-          <!-- Email error block -->
-
-          <div *ngIf="email.invalid && ( email.touched)" class="text-danger">
-            <div *ngIf="email.errors?.required">
-              Debe ingresar un correo
-            </div>
-            <div *ngIf="email.errors?.pattern && email.touched">
-              Formato invalido de correo
-            </div>
-          </div>
-
+      <legend>Ingreso al sistema Compañero</legend>
+      <div class="form-group" [ngClass]="{'error': loginForm.controls['email'].errors && !loginForm.controls['email'].pristine}">
+        <label for="inputEmail">Email</label>
+        <input type="email" class="form-control" mdInput formControlName="email" placeholder="Email" required>
+        <div *ngIf="loginForm.controls['email'].errors && !loginForm.controls['email'].pristine" class="text-danger top5">
+          <div [hidden]="!loginForm.controls['email'].errors.required">Email requerido.</div>
+          <div [hidden]="!loginForm.controls['email'].errors.patternInvalid">Email esta invalido.</div>
         </div>
+      </div>
 
-        <!--- Password Block --->
-        <div class="form-group">
-          <label for="inputPassword">Password</label>
-          <input type="password"  class="form-control" [ngModel]="user.password" 
-            name="password" id="inputPassword" placeholder="Password" #userPassword="ngModel"
-            minlength="8" required>
+      <div class="form-group" [ngClass]="{'error': loginForm.controls['password'].errors && !loginForm.controls['password'].pristine}">
+        <label for="inputPassword">Contraseña</label>
+        <input type="password" class="form-control" mdInput formControlName="password" placeholder="Contraseña" minlength="5" required>
+        <div *ngIf="loginForm.controls['password'].errors && !loginForm.controls['password'].pristine" class="text-danger top5">
+          <div [hidden]="!loginForm.controls['password'].errors.required">Contraseña requerida.</div>
+          <div [hidden]="userName.errors?.minlength">Contraseña debe tener al menos 8 caracteres.</div>
         </div>
+      </div>
 
-        <!-- Password error block -->
-        <div *ngIf="(userPassword.invalid && (userPassword.touched))"
-          class="text-danger">
-          <div *ngIf="userPassword.errors?.required">
-            Debe ingresar una contraseña
-          </div>
-          <div *ngIf="userPassword.invalid  && userPassword.touched">
-            La contraseña debe tenr al menos 8 caracteres.
-          </div>
-        </div>
-
-        <!--- Buttons Block --->
-        <div class="form-group">
-          <button type="reset" class="btn btn-default btn-space">Cancel</button>
-          <button type="submit" class="btn btn-primary btn-space" [disabled]="!signInForm.form.valid">Submit</button>
-        </div>
+      <div class="form-group">
+          <button type="reset" class="btn btn-default btn-space">Cancelar</button>
+          <button class="btn btn-primary btn-space" [disabled]="loginForm.invalid" (click)="onFormSubmit()">Enviar</button>
+      </div>
       </fieldset>
     </form>
   </div>
