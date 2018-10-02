@@ -4,6 +4,9 @@ import { SignInModel } from '../../../../models/signInModel';
 import {Router} from "@angular/router";
 import { SignInServiceService } from '../../../services/sign-in-service.service';
 import { AuthGuardService } from '../../../services/auth-guard.service';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { patternValidator } from '../../../shared/pattern-validator';
+
 
 @Component({
   selector: 'app-sign-in-component',
@@ -14,6 +17,8 @@ export class SignInComponentComponent implements OnInit {
 
   public user: SignInModel;
 
+  loginForm: FormGroup;
+
   constructor(
     private signInService: SignInServiceService,
     private toastrService: ToastrService,
@@ -23,11 +28,21 @@ export class SignInComponentComponent implements OnInit {
    }
 
   ngOnInit() {
+    this.createForm();
     //Create a new user object
     this.user = new SignInModel({
       email: "", password: "",
     });
   }
+
+  private createForm() {
+    this.loginForm = new FormGroup({
+      // tslint:disable-next-line
+      email: new FormControl('', [Validators.required, patternValidator(/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/)]),
+      password: new FormControl('', Validators.required),
+    });
+  }
+
 
   log(object) {
     console.log(object);
