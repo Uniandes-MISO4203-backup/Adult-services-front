@@ -9,13 +9,13 @@
 
         <!--- First Name Block --->
         <div class="form-group">
-          <label for="inputFirstName">Nombre</label>
+          <label for="inputFirstName">Nombre <span class="text-danger">*</span></label>
           <input type="text" class="form-control" [ngModel]="nurse.firstName" name="firstName" #firstName="ngModel" id="inputFirstName"
             placeholder="Nombre Completo" required>
 
           <!-- First Name error block -->
 
-          <div *ngIf="( firstName.touched)" class="col-sm-3 text-danger">
+          <div *ngIf="( firstName.touched)" class="text-danger">
             <div *ngIf="firstName.errors?.required">
               Ingrese sus nombres completos
             </div>
@@ -25,13 +25,13 @@
 
         <!--- Last Name Block --->
         <div class="form-group">
-          <label for="inputLastName">Apellidos</label>
+          <label for="inputLastName">Apellidos <span class="text-danger">*</span></label>
           <input type="text" class="form-control" [ngModel]="nurse.lastName" name="lastName" #lastName="ngModel" id="inputLastName"
             placeholder="Apellidos" required>
 
           <!-- Last Name error block -->
 
-          <div *ngIf="( lastName.touched)" class="col-sm-3 text-danger">
+          <div *ngIf="( lastName.touched)" class="text-danger">
             <div *ngIf="lastName.errors?.required">
               Ingrese sus apellidos completos
             </div>
@@ -41,13 +41,13 @@
 
         <!--- date of birth Block --->
         <div class="form-group">
-          <label for="dateOfBirth">Fecha de nacimiento</label>
-          <input type="datetime" class="form-control" [ngModel]="nurse.dateOfBirth" name="dateOfBirth" #dateOfBirth="ngModel"
+          <label for="dateOfBirth">Fecha de nacimiento <span class="text-danger">*</span></label>
+          <input type="date" class="form-control" [ngModel]="nurse.dateOfBirth" name="dateOfBirth" #dateOfBirth="ngModel"
             id="dateOfBirth" placeholder="Fecha de nacimiento" required>
 
           <!-- date of birth error block -->
 
-          <div *ngIf="( dateOfBirth.touched)" class="col-sm-3 text-danger">
+          <div *ngIf="( dateOfBirth.touched)" class="text-danger">
             <div *ngIf="dateOfBirth.errors?.required">
               Ingrese su fecha de nacimiento
             </div>
@@ -57,18 +57,18 @@
 
         <!--- Email Block --->
         <div class="form-group">
-          <label for="inputEmail">Email</label>
+          <label for="inputEmail">Email <span class="text-danger">*</span></label>
           <input type="text" class="form-control" [ngModel]="nurse.email" name="email" #email="ngModel" id="inputEmail"
             placeholder="Email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" required>
 
           <!-- Email error block -->
 
-          <div *ngIf="email.invalid && ( email.touched)" class="col-sm-3 text-danger">
+          <div *ngIf="email.invalid && ( email.touched)" class="text-danger">
             <div *ngIf="email.errors?.required">
-              Email field can't be blank
+              Registre su email
             </div>
             <div *ngIf="email.errors?.pattern && email.touched">
-              The email id doesn't seem right
+              Registre un email válido
             </div>
           </div>
 
@@ -80,13 +80,13 @@
         <div ngModelGroup="password" #userPassword="ngModelGroup">
           <!--- Password Block --->
           <div class="form-group">
-            <label for="inputPassword">Password</label>
+            <label for="inputPassword">Contraseña <span class="text-danger">*</span></label>
             <input type="password" class="form-control" ngModel name="pwd" id="inputPassword" placeholder="Password"
               minlength="8" required>
           </div>
 
           <div class="form-group">
-            <label for="confirmPassword">Confirm Password</label>
+            <label for="confirmPassword">Confirmar Contraseña <span class="text-danger">*</span></label>
             <input type="password" class="form-control" ngModel name="confirmPwd" id="confirmPassword" placeholder="Confirm Password">
           </div>
 
@@ -95,10 +95,10 @@
             class="col-sm-3 text-danger">
 
             <div *ngIf="userPassword.invalid; else nomatch">
-              Password needs to be more than 8 characters
+              Registre una contraseña de más de 8 caracteres
             </div>
             <ng-template #nomatch>
-              Passwords don't match
+              Contraseña no coincide
             </ng-template>
 
           </div>
@@ -118,24 +118,49 @@
         <!--- Terms and conditions Block --->
         <div class="form-group checkbox">
           <label>
-            <input type="checkbox" ngModel name="terms" #terms="ngModel" required> Confirm that you've read the Terms
-            and
-            Conditions
+            <input type="checkbox" ngModel name="terms" #terms="ngModel" required> 
+             Aceptar <a data-toggle="modal" data-target="#termsModal" href="#termsModal">términos y condiciones</a>
           </label>
 
           <!-- Terms checkbox error block -->
-          <div *ngIf="(terms.invalid && terms.touched)" class="col-lg-4 text-danger">
-            You need to check this box to continue
+          <div *ngIf="(terms.invalid && terms.touched)" class="text-danger">
+            Acepte los terminos y condiciones para continuar
           </div>
 
+        </div>
+        <div class="form-group">
+          <label>Campos marcados con <span class="text-danger">*</span> son obligatorios</label>
         </div>
 
         <!--- Buttons Block --->
         <div class="form-group">
-          <button type="reset" class="btn btn-default">Cancel</button>
-          <button type="submit" class="btn btn-primary" [disabled]="!signupForm.form.valid">Submit</button>
+          <button type="reset" class="btn btn-default">Cancelar</button>
+          <button type="submit" class="btn btn-primary" [disabled]="!signupForm.form.valid">Enviar</button>
         </div>
       </fieldset>
     </form>
+  </div>
+</div>
+<!-- Modal terms and conditions -->
+<div class="modal fade" id="termsModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Terminos y Condiciones</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <h3 class="text-center">TÉRMINOS Y CONDICIONES</h3>
+        <p class="text-justify">
+          Los servicios se prestan a personas mayores quienes pueden desplazarse por su propio pie y quienes no tienen una condición médica crítica mental o física.
+        Si bien las personas que quieren utilizar estos servicios no tienen que ser pacientes de los médicos centro médico “La Tercera Edad”, para acceder, por primera vez, a los servicios de “El Compañero” la persona debe solicitar una valoración de su estado de salud con uno de los médicos de este centro.
+        Todos los servicios que solicite, generan un costo que deberá pagarse con un 50% de anticipo al asignar el servicio y el 50% al finalizar el servicio.
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>        
+      </div>
+    </div>
   </div>
 </div>

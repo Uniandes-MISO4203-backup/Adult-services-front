@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { UserModel } from '../adultModel';
 
+
+
 @Component({
   selector: 'app-form',
   templateUrl: './form.component.html',
@@ -10,11 +12,11 @@ export class AdultFormComponent implements OnInit {
 
   public gender: string[];
   public user: UserModel;
-
+ 
   constructor() { }
 
   ngOnInit() {
-    this.gender = ['Male', 'Female', 'Others'];
+    this.gender = ['Masculino', 'Femenino', 'Otros'];
     //Create a new user object
     this.user = new UserModel({
       fullName: "", lastName: "", dateOfBirth: "",

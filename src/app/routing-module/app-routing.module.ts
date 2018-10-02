@@ -11,6 +11,7 @@ import { NurseRegistrationComponent } from '../pages/nurse-registration/nurse-re
 import { HomeComponent } from '../pages/home/home.component';
 import { ClientValidationComponent } from '../pages/client-validation/client-validation.component';
 
+
 const routes: Routes = [
     {
         path: '',
@@ -26,7 +27,7 @@ const routes: Routes = [
             {
                 path: 'nurse',
                 component: NurseRegistrationComponent
-            },
+            }           
         ]
     },
     {
@@ -42,7 +43,7 @@ const routes: Routes = [
 @NgModule({
     imports: [
         CommonModule,
-        RouterModule.forRoot(routes, { onSameUrlNavigation: 'reload' })
+        RouterModule.forRoot(routes, { onSameUrlNavigation: 'reload'})
     ],
     exports: [RouterModule],
     declarations: []
