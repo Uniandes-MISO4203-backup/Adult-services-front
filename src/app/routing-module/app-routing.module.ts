@@ -3,7 +3,8 @@ import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
 
 // adult registering component
-import { AdultFormComponent } from '../pages/adult-form/form/form.component'
+import { AdultRegistrationComponent } from '../pages/adult-registration/adult-registration.component';
+
 
 //sign in component
 import { SignInComponentComponent } from '../pages/sign-in-module/sign-in-component/sign-in-component.component'
@@ -22,7 +23,7 @@ const routes: Routes = [
         children: [
             {
                 path: 'adult',
-                component: AdultFormComponent
+                component: AdultRegistrationComponent
             },
             {
                 path: 'nurse',
