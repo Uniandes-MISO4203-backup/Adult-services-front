@@ -17,7 +17,6 @@ import { ClientValidationComponent } from './pages/client-validation/client-vali
 import { TableComponent } from './pages/client-validation/table/table.component';
 import { TableRowComponent } from './pages/client-validation/table-row/table-row.component';
 import { DoctorRegistrationComponent } from './pages/doctor-registration/doctor-registration.component';
-import { AdultFormComponent } from './pages/adult-form/form/form.component';
 import { RegisterService } from './services/register-service.service';
 import { InterviewInformationsComponent } from './pages/interview-informations/interview-informations.component';
 import { LandingPageComponent } from './pages/landing-page/landing-page.component';
@@ -38,8 +37,7 @@ export function jokesProviderFactory(authGuardService: AuthGuardService) {
         ClientValidationComponent,
         TableComponent,
         TableRowComponent,
-        DoctorRegistrationComponent,
-        AdultFormComponent,
+        DoctorRegistrationComponent,        
         InterviewInformationsComponent,
         LandingPageComponent,
         HeaderComponent,
