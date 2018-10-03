@@ -73,7 +73,7 @@ export class SignInComponentComponent implements OnInit {
       this.authGuardService.loadUser(data);
       this.authGuardService.loadToken(token);
       this.authGuardService.activeSession();
-      this.router.navigate(['/solicitudes']);
+      this.router.navigate(['/']);
       },error=>{
         this.toastrService.error(error, "Error");
         console.log("service error: " + error);

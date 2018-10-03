@@ -15,35 +15,33 @@ import { Observable } from 'rxjs/Observable';
 export class HomeComponent implements OnInit {
 
   active = true;
-  
+
   loggedUser: userModel;
 
   /**
      * @ignore
      */
-    constructor(private authGuardService: AuthGuardService, private router: Router) {        
-        this.authGuardService.active$.subscribe(active => {
-            console.log("Is active", active);
-            if (active) {
-                this.active = true;
-                this.router.navigate(['/solicitudes']);
-                this.authGuardService.user$.subscribe(user => {
-                    if (user != undefined){
-                        this.loggedUser = user;
-                    }                    
-                });
-                
-            } else {
-                this.active = false;
-                this.router.navigate(['/']);
-            }
+  constructor(private authGuardService: AuthGuardService, private router: Router) {
+    this.authGuardService.active$.subscribe(active => {
+      console.log("Is active", active);
+      if (active) {
+        this.active = true;
+        this.router.navigate(['/']);
+        this.authGuardService.user$.subscribe(user => {
+          if (user != undefined) {
+            this.loggedUser = user;
+          }
         });
-    }
+
+      } else {
+        this.active = false;
+        this.router.navigate(['/']);
+      }
+    });
+  }
 
   ngOnInit() {
-    //DEBUG 
-    //this.loggedUser = new userModel()
-   //this.loggedUser.first_name = "Thomas"
+
   }
 
 }

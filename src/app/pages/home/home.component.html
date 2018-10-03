@@ -1,6 +1,12 @@
-<div *ngIf="active">
+<div *ngIf="active && !loggedUser.is_approved && loggedUser.Role.name == 'adult' ">
   <app-interview-informations [loggedUser]="loggedUser"></app-interview-informations>
 </div>
+<div *ngIf="active && loggedUser.is_approved && loggedUser.Role.name == 'adult'">
+  <app-request-service></app-request-service>
+</div>
+<div *ngIf="active && loggedUser.Role.name == 'doctor'">
+    <app-client-validation></app-client-validation>
+  </div>
 <div *ngIf="!active">
   <app-landing-page></app-landing-page>
 </div>

@@ -1,15 +1,15 @@
 import { Component, OnInit } from '@angular/core';
-import { RegisterService } from '../../../services/register-service.service';
+import { RegisterService } from '../../services/register-service.service';
 import { ToastrService } from 'ngx-toastr';
-import { Adult } from '../../../../models/adult';
-
+import { Adult } from '../../../models/adult';
 @Component({
-  selector: 'app-form',
-  templateUrl: './form.component.html',
-  styleUrls: ['./form.component.css']
+  selector: 'app-adult-registration',
+  templateUrl: './adult-registration.component.html',
+  styleUrls: ['./adult-registration.component.css']
 })
-export class AdultFormComponent implements OnInit {
+export class AdultRegistrationComponent implements OnInit {
 
+ 
   public gender: string[];
   public user: Adult;
 
@@ -42,5 +42,6 @@ export class AdultFormComponent implements OnInit {
     });
 
   }
+
 
 }

@@ -21,6 +21,9 @@ import { AdultFormComponent } from './pages/adult-form/form/form.component';
 import { RegisterService } from './services/register-service.service';
 import { InterviewInformationsComponent } from './pages/interview-informations/interview-informations.component';
 import { LandingPageComponent } from './pages/landing-page/landing-page.component';
+import { HeaderComponent } from './pages/ui-elements/header/header.component';
+import { RequestServiceComponent } from './pages/request-service/request-service.component';
+import { AdultRegistrationComponent } from './pages/adult-registration/adult-registration.component';
 
 export function jokesProviderFactory(authGuardService: AuthGuardService) {
     return () => authGuardService.loadSession();
@@ -39,6 +42,9 @@ export function jokesProviderFactory(authGuardService: AuthGuardService) {
         AdultFormComponent,
         InterviewInformationsComponent,
         LandingPageComponent,
+        HeaderComponent,
+        RequestServiceComponent,
+        AdultRegistrationComponent,
     ],
     imports: [
         BrowserModule,
