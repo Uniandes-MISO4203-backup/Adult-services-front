@@ -48,10 +48,9 @@ export class SignInComponentComponent implements OnInit {
     console.log(object);
   }
 
-  onFormSubmit({ value, valid }: { value: SignInModel, valid: boolean }) {
+  onFormSubmit({ value }: { value: SignInModel}) {
     this.user = value;
     console.log( this.user);
-    console.log("valid: " + valid);
     this.signInService.postAuth(this.user).subscribe(
       data => {
         var token = data.token;

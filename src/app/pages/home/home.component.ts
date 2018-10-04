@@ -6,9 +6,6 @@ import { Observable } from 'rxjs/Observable';
 
 @Component({
   selector: 'app-home',
-  template: `
-  <app-interview-informations [loggedUser]="loggedUser"></app-interview-informations>
-  `,
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })

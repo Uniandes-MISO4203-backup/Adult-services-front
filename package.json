@@ -12,7 +12,7 @@
         "compodoc": "./node_modules/.bin/compodoc -p src/tsconfig.app.json -w -s",
         "compodoc-jenkins": "./node_modules/.bin/compodoc -p src/tsconfig.app.json",
         "postinstall": "ng build --aot --prod",
-        "cibuild": "ng test --code-coverage  && ng build --prod --no-progress"        
+        "cibuild": "ng test --code-coverage  && ng build --prod --no-progress"
     },
     "private": true,
     "dependencies": {
