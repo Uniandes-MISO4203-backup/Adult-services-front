@@ -6,7 +6,10 @@
 </div>
 <div *ngIf="active && loggedUser.Role.name == 'doctor'">
     <app-client-validation></app-client-validation>
-  </div>
+</div>
+<div *ngIf="active && loggedUser.Role.name == 'nurse'">
+  <app-client-validation></app-client-validation>
+</div>
 <div *ngIf="!active">
   <app-landing-page></app-landing-page>
 </div>

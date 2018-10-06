@@ -32,9 +32,10 @@ export class DoctorRegistrationComponent implements OnInit {
     this.user = value;
     console.log(this.user);
     //Web Service
-    this.registerService.postUserReg(this.user).subscribe(
+    this.registerService.postDocReg(this.user).subscribe(
       data => {
-        console.log("DoctorRegService Response: " + data);
+        console.log("Doctor register response");
+        console.log(data);
         this.router.navigate(['/solicitudes']);
     },error=>{
         this.toastrService.error(error.toString(), "Error");

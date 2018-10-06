@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Nurse } from './nurse';
+import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
+import { RegisterService } from '../../services/register-service.service';
 
 @Component({
   selector: 'app-nurse-registration',
@@ -8,11 +11,16 @@ import { Nurse } from './nurse';
 })
 export class NurseRegistrationComponent implements OnInit {
 
-  public nurse: Nurse;
+  public gender: string[];
+  public user: Nurse;
+
+  constructor(private registerService: RegisterService,
+    private toastrService: ToastrService,
+    private router: Router) {  }
 
   ngOnInit() {
-    //Create a new nurse object
-   this.nurse = new Nurse({
+    this.gender = ['Masculino', 'Femenino'];
+    this.user = new Nurse({
       firstName: "", lastName: "", dateOfBirth: "",
       email: "", password: { pwd: "", confirm_pwd: "" },
       terms: false
@@ -24,8 +32,17 @@ export class NurseRegistrationComponent implements OnInit {
   }
 
   onFormSubmit({ value, valid }: { value: Nurse, valid: boolean }) {
-    this.nurse = value;
-    this.log(this.nurse)
+    this.user = value;
+    console.log(this.user);
+    //Web Service
+    this.registerService.postNurseReg(this.user).subscribe(
+      data => {
+        console.log("Nurse register response");
+        console.log(data);
+        this.router.navigate(['/solicitudes']);
+    },error=>{
+        this.toastrService.error(error.toString(), "Error");
+    });
   }
 
 }

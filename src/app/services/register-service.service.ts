@@ -8,7 +8,8 @@ import 'rxjs/add/operator/catch';
 import { environment } from '../../environments/environment';
 const API_URL = environment.apiURL;
 const API_DOCTOR_REG = '/doctors';
-
+const API_ADULT_REG = '/adult';
+const API_NURSE_REG = '/nurses';
 
 @Injectable({
   providedIn: 'root'
@@ -20,11 +21,7 @@ export class RegisterService {
     */
    constructor(private http: HttpClient) { }
 
-   /**
-    * returns JWT for the given credentials
-    * @returns The list of authors in real time
-    */
-   postUserReg(user): Observable<userModel> {
+   postDocReg(user): Observable<userModel> {
     const httpOptions = {
       headers: new HttpHeaders({
         'Content-Type':  'application/x-www-form-urlencoded'
@@ -35,8 +32,38 @@ export class RegisterService {
       .set('firstName', user.firstName)
       .set('lastName', user.lastName)
       .set('birthDate', user.dateOfBirth)
-      .set('RH', "O+");
+      .set('RH', "A+");
       return this.http.post<userModel>(API_URL + API_DOCTOR_REG,body, httpOptions);
+  }
+
+  postAdultReg(user): Observable<userModel> {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type':  'application/x-www-form-urlencoded'
+      })};
+      const body = new HttpParams()
+      .set('email', user.email)
+      .set('password', user.password.pwd)
+      .set('firstName', user.firstName)
+      .set('lastName', user.lastName)
+      .set('birthDate', user.dateOfBirth)
+      .set('RH', "A+");
+      return this.http.post<userModel>(API_URL + API_ADULT_REG,body, httpOptions);
+  }
+
+  postNurseReg(user): Observable<userModel> {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type':  'application/x-www-form-urlencoded'
+      })};
+      const body = new HttpParams()
+      .set('email', user.email)
+      .set('password', user.password.pwd)
+      .set('firstName', user.firstName)
+      .set('lastName', user.lastName)
+      .set('birthDate', user.dateOfBirth)
+      .set('RH', "A+");
+      return this.http.post<userModel>(API_URL + API_NURSE_REG,body, httpOptions);
   }
 
     /**

@@ -15,8 +15,7 @@ import { patternValidator } from '../../../shared/pattern-validator';
 })
 export class SignInComponentComponent implements OnInit {
 
-  public user: SignInModel;
-
+  user: SignInModel;
   loginForm: FormGroup;
 
   constructor(
@@ -39,7 +38,7 @@ export class SignInComponentComponent implements OnInit {
     this.loginForm = new FormGroup({
       // tslint:disable-next-line
       email: new FormControl('', [Validators.required, patternValidator(/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/)]),
-      password: new FormControl('', Validators.required),
+      password: new FormControl('', Validators.required)
     });
   }
 
@@ -55,17 +54,15 @@ export class SignInComponentComponent implements OnInit {
       data => {
         var token = data.token;
         /*call here the token service*/
-        this.login(this.user, token);
-        console.log("Service response: " + token);
+        this.login(token);
     },error=>{
-      this.toastrService.error(error, "Error");
-      console.log("service error: " + error);
+        this.toastrService.error(error, "Error");
     });
 
     
   }
 
-  login(user: SignInModel, token: string) {
+  login(token: string) {
     this.signInService.getInfo(token).subscribe(data => {
       console.log("Service response in sigin: " + data.first_name + " rol: " + data.Role.name);
       //logIn the user

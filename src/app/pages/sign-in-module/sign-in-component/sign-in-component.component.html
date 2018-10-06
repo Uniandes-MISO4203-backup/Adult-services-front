@@ -18,7 +18,7 @@
         <input type="password" class="form-control" mdInput formControlName="password" placeholder="Contraseña" minlength="5" required>
         <div *ngIf="loginForm.controls['password'].errors && !loginForm.controls['password'].pristine" class="text-danger top5">
           <div [hidden]="!loginForm.controls['password'].errors.required">Contraseña requerida.</div>
-          <div [hidden]="userName.errors?.minlength">Contraseña debe tener al menos 8 caracteres.</div>
+          <div [hidden]="!loginForm.controls['password'].errors?.minlength">Contraseña debe tener al menos 8 caracteres.</div>
         </div>
       </div>
 

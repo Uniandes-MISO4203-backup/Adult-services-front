@@ -10,7 +10,7 @@
         <!--- First Name Block --->
         <div class="form-group">
           <label for="inputFirstName">Nombre(s) <span class="text-danger">*</span></label>
-          <input type="text" class="form-control" [ngModel]="nurse.firstName" name="firstName" #firstName="ngModel" id="inputFirstName"
+          <input type="text" class="form-control" [ngModel]="user.firstName" name="firstName" #firstName="ngModel" id="inputFirstName"
             placeholder="Nombres Completo" required>
 
           <!-- First Name error block -->
@@ -26,7 +26,7 @@
         <!--- Last Name Block --->
         <div class="form-group">
           <label for="inputLastName">Apellido(s) <span class="text-danger">*</span></label>
-          <input type="text" class="form-control" [ngModel]="nurse.lastName" name="lastName" #lastName="ngModel" id="inputLastName"
+          <input type="text" class="form-control" [ngModel]="user.lastName" name="lastName" #lastName="ngModel" id="inputLastName"
             placeholder="Apellidos" required>
 
           <!-- Last Name error block -->
@@ -42,7 +42,7 @@
         <!--- date of birth Block --->
         <div class="form-group">
           <label for="dateOfBirth">Test de nacimiento <span class="text-danger">*</span></label>
-          <input type="text" placeholder="yyyy/mm/dd" class="form-control" [ngModel]="nurse.dateOfBirth" name="dateOfBirth" #dateOfBirth="ngModel"
+          <input type="text" placeholder="yyyy/mm/dd" class="form-control" [ngModel]="user.dateOfBirth" name="dateOfBirth" #dateOfBirth="ngModel"
             id="dateOfBirth" required>
 
           <!-- date of birth error block -->
@@ -58,7 +58,7 @@
         <!--- Email Block --->
         <div class="form-group">
           <label for="inputEmail">Email <span class="text-danger">*</span></label>
-          <input type="text" class="form-control" [ngModel]="nurse.email" name="email" #email="ngModel" id="inputEmail"
+          <input type="text" class="form-control" [ngModel]="user.email" name="email" #email="ngModel" id="inputEmail"
             placeholder="Email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" required>
 
           <!-- Email error block -->

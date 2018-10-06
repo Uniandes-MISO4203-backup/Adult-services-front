@@ -23,6 +23,7 @@ import { LandingPageComponent } from './pages/landing-page/landing-page.componen
 import { HeaderComponent } from './pages/ui-elements/header/header.component';
 import { RequestServiceComponent } from './pages/request-service/request-service.component';
 import { AdultRegistrationComponent } from './pages/adult-registration/adult-registration.component';
+import { GetInfoService  } from './services/getInfo-services.service';
 
 export function jokesProviderFactory(authGuardService: AuthGuardService) {
     return () => authGuardService.loadSession();
@@ -62,7 +63,8 @@ export function jokesProviderFactory(authGuardService: AuthGuardService) {
         {
             provide: APP_INITIALIZER, useFactory: jokesProviderFactory, deps: [AuthGuardService], multi: true
         },
-        RegisterService
+        RegisterService,
+        GetInfoService 
     ]
 })
 export class AppModule { }
