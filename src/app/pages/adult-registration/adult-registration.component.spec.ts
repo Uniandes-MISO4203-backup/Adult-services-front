@@ -19,7 +19,7 @@ describe('AdultRegistrationComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it('debe registrar', () => {
     expect(component).toBeTruthy();
   });
 });

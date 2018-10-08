@@ -32,7 +32,7 @@ describe('AppComponent', () => {
 
     it(`should have as title 'Bookstore'`, async(() => {
         const app = fixture.debugElement.componentInstance;
-        expect(app.title).toEqual(component.title);
+        expect(app.title).toEqual(component.ngOnInit);
     }));
 
     it('should render titles in the navbar', async(() => {
