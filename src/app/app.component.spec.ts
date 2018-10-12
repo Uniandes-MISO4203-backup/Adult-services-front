@@ -29,18 +29,4 @@ describe('AppComponent', () => {
     it('should create the app', async(() => {
         expect(component).toBeTruthy();
     }));
-
-    it(`should have as title 'Bookstore'`, async(() => {
-        const app = fixture.debugElement.componentInstance;
-        expect(app.title).toEqual(component.ngOnInit);
-    }));
-
-    it('should render titles in the navbar', async(() => {
-        fixture.detectChanges();
-        const compiled = fixture.debugElement.nativeElement;
-        expect(compiled.querySelector('#booksTag').textContent).toContain('Books');
-        expect(compiled.querySelector('#authorsTag').textContent).toContain('Authors');
-        expect(compiled.querySelector('#editorialTag').textContent).toContain('Editorials');
-    }));
 });
-
