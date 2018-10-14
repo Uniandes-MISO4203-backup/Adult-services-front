@@ -37,3 +37,26 @@ h5 {
 .btn-space {
     margin-right: 5px;
 }
+
+.btn-primary {
+    background-color: #3c9aaf;
+    color: whitesmoke;
+    border-color: #3c9aaf;
+}
+
+.btn-primary:disabled{
+    background-color: #3c9aafa8;
+    border-color: #3c9aafa8;
+}
+
+.btn-primary:hover {
+    background-color: #358597;
+    border-color: #358597;
+}
+
+
+.btn-primary:visited {
+    background-color: #3c9aaf;
+    color: whitesmoke;
+    border-color: #3c9aaf;
+}
