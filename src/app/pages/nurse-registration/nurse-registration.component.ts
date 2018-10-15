@@ -22,8 +22,8 @@ export class NurseRegistrationComponent implements OnInit {
     this.gender = ['Masculino', 'Femenino'];
     this.user = new Nurse({
       firstName: "", lastName: "", dateOfBirth: "",
-      email: "", password: { pwd: "", confirm_pwd: "" },
-      terms: false
+      email: "", password: { pwd: "", confirm_pwd: "" }, 
+      resume:"", terms: false
     });
   }
 

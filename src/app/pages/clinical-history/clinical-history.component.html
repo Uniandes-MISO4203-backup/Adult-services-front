@@ -1,0 +1,321 @@
+<div class="clinical-history container ">
+  <div class="row">
+    <div class="col-12 col-sm-12 col-md-10 offset-md-1 col-lg-10 offset-lg-1 jumbotron">
+
+      <div class="row">
+        <div class="col-12">
+          <button type="button" class="btn btn-primary"><i class="fa fa-chevron-left"></i> Atras</button>
+        </div>
+      </div>
+      <div class="row title">
+        <div class="col-12 text-center">
+          <h2>Añadir una historia clinica</h2>
+        </div>
+      </div>
+
+      <!--row 1-->
+      <div class="row ">
+
+        <div class="col-12">
+          <form novalidate id="clinicalHistoryForm" (ngSubmit)="onFormSubmit(clinicalHistoryForm)" class="form-horizontal"
+            role="form" #clinicalHistoryForm="ngForm">
+            <div class="row">
+              <!--client block-->
+              <div class="form-group col-sm-6">
+                <div class="row">
+                  <label class="control-label col-sm-auto">Cliente:</label>
+                  <label class="control-label col-sm-auto font-weight-bold">{{getFullNameClient()}}</label>
+                </div>
+              </div>
+              <!--groupBlood block-->
+              <div class="form-group required col-sm-6">
+                <div class="row">
+                  <label class="control-label col-sm-auto" for="groupBlood">Grupo Sanguineo</label>
+                  <div class="col-sm-auto">
+                    <select [ngModel]="clinicalHistory.groupBlood" #groupBlood="ngModel" id="groupBlood" name="groupBlood"
+                      class="form-control" data-role="select" required>
+                      <option *ngFor="let g of groupBloods" [value]="g"> {{g}}
+                      </option>
+                    </select>
+                  </div>
+                  <!--groupBlood error block-->
+                  <div *ngIf="(groupBlood.touched)" class="text-danger">
+                    <div *ngIf="groupBlood.errors?.required">
+                      Ingrese el grupo sanguineo
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!--row 2-->
+            <div class="row">
+              <!--Date interview block-->
+              <div class="form-group required col-md-12">
+                <div class="row">
+                  <label class="control-label col-md-auto" for="interviewDate">Fecha de valoración</label>
+                  <div class="col-md-auto">
+                    <input [ngModel]="clinicalHistory.interviewDate" #interviewDate="ngModel" id="interviewDate" name="interviewDate"
+                      type="text" class="form-control" placeholder="yyyy/mm/dd" required pattern="(?:19|20)[0-9]{2}/(?:(?:0[1-9]|1[0-2])/(?:0[1-9]|1[0-9]|2[0-9])|(?:(?!02)(?:0[1-9]|1[0-2])/(?:30))|(?:(?:0[13578]|1[02])/31))">
+                  </div>
+                  <!-- interviewDate error block -->
+
+                  <div *ngIf="interviewDate.invalid && ( interviewDate.touched)" class="text-danger">
+                    <div *ngIf="interviewDate.errors?.required">
+                      Registre fecha de entrevista
+                    </div>
+                    <div *ngIf="interviewDate.errors?.pattern && interviewDate.touched">
+                      Registre una fecha de entrevista valida (yyyy/mm/dd)
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!--row 3-->
+            <div class="row form-group required">
+              <label class="control-label col-md-12">Último médico tratante</label>
+            </div>
+            <!--row 3.1-->
+            <div class="row">
+              <!--lastDoctorName block-->
+              <div class="form-group col-md-6">
+                <input [ngModel]="clinicalHistory.lastDoctorName" #lastDoctorName="ngModel" id="lastDoctorName" type="text"
+                  class="form-control" data-role="text" placeholder="Nombre y apellido" required name="lastDoctorName">
+                <!-- lastDoctorName errors block -->
+                <div *ngIf="( lastDoctorName.touched)" class="text-danger">
+                  <div *ngIf="lastDoctorName.errors?.required">
+                    Ingrese nombre del último doctor
+                  </div>
+                </div>
+              </div>
+              <!--lastDoctorPhone block-->
+              <div class="form-group col-md-6">
+                <input [ngModel]="clinicalHistory.lastDoctorPhone" #lastDoctorPhone="ngModel" id="lastDoctorPhone" type="text"
+                  class="form-control" data-role="text" placeholder="Teléfono" required name="lastDoctorPhone">
+                <!-- lastDoctorPhone errors block -->
+                <div *ngIf="(lastDoctorPhone.touched)" class="text-danger">
+                  <div *ngIf="lastDoctorPhone.errors?.required">
+                    Ingrese teléfono del último doctor
+                  </div>
+                </div>
+              </div>
+            </div>
+            <hr />
+
+            <!--row 4-->
+            <div class="row">
+              <!--actualsickness block-->
+              <div class="col-md-12 form-group required">
+                <fieldset class="border p-2">
+                  <legend class="w-auto control-label">Enfermedad Actual</legend>
+                  <textarea [ngModel]="clinicalHistory.actualsickness" #actualsickness="ngModel" id="actualsickness"
+                    name="actualsickness" rows="4" class="form-control" data-role="textarea" required></textarea>
+                  <!-- actualsickness error block -->
+                  <div *ngIf="(actualsickness.touched)" class="text-danger">
+                    <div *ngIf="actualsickness.errors?.required">
+                      Ingrese enfermedad actual
+                    </div>
+                  </div>
+                </fieldset>
+              </div>
+            </div>
+
+            <!--line-->
+            <hr />
+
+            <!--row 5-->
+            <div class="row">
+              <!--medicalHistory block-->
+              <div class="col-md-12 form-group required">
+                <fieldset class="border p-2">
+                  <legend class="w-auto control-label">Antecedentes médicos</legend>
+                  <textarea [ngModel]="clinicalHistory.medicalHistory" #medicalHistory="ngModel" id="medicalHistory"
+                    rows="4" class="form-control" data-role="textarea" name="medicalHistory" required></textarea>
+                  <!-- medicalHistory error block -->
+                  <div *ngIf="(medicalHistory.touched)" class="text-danger">
+                    <div *ngIf="medicalHistory.errors?.required">
+                      Ingrese antecedentes médicos
+                    </div>
+                  </div>
+                </fieldset>
+              </div>
+            </div>
+
+            <!--line-->
+            <hr />
+
+            <!--row 6-->
+            <div class="row">
+              <div class="col-md-12">
+
+                <fieldset class="border p-2">
+                  <legend class="w-auto">Examen Físico</legend>
+                  <!--row 6.1-->
+                  <div class="row">
+                    <!--weight block-->
+                    <div class="form-group required col-md-auto">
+                      <div class="row">
+                        <label class="control-label col-sm-auto" for="weight">Peso (kg)</label>
+                        <div class="col-sm-auto">
+                          <input [ngModel]="clinicalHistory.weight" #weight="ngModel" id="weight" name="weight" type="number"
+                            class="form-control number" required>
+                          <!-- weight error block -->
+                          <div *ngIf="(weight.touched)" class="text-danger">
+                            <div *ngIf="weight.errors?.required">
+                              Ingrese peso
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <!--size block-->
+                    <div class="form-group required col-md-auto">
+                      <div class="row">
+                        <label class="control-label col-sm-auto" for="size">Talla (cm)</label>
+                        <div class="col-sm-auto">
+                          <input [ngModel]="clinicalHistory.size" #size="ngModel" id="size" name="size" type="number"
+                            class="form-control number" required>
+                          <!-- size error block -->
+                          <div *ngIf="(size.touched)" class="text-danger">
+                            <div *ngIf="size.errors?.required">
+                              Ingrese talla
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <!--row 6.2-->
+                  <div class="row">
+                    <!--pulse block-->
+                    <div class="form-group required col-md-12">
+                      <div class="row">
+                        <label class="control-label col-sm-3" for="pulse">Pulso</label>
+                        <div class="col-sm-auto">
+                          <input [ngModel]="clinicalHistory.pulse" #pulse="ngModel" id="pulse" name="pulse" type="text"
+                            class="form-control" required>
+                          <!-- pulse error block -->
+                          <div *ngIf="(pulse.touched)" class="text-danger">
+                            <div *ngIf="pulse.errors?.required">
+                              Ingrese pulso
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!--row 6.3-->
+                  <div class="row">
+                    <!--respiratoryfrequency block-->
+                    <div class="form-group required col-md-12">
+                      <div class="row">
+                        <label class="control-label col-sm-3" for="respiratoryfrequency">Frecuencia respiratoria</label>
+                        <div class="col-sm-auto">
+                          <input type="text" [ngModel]="clinicalHistory.respiratoryfrequency" #respiratoryfrequency="ngModel"
+                            id="respiratoryfrequency" name="respiratoryfrequency" class="form-control" required>
+                          <!-- respiratoryfrequency error block -->
+                          <div *ngIf="(respiratoryfrequency.touched)" class="text-danger">
+                            <div *ngIf="respiratoryfrequency.errors?.required">
+                              Ingrese frecuencia respiratoria
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <!--row 6.4-->
+                  <div class="row">
+                    <!--temperature block-->
+                    <div class="form-group required col-md-12">
+                      <div class="row">
+                        <label class="control-label col-sm-3" for="temperature">Temperatura</label>
+                        <div class="col-sm-auto">
+                          <input type="text" [ngModel]="clinicalHistory.temperature" #temperature="ngModel" id="temperature"
+                            name="temperature" class="form-control" required>
+                          <!-- temperature error block -->
+                          <div *ngIf="(temperature.touched)" class="text-danger">
+                            <div *ngIf="temperature.errors?.required">
+                              Ingrese temperatura
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </fieldset>
+              </div>
+            </div>
+
+            <!--line-->
+            <hr />
+
+            <!--row 7-->
+            <div class="row">
+              <!--allergies block-->
+              <div class="col-md-12 form-group required">
+                <fieldset class="border p-2">
+                  <legend class="w-auto control-label">Alergias</legend>
+                  <textarea [ngModel]="clinicalHistory.allergies" #allergies="ngModel" id="allergies" name="allergies"
+                    rows="4" class="form-control" data-role="textarea" required></textarea>
+                  <!-- allergies error block -->
+                  <div *ngIf="(allergies.touched)" class="text-danger">
+                    <div *ngIf="allergies.errors?.required">
+                      Ingrese Alergia(s)
+                    </div>
+                  </div>
+                </fieldset>
+              </div>
+            </div>
+
+            <!--line-->
+            <hr />
+
+            <!--row 8-->
+            <div class="row">
+              <!--coronaryProblems block-->
+              <div class="col-md-12 form-group required">
+                <fieldset class="border p-2">
+                  <legend class="w-auto control-label">Problemas coronarios</legend>
+                  <textarea [ngModel]="clinicalHistory.coronaryProblems" #coronaryProblems="ngModel" id="coronaryProblems"
+                    name="coronaryProblems" data-role="textarea" rows="4" class="form-control" required></textarea>
+                  <!-- coronaryProblems error block -->
+                  <div *ngIf="(coronaryProblems.touched)" class="text-danger">
+                    <div *ngIf="coronaryProblems.errors?.required">
+                      Ingrese problema(s) coronario(s)
+                    </div>
+                  </div>
+                </fieldset>
+              </div>
+            </div>
+
+            <!--row 9-->
+            <div class="row">
+              <!--observations block-->
+              <div class="col-md-12 form-group required">
+                <fieldset class="border p-2">
+                  <legend class="w-auto control-label">Observaciones</legend>
+                  <textarea [ngModel]="clinicalHistory.observations" #observations="ngModel" id="observations" name="observations"
+                    rows="4" class="form-control" data-role="textarea" required></textarea>
+                  <!-- observations error block -->
+                  <div *ngIf="(observations.touched)" class="text-danger">
+                    <div *ngIf="observations.errors?.required">
+                      Ingrese observacion(es)
+                    </div>
+                  </div>
+                </fieldset>
+              </div>
+            </div>
+
+            <!--buttons block-->
+            <div class="form-group">
+              <button type="reset" class="btn btn-default btn-space">Cancelar</button>
+              <button class="btn btn-primary btn-space" [disabled]="!clinicalHistoryForm.form.valid">Enviar</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
