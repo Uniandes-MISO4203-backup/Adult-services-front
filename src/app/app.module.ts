@@ -24,6 +24,7 @@ import { HeaderComponent } from './pages/ui-elements/header/header.component';
 import { RequestServiceComponent } from './pages/request-service/request-service.component';
 import { AdultRegistrationComponent } from './pages/adult-registration/adult-registration.component';
 import { GetInfoService  } from './services/getInfo-services.service';
+import { ClinicalHistoryComponent } from './pages/clinical-history/clinical-history.component';
 
 export function jokesProviderFactory(authGuardService: AuthGuardService) {
     return () => authGuardService.loadSession();
@@ -44,6 +45,7 @@ export function jokesProviderFactory(authGuardService: AuthGuardService) {
         HeaderComponent,
         RequestServiceComponent,
         AdultRegistrationComponent,
+        ClinicalHistoryComponent,
     ],
     imports: [
         BrowserModule,

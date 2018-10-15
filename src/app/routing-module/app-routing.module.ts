@@ -12,6 +12,7 @@ import { NurseRegistrationComponent } from '../pages/nurse-registration/nurse-re
 import { HomeComponent } from '../pages/home/home.component';
 import { ClientValidationComponent } from '../pages/client-validation/client-validation.component';
 import { DoctorRegistrationComponent } from '../pages/doctor-registration/doctor-registration.component';
+import { ClinicalHistoryComponent } from '../pages/clinical-history/clinical-history.component';
 
 const routes: Routes = [
     {
@@ -43,6 +44,10 @@ const routes: Routes = [
         path: 'solicitudes',
         component: ClientValidationComponent
     },
+    {
+        path: 'clinicalHistory',
+        component: ClinicalHistoryComponent
+    }
 ];
 
 @NgModule({

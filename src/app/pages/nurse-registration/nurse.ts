@@ -4,7 +4,7 @@ export class Nurse {
     firstName: string;
     lastName: string;
     dateOfBirth: Date;
-    resume: File;
+    resume: string;
 
     email: string;
     //Both the passwords are in a single object

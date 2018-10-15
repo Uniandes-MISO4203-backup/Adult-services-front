@@ -1,0 +1,15 @@
+.clinical-history .jumbotron{
+        padding: 1rem 2rem
+}
+
+.clinical-history legend{
+        font-size: inherit;
+}
+
+.clinical-history .title{
+        margin-bottom: 4rem; 
+}
+
+.clinical-history .number{
+    max-width: 5rem;
+}

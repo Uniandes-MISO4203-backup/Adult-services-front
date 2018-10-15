@@ -20,6 +20,9 @@
             <li class="nav-item active">
                 <a id="editorials-navbar-item" class="text-light" routerLink="{{menu.link}}" *ngFor="let menu of menus">{{menu.name}}</a>
             </li>
+            <li class="nav-item" *ngIf="!active">
+                <a id="clinical-history-navbar-item" class="text-light" routerLink="/clinicalHistory">Historia Clinica</a>
+            </li>
         </ul>
         <ul class="navbar-nav">
             <li *ngIf="!active" class="nav-item"><a id="login-navbar-item" class="text-light" routerLink="/signIn"><span
