@@ -12,18 +12,19 @@ import { AuthGuardService } from './services/auth-guard.service';
 import { SignInModuleModule } from '../models/sign-in-module.module';
 import { HomeComponent } from './pages/home/home.component';
 import { FooterComponent } from './pages/ui-elements/footer/footer.component';
-import { NurseRegistrationComponent } from './pages/nurse-registration/nurse-registration.component';
-import { ClientValidationComponent } from './pages/client-validation/client-validation.component';
-import { TableComponent } from './pages/client-validation/table/table.component';
-import { TableRowComponent } from './pages/client-validation/table-row/table-row.component';
-import { DoctorRegistrationComponent } from './pages/doctor-registration/doctor-registration.component';
+import { NurseRegistrationComponent } from './pages/registration/nurse-registration/nurse-registration.component';
+import { ClientValidationComponent } from './pages/doctor/client-validation/client-validation.component';
+import { DoctorRegistrationComponent } from './pages/registration/doctor-registration/doctor-registration.component';
 import { RegisterService } from './services/register-service.service';
-import { InterviewInformationsComponent } from './pages/interview-informations/interview-informations.component';
-import { LandingPageComponent } from './pages/landing-page/landing-page.component';
+import { InterviewInformationsComponent } from './pages/home/interview-informations/interview-informations.component';
+import { LandingPageComponent } from './pages/home/landing-page/landing-page.component';
 import { HeaderComponent } from './pages/ui-elements/header/header.component';
-import { RequestServiceComponent } from './pages/request-service/request-service.component';
-import { AdultRegistrationComponent } from './pages/adult-registration/adult-registration.component';
+import { RequestServiceComponent } from './pages/client/request-service/request-service.component';
+import { AdultRegistrationComponent } from './pages/registration/adult-registration/adult-registration.component';
 import { GetInfoService  } from './services/getInfo-services.service';
+import { DoctorInterviewsComponent } from './pages/doctor/doctor-interviews/doctor-interviews.component';
+import { BannerComponent } from './pages/ui-elements/banner/banner.component';
+import { SignInComponent } from './pages/sign-in/sign-in.component';
 
 export function jokesProviderFactory(authGuardService: AuthGuardService) {
     return () => authGuardService.loadSession();
@@ -36,14 +37,15 @@ export function jokesProviderFactory(authGuardService: AuthGuardService) {
         FooterComponent,
         NurseRegistrationComponent,
         ClientValidationComponent,
-        TableComponent,
-        TableRowComponent,
         DoctorRegistrationComponent,        
         InterviewInformationsComponent,
         LandingPageComponent,
         HeaderComponent,
         RequestServiceComponent,
         AdultRegistrationComponent,
+        DoctorInterviewsComponent,
+        BannerComponent,
+        SignInComponent,
     ],
     imports: [
         BrowserModule,

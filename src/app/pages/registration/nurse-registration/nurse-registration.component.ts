@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Nurse } from './nurse';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
-import { RegisterService } from '../../services/register-service.service';
+import { RegisterService } from '../../../services/register-service.service';
 
 @Component({
   selector: 'app-nurse-registration',

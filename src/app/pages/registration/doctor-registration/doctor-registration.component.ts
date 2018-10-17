@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { RegisterService } from '../../services/register-service.service';
+import { RegisterService } from '../../../services/register-service.service';
 import { ToastrService } from 'ngx-toastr';
-import { Doctor } from '../../../models/doctor';
+import { Doctor } from '../../../../models/doctor';
 import { Router } from '@angular/router';
 
 

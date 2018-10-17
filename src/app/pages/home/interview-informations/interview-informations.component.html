@@ -12,13 +12,15 @@
     </div>
 
     <div *ngIf="loggedUser.is_approved == false">
-      <h5 class="top30">Tu perfil ya tiene una cita asignada, en caso de cualquier duda puede comunicarse con nosotros por cualquiera de los siguiente medios: 
-        <div class="top30">
+      <h3 class="top30">Tu perfil ya tiene una cita asignada:</h3>
+      <h3>{{logged}}</h3>
+
+      <p class="top30">En caso de cualquier duda puede comunicarse con nosotros por cualquiera de los siguiente medios:</p>
+        <div>
           Cel: 321 523 622<br>
           Tel: 6935555<br>
           Correo: adult_service@gmail.com<br>
         </div>
-      </h5>
     </div>
 
     <div *ngIf="loggedUser.is_approved == true">

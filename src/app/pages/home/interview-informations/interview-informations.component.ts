@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { userModel } from '../../../models/userInfoResponseModel';
+import { userModel } from '../../../../models/userInfoResponseModel';
 
 @Component({
   selector: 'app-interview-informations',
@@ -13,6 +13,9 @@ export class InterviewInformationsComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    if (this.loggedUser.is_approved == false) {
+      
+    }
   }
 
 }

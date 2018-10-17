@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { RegisterService } from '../../services/register-service.service';
+import { RegisterService } from '../../../services/register-service.service';
 import { ToastrService } from 'ngx-toastr';
-import { Adult } from '../../../models/adult';
+import { Adult } from '../../../../models/adult';
 import { Router } from '@angular/router';
 @Component({
   selector: 'app-adult-registration',

@@ -1,19 +1,17 @@
 import { Component, OnInit } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
-import { SignInModel } from '../../../../models/signInModel';
-import {Router} from "@angular/router";
-import { SignInServiceService } from '../../../services/sign-in-service.service';
-import { AuthGuardService } from '../../../services/auth-guard.service';
+import { SignInModel } from '../../../models/signInModel';
+import { Router } from "@angular/router";
+import { SignInServiceService } from '../../services/sign-in-service.service';
+import { AuthGuardService } from '../../services/auth-guard.service';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { patternValidator } from '../../../shared/pattern-validator';
-
-
+import { patternValidator } from '../../shared/pattern-validator';
 @Component({
-  selector: 'app-sign-in-component',
-  templateUrl: './sign-in-component.component.html',
-  styleUrls: ['./sign-in-component.component.css']
+  selector: 'app-sign-in',
+  templateUrl: './sign-in.component.html',
+  styleUrls: ['./sign-in.component.css']
 })
-export class SignInComponentComponent implements OnInit {
+export class SignInComponent implements OnInit {
 
   user: SignInModel;
   loginForm: FormGroup;
@@ -23,8 +21,8 @@ export class SignInComponentComponent implements OnInit {
     private toastrService: ToastrService,
     private authGuardService: AuthGuardService,
     private router: Router
-    ) {
-   }
+  ) {
+  }
 
   ngOnInit() {
     this.createForm();
@@ -47,19 +45,19 @@ export class SignInComponentComponent implements OnInit {
     console.log(object);
   }
 
-  onFormSubmit({ value }: { value: SignInModel}) {
+  onFormSubmit({ value }: { value: SignInModel }) {
     this.user = value;
-    console.log( this.user);
+    console.log(this.user);
     this.signInService.postAuth(this.user).subscribe(
       data => {
         var token = data.token;
         /*call here the token service*/
         this.login(token);
-    },error=>{
+      }, error => {
         this.toastrService.error(error, "Error");
-    });
+      });
 
-    
+
   }
 
   login(token: string) {
@@ -70,13 +68,12 @@ export class SignInComponentComponent implements OnInit {
       this.authGuardService.loadToken(token);
       this.authGuardService.activeSession();
       this.router.navigate(['/']);
-      },error=>{
-        this.toastrService.error(error, "Error");
-        console.log("service error: " + error);
+    }, error => {
+      this.toastrService.error(error, "Error");
+      console.log("service error: " + error);
     });
 
-    
-    
-}
 
+
+  }
 }

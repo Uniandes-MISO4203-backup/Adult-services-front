@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { Client } from '../../../models/client';
-import { AuthGuardService } from '../../services/auth-guard.service';
-import { userModel } from '../../../models/userInfoResponseModel';
+import { Client } from '../../../../models/client';
+import { AuthGuardService } from '../../../services/auth-guard.service';
+import { userModel } from '../../../../models/userInfoResponseModel';
 import { Router } from '@angular/router';
-import { GetInfoService } from '../../services/getInfo-services.service';
+import { GetInfoService } from '../../../services/getInfo-services.service';
 
 @Component({
   selector: 'app-client-validation',
