@@ -53,18 +53,18 @@
               <!--Date interview block-->
               <div class="form-group required col-md-12">
                 <div class="row">
-                  <label class="control-label col-md-auto" for="interviewDate">Fecha de valoración</label>
+                  <label class="control-label col-md-auto" for="interViewDate">Fecha de valoración</label>
                   <div class="col-md-auto">
-                    <input [ngModel]="clinicalHistory.interviewDate" #interviewDate="ngModel" id="interviewDate" name="interviewDate"
+                    <input [ngModel]="clinicalHistory.interViewDate" #interViewDate="ngModel" id="interViewDate" name="interViewDate"
                       type="text" class="form-control" placeholder="yyyy/mm/dd" required pattern="(?:19|20)[0-9]{2}/(?:(?:0[1-9]|1[0-2])/(?:0[1-9]|1[0-9]|2[0-9])|(?:(?!02)(?:0[1-9]|1[0-2])/(?:30))|(?:(?:0[13578]|1[02])/31))">
                   </div>
-                  <!-- interviewDate error block -->
+                  <!-- interViewDate error block -->
 
-                  <div *ngIf="interviewDate.invalid && ( interviewDate.touched)" class="text-danger">
-                    <div *ngIf="interviewDate.errors?.required">
+                  <div *ngIf="interViewDate.invalid && ( interViewDate.touched)" class="text-danger">
+                    <div *ngIf="interViewDate.errors?.required">
                       Registre fecha de entrevista
                     </div>
-                    <div *ngIf="interviewDate.errors?.pattern && interviewDate.touched">
+                    <div *ngIf="interViewDate.errors?.pattern && interViewDate.touched">
                       Registre una fecha de entrevista valida (yyyy/mm/dd)
                     </div>
                   </div>
