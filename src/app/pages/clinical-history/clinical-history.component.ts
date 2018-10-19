@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ClinicalHistory } from '../../../models/clinicalHistory';
-import { Client } from '../../../models/client';
+import { RegisterService } from '../../services/register-service.service';
+import { ToastrService } from 'ngx-toastr';
+import { Router } from '@angular/router';
+import { userModel } from '../../../models/userInfoResponseModel';
 
 @Component({
   selector: 'app-clinical-history',
@@ -11,13 +14,16 @@ export class ClinicalHistoryComponent implements OnInit {
 
   public clinicalHistory: ClinicalHistory;
   public groupBloods: string[];
-  constructor() { }
+  
+  constructor(private registerService: RegisterService,
+    private toastrService: ToastrService,
+    private router: Router) {  }
 
   ngOnInit() {
     this.groupBloods = ["0+", "0-", "A+", "A-", "B+", "B-", "AB+", "AB-"];
-    var clientUnknown: Client = new Client();
-    clientUnknown.firstName = "--";
-    clientUnknown.lastName = "--";
+    var clientUnknown: userModel = new userModel();
+    clientUnknown.first_name = "--";
+    clientUnknown.last_name = "--";
     this.clinicalHistory = new ClinicalHistory({
       client: clientUnknown,
       groupBlood: "0+",
@@ -30,6 +36,7 @@ export class ClinicalHistoryComponent implements OnInit {
       size: 180,
       pulse: "",
       respiratoryfrequency: "",
+      heartRate: "",
       temperature: "",
       allergies: "",
       coronaryProblems: "",
@@ -40,13 +47,22 @@ export class ClinicalHistoryComponent implements OnInit {
 
   getFullNameClient():String{
     if(!this.clinicalHistory.client) return "name not found";
-    return this.clinicalHistory.client.firstName+" "+this.clinicalHistory.client.lastName;
+    return this.clinicalHistory.client.first_name+" "+this.clinicalHistory.client.last_name;
   }
 
   onFormSubmit({ value, valid }: { value: ClinicalHistory, valid: boolean }) {
     this.clinicalHistory = value;
     console.log(this.clinicalHistory);
-   
+    //Web Service
+    this.registerService.postHistotiesReg(this.clinicalHistory).subscribe(
+      data => {
+        console.log("Clinic Histories response");
+        console.log(data);
+        this.router.navigate(['/solicitudes']);
+    },error=>{
+        this.toastrService.error(error.toString(), "Error");
+    });
+
   }
 
 }

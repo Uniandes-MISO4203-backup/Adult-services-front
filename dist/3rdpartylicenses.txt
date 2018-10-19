@@ -1,4 +1,4 @@
-ngx-toastr@9.1.0
+ngx-toastr@9.0.2
 MIT
 The MIT License (MIT)
 

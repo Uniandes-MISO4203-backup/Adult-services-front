@@ -1,8 +1,8 @@
-import { Client } from "./client";
+import { userModel } from "./userInfoResponseModel";
 
 export class ClinicalHistory {
 
-  client:Client;
+  client:userModel;
   groupBlood:string;
   interViewDate:Date;
   lastDoctorName:string;
@@ -12,6 +12,7 @@ export class ClinicalHistory {
   weight:number;
   size:number;
   pulse:string;
+  heartRate:string;
   respiratoryfrequency:string;
   temperature:string;
   allergies:string;
