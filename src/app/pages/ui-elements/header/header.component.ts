@@ -45,9 +45,9 @@ export class HeaderComponent implements OnInit {
                                 {
                                     id: "citas", name: "mis citas", icon: "user", link: "citas"
                                 },
-                                {
-                                    id: "historia_clinica", name: "Historia Clinica", icon: "user", link: "clinicalHistory"
-                                },
+                                //{
+                                //    id: "historia_clinica", name: "Historia Clinica", icon: "user", link: "clinicalHistory"
+                                //},
 
                                 //TO REMOVE
                                 {
