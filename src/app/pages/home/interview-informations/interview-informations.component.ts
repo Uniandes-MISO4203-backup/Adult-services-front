@@ -52,7 +52,7 @@ export class InterviewInformationsComponent implements OnInit {
 
     return this.clinicHistoriesService.getInterviewDateFor(this.loggedUser.id).subscribe(
       data => {
-        this.interviewDate = data.toDateString();
+  
         this.interviewDate = moment(data).format('MMMM Do YYYY h:mm a')
         this.day = moment(data).locale("es").format("MMM Do YYYY");
         this.hour = moment(data).format("h:mm a");

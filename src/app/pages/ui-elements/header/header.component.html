@@ -22,17 +22,8 @@
                 </div>
             </li>
             <li class="nav-item active" *ngIf="active">
-                <a id="editorials-navbar-item" class="text-light" routerLink="{{menu.link}}" *ngFor="let menu of menus">{{menu.name}}</a>
+                <a id="editorials-navbar-item" class="nav-item btn-space btn-primary btn text-light" routerLink="{{menu.link}}" *ngFor="let menu of menus">{{menu.name}}</a>
             </li>
-
-            <!---User is connected && is a doctor-->
-            <div *ngIf="active && loggedUser.Role.name == 'doctor'">
-                <li class="nav-link active">
-                    <a id="editorials-navbar-item" id="navbarDropdownMenuLink" class="text-light" routerLink="/citas">Citas</a>
-                </li>
-            </div>
-
-
         </ul>
 
 
