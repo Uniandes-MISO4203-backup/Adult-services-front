@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Observable, throwError } from 'rxjs';
 import { userModel } from '../../models/userInfoResponseModel';
+import { ClinicalHistory } from '../../models/clinicalHistory';
 
 import { HttpClient, HttpHeaders, HttpParams  } from '@angular/common/http';
 import 'rxjs/add/operator/catch';
@@ -10,6 +11,7 @@ const API_URL = environment.apiURL;
 const API_DOCTOR_REG = '/doctors';
 const API_ADULT_REG = '/adult';
 const API_NURSE_REG = '/nurses';
+const API_HISTORIES_REG = '/clinicHistory';
 
 @Injectable({
   providedIn: 'root'
@@ -64,6 +66,29 @@ export class RegisterService {
       .set('birthDate', user.dateOfBirth)
       .set('RH', "A+");
       return this.http.post<userModel>(API_URL + API_NURSE_REG,body, httpOptions);
+  }
+
+  postHistotiesReg(history): Observable<ClinicalHistory> {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type':  'application/x-www-form-urlencoded'
+      })};
+      const body = new HttpParams()
+      .set('interviewDate', history.interViewDate)
+      .set('regularDoctorName', history.lastDoctorName)
+      .set('regularDoctorPhone', history.lastDoctorPhone)
+      .set('actualDiagnosis', history.actualsickness)
+      .set('weight', history.weight)
+      .set('pulse', history.pulse)
+      .set('heartRate', history.heartRate)
+      .set('temperature', history.temperature)
+      .set('observations', history.observations)
+      .set('allergies', history.allergies)
+      .set('coronaryProblems',history.coronaryProblems)
+      .set('medicalPrecedings', history.medicalHistory)
+      .set('adultId', history.client.id)
+      .set('doctorId', "1");
+      return this.http.post<ClinicalHistory>(API_URL + API_HISTORIES_REG,body, httpOptions);
   }
 
     /**

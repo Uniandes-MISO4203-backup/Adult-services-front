@@ -60,3 +60,8 @@ h5 {
     color: whitesmoke;
     border-color: #3c9aaf;
 }
+
+.form-group.required .control-label:after {
+    content:"*";
+    color:red;
+  }

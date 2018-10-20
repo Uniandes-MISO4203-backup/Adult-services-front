@@ -21,7 +21,7 @@
                     <a id="adult-navbar-item" class="dropdown-item" routerLink="/register/nurse">Enfermero</a>
                 </div>
             </li>
-            <li class="nav-item active">
+            <li class="nav-item active" *ngIf="active">
                 <a id="editorials-navbar-item" class="text-light" routerLink="{{menu.link}}" *ngFor="let menu of menus">{{menu.name}}</a>
             </li>
 

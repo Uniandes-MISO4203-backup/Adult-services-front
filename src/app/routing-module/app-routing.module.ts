@@ -10,9 +10,15 @@ import { AdultRegistrationComponent } from '../pages/registration/adult-registra
 //sign in component
 import { NurseRegistrationComponent } from '../pages/registration/nurse-registration/nurse-registration.component';
 import { HomeComponent } from '../pages/home/home.component';
+<<<<<<< HEAD
 import { ClientValidationComponent } from '../pages/doctor/client-validation/client-validation.component';
 import { DoctorRegistrationComponent } from '../pages/registration/doctor-registration/doctor-registration.component';
 import { DoctorInterviewsComponent } from '../pages/doctor/doctor-interviews/doctor-interviews.component';
+=======
+import { ClientValidationComponent } from '../pages/client-validation/client-validation.component';
+import { DoctorRegistrationComponent } from '../pages/doctor-registration/doctor-registration.component';
+import { ClinicalHistoryComponent } from '../pages/clinical-history/clinical-history.component';
+>>>>>>> origin/ciclo2_iteracion2_semana2
 
 const routes: Routes = [
     {
@@ -44,6 +50,10 @@ const routes: Routes = [
         path: 'citas',
         component: DoctorInterviewsComponent//ClientValidationComponent
     },
+    {
+        path: 'clinicalHistory',
+        component: ClinicalHistoryComponent
+    }
 ];
 
 @NgModule({
