@@ -14,7 +14,9 @@ import { AuthGuardService } from '../../../services/auth-guard.service';
 export class InterviewInformationsComponent implements OnInit {
 
   loggedUser: userModel;
-  clinicHistory: clinicHistoryModel;
+  interviewDate: Date
+
+  months = ["enero", "febrero", "marzo", "abril", "mayo", "junio", "julio","agosto", "septiembre", "octubre", "noviembre", "diciembre" ]
 
   constructor(private clinicHistoriesService: ClinicHistoriesService,
     private authGuardService: AuthGuardService,
@@ -27,7 +29,7 @@ export class InterviewInformationsComponent implements OnInit {
           if (user != undefined) {
             this.loggedUser = user;
             if (this.loggedUser.is_approved == false) {
-              this.getUserClinicHistory()
+             this.getUserInterviewDate()
             }
           }
         });
@@ -42,11 +44,12 @@ export class InterviewInformationsComponent implements OnInit {
 
   }
 
-  getUserClinicHistory() {
-    return this.clinicHistoriesService.getClinicHistoryFor(this.loggedUser.id).subscribe(
+  getUserInterviewDate() {
+    return this.clinicHistoriesService.getInterviewDateFor(this.loggedUser.id).subscribe(
       data => {
-        console.log(this.clinicHistory)
-        this.clinicHistory = data;
+        console.log(data)
+        this.interviewDate = data
+        
       }, error => {
         console.log("Error fetching interview informations");
         console.log(error);

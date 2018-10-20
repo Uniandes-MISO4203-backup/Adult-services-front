@@ -23,4 +23,13 @@ export class ClinicHistoriesService {
       })};
     return this.http.get<clinicHistoryModel>(API_URL + "/clinicHistory/" + userId , httpOptions);
   }
+
+  getInterviewDateFor(userId): Observable<Date> {
+    const httpOptions = {
+      headers: new HttpHeaders({
+      })};
+    return this.http.get<Date>(API_URL + "/interviewDate/" + userId , httpOptions);
+  }
+
 }
+
