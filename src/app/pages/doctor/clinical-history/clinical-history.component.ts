@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { ClinicalHistory } from '../../../models/clinicalHistory';
-import { RegisterService } from '../../services/register-service.service';
+import { ClinicalHistory } from '../../../../models/clinicalHistory';
+import { RegisterService } from '../../../services/register-service.service';
 import { ToastrService } from 'ngx-toastr';
 import { Router } from '@angular/router';
-import { userModel } from '../../../models/userInfoResponseModel';
+import { userModel } from '../../../../models/userInfoResponseModel';
 
 @Component({
   selector: 'app-clinical-history',

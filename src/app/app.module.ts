@@ -25,6 +25,7 @@ import { GetInfoService  } from './services/getInfo-services.service';
 import { DoctorInterviewsComponent } from './pages/doctor/doctor-interviews/doctor-interviews.component';
 import { BannerComponent } from './pages/ui-elements/banner/banner.component';
 import { SignInComponent } from './pages/sign-in/sign-in.component';
+import { ClinicalHistoryComponent } from './pages/doctor/clinical-history/clinical-history.component';
 
 export function jokesProviderFactory(authGuardService: AuthGuardService) {
     return () => authGuardService.loadSession();
@@ -46,6 +47,7 @@ export function jokesProviderFactory(authGuardService: AuthGuardService) {
         DoctorInterviewsComponent,
         BannerComponent,
         SignInComponent,
+        ClinicalHistoryComponent,
     ],
     imports: [
         BrowserModule,
