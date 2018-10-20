@@ -13,7 +13,6 @@ import { ClinicalHistory } from '../../../../models/clinicalHistory';
 })
 export class ClientValidationComponent implements OnInit {
 
-  clients: [Client];
   rol: string;
   user_name: string;
   loggedUser: userModel;

@@ -15,6 +15,7 @@ import { ClientValidationComponent } from '../pages/doctor/client-validation/cli
 import { DoctorRegistrationComponent } from '../pages/registration/doctor-registration/doctor-registration.component';
 import { ClinicalHistoryComponent } from '../pages/doctor/clinical-history/clinical-history.component';
 import { DoctorInterviewsComponent } from '../pages/doctor/doctor-interviews/doctor-interviews.component'
+import { AvailableDoctorsComponent } from '../pages/available-doctors/available-doctors.component';
 
 
 const routes: Routes = [
@@ -54,7 +55,12 @@ const routes: Routes = [
     {
         path: 'solicitar-servicio',
         component: RequestServiceComponent
+    }, 
+    {
+        path: 'all-doctors',
+        component: AvailableDoctorsComponent
     }
+
 ];
 
 @NgModule({

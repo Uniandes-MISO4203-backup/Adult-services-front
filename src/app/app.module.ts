@@ -26,6 +26,7 @@ import { DoctorInterviewsComponent } from './pages/doctor/doctor-interviews/doct
 import { BannerComponent } from './pages/ui-elements/banner/banner.component';
 import { SignInComponent } from './pages/sign-in/sign-in.component';
 import { ClinicalHistoryComponent } from './pages/doctor/clinical-history/clinical-history.component';
+import { AvailableDoctorsComponent } from './pages/available-doctors/available-doctors.component';
 
 export function jokesProviderFactory(authGuardService: AuthGuardService) {
     return () => authGuardService.loadSession();
@@ -48,6 +49,7 @@ export function jokesProviderFactory(authGuardService: AuthGuardService) {
         SignInComponent,
         ClinicalHistoryComponent,
         RequestServiceComponent,
+        AvailableDoctorsComponent,
     ],
     imports: [
         BrowserModule,
