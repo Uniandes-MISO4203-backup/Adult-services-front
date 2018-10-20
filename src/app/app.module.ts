@@ -42,12 +42,12 @@ export function jokesProviderFactory(authGuardService: AuthGuardService) {
         InterviewInformationsComponent,
         LandingPageComponent,
         HeaderComponent,
-        RequestServiceComponent,
         AdultRegistrationComponent,
         DoctorInterviewsComponent,
         BannerComponent,
         SignInComponent,
         ClinicalHistoryComponent,
+        RequestServiceComponent,
     ],
     imports: [
         BrowserModule,

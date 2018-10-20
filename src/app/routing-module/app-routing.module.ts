@@ -1,3 +1,4 @@
+import { RequestServiceComponent } from './../pages/client/request-service/request-service.component';
 import { SignInComponent } from './../pages/sign-in/sign-in.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -49,6 +50,10 @@ const routes: Routes = [
     {
         path: 'clinicalHistory',
         component: ClinicalHistoryComponent
+    },
+    {
+        path: 'solicitar-servicio',
+        component: RequestServiceComponent
     }
 ];
 

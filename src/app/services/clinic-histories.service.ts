@@ -31,5 +31,10 @@ export class ClinicHistoriesService {
     return this.http.get<Date>(API_URL + "/interviewDate/" + userId , httpOptions);
   }
 
+  getInterviewsForDoctor(doctorId): Observable<clinicHistoryModel[]>{
+    return null
+  }
+ 
+  
 }
 
