@@ -1,5 +1,10 @@
+import { clinicHistoryModel } from './../../../../models/clinicHistoryResponseModel';
+import { ClinicHistoriesService } from './../../../services/clinic-histories.service';
 import { Component, OnInit, Input } from '@angular/core';
 import { userModel } from '../../../../models/userInfoResponseModel';
+import { Observable } from 'rxjs';
+import { Router } from '@angular/router';
+import { AuthGuardService } from '../../../services/auth-guard.service';
 
 @Component({
   selector: 'app-interview-informations',
@@ -8,14 +13,45 @@ import { userModel } from '../../../../models/userInfoResponseModel';
 })
 export class InterviewInformationsComponent implements OnInit {
 
-  @Input() loggedUser: userModel;
+  loggedUser: userModel;
+  clinicHistory: clinicHistoryModel;
 
-  constructor() { }
+  constructor(private clinicHistoriesService: ClinicHistoriesService,
+    private authGuardService: AuthGuardService,
+    private router: Router) {
+
+    this.authGuardService.active$.subscribe(active => {
+      console.log("Is active", active);
+      if (active) {
+        this.authGuardService.user$.subscribe(user => {
+          if (user != undefined) {
+            this.loggedUser = user;
+            if (this.loggedUser.is_approved == false) {
+              this.getUserClinicHistory()
+            }
+          }
+        });
+      } else {
+        this.router.navigate(['/']);
+      }
+    });
+
+  }
 
   ngOnInit() {
-    if (this.loggedUser.is_approved == false) {
-      
-    }
+
+  }
+
+  getUserClinicHistory() {
+    return this.clinicHistoriesService.getClinicHistoryFor(this.loggedUser.id).subscribe(
+      data => {
+        console.log(this.clinicHistory)
+        this.clinicHistory = data;
+      }, error => {
+        console.log("Error fetching interview informations");
+        console.log(error);
+      });
+
   }
 
 }

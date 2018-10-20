@@ -39,7 +39,7 @@ export class AdultRegistrationComponent implements OnInit {
       data => {
         console.log("Adult register response");
         console.log(data);
-        this.router.navigate(['/solicitudes']);
+        this.router.navigate(['/']);
     },error=>{
         this.toastrService.error(error.toString(), "Error");
     });
