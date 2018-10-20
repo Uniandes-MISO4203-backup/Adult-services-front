@@ -5,6 +5,7 @@ import { userModel } from '../../../../models/userInfoResponseModel';
 import { Observable } from 'rxjs';
 import { Router } from '@angular/router';
 import { AuthGuardService } from '../../../services/auth-guard.service';
+const moment = require('moment')
 
 @Component({
   selector: 'app-interview-informations',
@@ -15,6 +16,8 @@ export class InterviewInformationsComponent implements OnInit {
 
   loggedUser: userModel;
   interviewDate: Date
+  day: Date
+  hour: Date
 
   months = ["enero", "febrero", "marzo", "abril", "mayo", "junio", "julio","agosto", "septiembre", "octubre", "noviembre", "diciembre" ]
 
@@ -45,16 +48,18 @@ export class InterviewInformationsComponent implements OnInit {
   }
 
   getUserInterviewDate() {
+
     return this.clinicHistoriesService.getInterviewDateFor(this.loggedUser.id).subscribe(
       data => {
-        console.log(data)
         this.interviewDate = data
-        
+        this.interviewDate = moment(data).format('MMMM Do YYYY h:mm a')
+        this.day = moment(data).locale("es").format("MMM Do YYYY");
+        this.hour = moment(data).format("h:mm a");
       }, error => {
         console.log("Error fetching interview informations");
         console.log(error);
       });
 
   }
-
+  
 }
