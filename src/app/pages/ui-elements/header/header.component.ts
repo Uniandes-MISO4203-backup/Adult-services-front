@@ -19,39 +19,6 @@ export class HeaderComponent implements OnInit {
     title: String;
 
 
-<<<<<<< HEAD
-  /**
-   * @ignore
-   */
-  constructor(private authGuardService: AuthGuardService, private router: Router) {        
-      this.authGuardService.active$.subscribe(active => {
-          console.log("Is active", active);
-          if (active) {
-              this.active = true;
-              this.router.navigate(['/solicitudes']);
-              this.authGuardService.user$.subscribe(user => {
-                  if (user != undefined){
-                      this.loggedUser = user;
-                      if (user.first_name !== undefined ){
-                          this.menus = [
-                              //{
-                              //    id: "historia_clinica", name: "Historia Clinica", icon: "user", link: "clinicalHistory"
-                              //}
-                              //{
-                              //    id: "usuario", name: " Rol: "+ user.Role.name, icon: "user", link: "solicitudes"
-                              //}
-                          ];
-                      }
-                  }                    
-              });
-              
-          } else {
-              this.active = false;
-              this.router.navigate(['/']);
-          }
-      });
-  }
-=======
     loggedUser: userModel;
     /**
      * Assigns a title to the web page
@@ -59,7 +26,6 @@ export class HeaderComponent implements OnInit {
     ngOnInit(): void {
         this.title = "Adult Services";
     }
->>>>>>> fefc960dadf65294dc3c26af6a7a92962aaae41b
 
     /**
      * @ignore
@@ -78,9 +44,9 @@ export class HeaderComponent implements OnInit {
                                 {
                                     id: "citas", name: "mis citas", icon: "user", link: "citas"
                                 },
-                                {
-                                    id: "historia_clinica", name: "Historia Clinica", icon: "user", link: "clinicalHistory"
-                                },
+                                //{
+                                //    id: "historia_clinica", name: "Historia Clinica", icon: "user", link: "clinicalHistory"
+                                //},
 
                                 //{
                                 //    id: "usuario", name: " Rol: "+ user.Role.name, icon: "user", link: "solicitudes"
