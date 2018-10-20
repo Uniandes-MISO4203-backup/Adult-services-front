@@ -1,0 +1,28 @@
+<div class="container">
+  <h1 class="text-center top50" id="doctor-name">Bienvenido {{rol}} {{user_name}}</h1>
+  <h4 class="text-center top30">Usuarios pendientes de aprobación</h4>
+  <div *ngIf="pendingUsers != undefined && pendingUsers.length > 0">
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">ID</th>
+          <th scope="col">Nombre</th>
+          <th scope="col">Apellido</th>
+          <th scope="col">Estado</th>
+          <th scope="col">Opciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let pending of pendingUsers">
+          <th scope="row">{{pending.id}}</th>
+          <td>{{pending.first_name}}</td>
+          <td>{{pending.last_name}}</td>
+          <td *ngIf="pending.clientStatusId == 1" >Inscrito</td>
+          <td *ngIf="pending.clientStatusId == 1" ><button type="button" class="btn btn btn-info" (click)="programar(pending.id)">Programar Cita</button></td>
+          <td *ngIf="pending.clientStatusId == 2 && !haveHistory(pending.id)">Pendiente Valoración</td>
+          <td *ngIf="pending.clientStatusId == 2 && !haveHistory(pending.id)"><button type="button" class="btn btn-success" (click)="aprobar(pending.id)">Ingresar Historia Clínica</button></td>
+        </tr>         
+      </tbody>
+    </table>
+  </div>
+</div>

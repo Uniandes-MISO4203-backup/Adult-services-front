@@ -1,0 +1,24 @@
+<div class="container">
+  <h1 class="text-center top50" id="doctor-name">Bienvenido {{rol}} {{user_name}}</h1>
+  <h4 class="text-center top15">Tiene {{pendingUsers.length}} citas programadas</h4>
+  <div *ngIf="interviews != undefined && interviews.length > 0">
+    <table class="table top15">
+      <thead>
+        <tr>
+          <th scope="col">Nombre</th>
+          <th scope="col">Apellido</th>
+          <th scope="col">Edad</th>
+          <th scope="col">fecha de la entrevista</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let interview of interviews">
+          <th scope="row">{{interview.client.name}}</th>
+          <td>{{interview.client.surname}}</td>
+          <td>{{interview.client.adult_birth_date}}</td>
+          <td>{{interview.date}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

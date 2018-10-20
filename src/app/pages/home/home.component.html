@@ -1,5 +1,5 @@
 <div *ngIf="active && loggedUser.Role.name == 'adult' ">
-  <app-interview-informations [loggedUser]="loggedUser"></app-interview-informations>
+  <app-interview-informations >[loggedUser]="loggedUser"</app-interview-informations>
 </div>
 <div *ngIf="active && loggedUser.Role.name == 'doctor'">
     <app-client-validation></app-client-validation>
