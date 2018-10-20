@@ -48,7 +48,7 @@ export class GetInfoService  {
       const body = new HttpParams()
       .set('status', status);
       console.log("Cambiando " + id + " " + status);
-    return this.http.put<userModel>(API_URL + CHANGE_STATUS + id, httpOptions);
+    return this.http.put<userModel>(API_URL + CHANGE_STATUS + id, body, httpOptions);
   }
 
   adultClinicHistory(id): Observable<ClinicalHistory> {

@@ -5,7 +5,8 @@ import { userModel } from '../../../../models/userInfoResponseModel';
 import { Observable } from 'rxjs';
 import { Router } from '@angular/router';
 import { AuthGuardService } from '../../../services/auth-guard.service';
-const moment = require('moment')
+import * as moment from 'moment';
+
 
 @Component({
   selector: 'app-interview-informations',
@@ -13,11 +14,11 @@ const moment = require('moment')
   styleUrls: ['./interview-informations.component.css']
 })
 export class InterviewInformationsComponent implements OnInit {
-
+  
   loggedUser: userModel;
-  interviewDate: Date
-  day: Date
-  hour: Date
+  interviewDate: string
+  day: string
+  hour: string
 
   months = ["enero", "febrero", "marzo", "abril", "mayo", "junio", "julio","agosto", "septiembre", "octubre", "noviembre", "diciembre" ]
 
@@ -51,7 +52,7 @@ export class InterviewInformationsComponent implements OnInit {
 
     return this.clinicHistoriesService.getInterviewDateFor(this.loggedUser.id).subscribe(
       data => {
-        this.interviewDate = data
+        this.interviewDate = data.toDateString();
         this.interviewDate = moment(data).format('MMMM Do YYYY h:mm a')
         this.day = moment(data).locale("es").format("MMM Do YYYY");
         this.hour = moment(data).format("h:mm a");

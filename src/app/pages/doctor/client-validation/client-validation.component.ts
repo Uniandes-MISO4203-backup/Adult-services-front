@@ -3,12 +3,8 @@ import { Client } from '../../../../models/client';
 import { AuthGuardService } from '../../../services/auth-guard.service';
 import { userModel } from '../../../../models/userInfoResponseModel';
 import { Router } from '@angular/router';
-<<<<<<< HEAD:src/app/pages/client-validation/client-validation.component.ts
-import { GetInfoService } from '../../services/getInfo-services.service';
-import { ClinicalHistory } from '../../../models/clinicalHistory';
-=======
 import { GetInfoService } from '../../../services/getInfo-services.service';
->>>>>>> 3d4047c32b3d3d1d2d4c87394973fb74398a605d:src/app/pages/doctor/client-validation/client-validation.component.ts
+import { ClinicalHistory } from '../../../../models/clinicalHistory';
 
 @Component({
   selector: 'app-client-validation',
