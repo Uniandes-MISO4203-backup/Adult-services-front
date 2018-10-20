@@ -41,9 +41,9 @@ export class HeaderComponent implements OnInit {
                       this.loggedUser = user;
                       if (user.first_name !== undefined ){
                           this.menus = [
-                              {
-                                  id: "historia_clinica", name: "Historia Clinica", icon: "user", link: "clinicalHistory"
-                              }
+                              //{
+                              //    id: "historia_clinica", name: "Historia Clinica", icon: "user", link: "clinicalHistory"
+                              //}
                               //{
                               //    id: "usuario", name: " Rol: "+ user.Role.name, icon: "user", link: "solicitudes"
                               //}

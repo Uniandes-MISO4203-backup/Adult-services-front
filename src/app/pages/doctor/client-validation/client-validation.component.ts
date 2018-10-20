@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Client } from '../../../../models/client';
 import { AuthGuardService } from '../../../services/auth-guard.service';
+import { GetInfoService } from '../../../services/getInfo-services.service';
 import { userModel } from '../../../../models/userInfoResponseModel';
 import { Router } from '@angular/router';
-import { GetInfoService } from '../../../services/getInfo-services.service';
 import { ClinicalHistory } from '../../../../models/clinicalHistory';
 
 @Component({
@@ -79,8 +79,20 @@ export class ClientValidationComponent implements OnInit {
         console.log("Usuario aprobado");
         console.log(data);   
         //Recargar la página... no funciona
-        this.router.navigated = false;
-        this.router.navigate([this.router.url]);     
+        this.router.navigate(['/']);     
+    },error=>{
+        console.log("Error aprobar usuario");
+        console.log(error);
+    });
+  }
+
+  rechazar(id){
+    this.getInfo.changeStatus(id, "no aprobado").subscribe(
+      data => {
+        console.log("Usuario aprobado");
+        console.log(data);   
+        //Recargar la página... no funciona
+        this.router.navigate(['/']);    
     },error=>{
         console.log("Error aprobar usuario");
         console.log(error);
@@ -93,8 +105,7 @@ export class ClientValidationComponent implements OnInit {
         console.log("Cambio de estado");
         console.log("Usuario Pendiente de valoración");  
         //Recargar la página... no funciona
-        this.router.navigated = false;
-        this.router.navigate([this.router.url]);     
+        this.router.navigate(['/']);    
     },error=>{
         console.log("Error pendiente valoración");
         console.log(error);

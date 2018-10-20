@@ -47,7 +47,7 @@ const routes: Routes = [
         component: DoctorInterviewsComponent//ClientValidationComponent
     },
     {
-        path: 'clinicalHistory',
+        path: 'clinicalHistory/:id',
         component: ClinicalHistoryComponent
     }
 ];

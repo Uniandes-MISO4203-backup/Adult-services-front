@@ -12,6 +12,7 @@ const API_URL = environment.apiURL;
 const GET_PENDING = '/pendingclients';
 const CHANGE_STATUS = '/change-client-status/';
 const ADULT_HISTORY = '/clinicHistory/';
+const ADULT = '/adult/';
 const CLIENT_HISTORIES = '/clinicHistories';
 
 
@@ -56,7 +57,15 @@ export class GetInfoService  {
       headers: new HttpHeaders({
         'Content-Type':  'application/x-www-form-urlencoded'
       })};
-    return this.http.put<ClinicalHistory>(API_URL + ADULT_HISTORY + id, httpOptions);
+    return this.http.get<ClinicalHistory>(API_URL + ADULT_HISTORY + id, httpOptions);
+  }
+
+  getAdult(id): Observable<userModel> {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type':  'application/x-www-form-urlencoded'
+      })};
+    return this.http.get<userModel>(API_URL + ADULT + id, httpOptions);
   }
 
     /**

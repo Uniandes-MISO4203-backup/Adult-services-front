@@ -74,20 +74,21 @@ export class RegisterService {
         'Content-Type':  'application/x-www-form-urlencoded'
       })};
       const body = new HttpParams()
-      .set('interviewDate', history.interViewDate)
-      .set('regularDoctorName', history.lastDoctorName)
-      .set('regularDoctorPhone', history.lastDoctorPhone)
-      .set('actualDiagnosis', history.actualsickness)
+      .set('interviewDate', history.interview_date)
+      .set('regularDoctorName', history.regular_doctor_name)
+      .set('regularDoctorPhone', history.regular_doctor_phone)
+      .set('actualDiagnosis', history.actual_diagnossis)
       .set('weight', history.weight)
+      .set('height', "80")
       .set('pulse', history.pulse)
-      .set('heartRate', history.heartRate)
+      .set('heartRate', history.heart_rate)
       .set('temperature', history.temperature)
       .set('observations', history.observations)
       .set('allergies', history.allergies)
-      .set('coronaryProblems',history.coronaryProblems)
-      .set('medicalPrecedings', history.medicalHistory)
-      .set('adultId', history.client.id)
-      .set('doctorId', "1");
+      .set('coronaryProblems',history.coronary_problems)
+      .set('medicalPrecedings', history.medical_precedings)
+      .set('adultId', history.adultId)
+      .set('doctorId', history.doctorId);
       return this.http.post<ClinicalHistory>(API_URL + API_HISTORIES_REG,body, httpOptions);
   }
 

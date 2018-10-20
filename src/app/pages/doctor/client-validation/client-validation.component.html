@@ -20,7 +20,9 @@
           <td *ngIf="pending.clientStatusId == 1" >Inscrito</td>
           <td *ngIf="pending.clientStatusId == 1" ><button type="button" class="btn btn btn-info" (click)="programar(pending.id)">Programar Cita</button></td>
           <td *ngIf="pending.clientStatusId == 2 && !haveHistory(pending.id)">Pendiente Valoración</td>
-          <td *ngIf="pending.clientStatusId == 2 && !haveHistory(pending.id)"><button type="button" class="btn btn-success" (click)="aprobar(pending.id)">Ingresar Historia Clínica</button></td>
+          <td *ngIf="pending.clientStatusId == 2 && !haveHistory(pending.id)"><button type="button" class="btn btn-primary" [routerLink]="['clinicalHistory',pending.id]">Ingresar Historia Clínica</button></td>
+          <td *ngIf="pending.clientStatusId == 2 && haveHistory(pending.id)">Aprobar</td>
+          <td *ngIf="pending.clientStatusId == 2 && haveHistory(pending.id)"><button type="button" class="btn btn-success" (click)="aprobar(pending.id)">Aprobar</button><button type="button" class="btn btn-danger ml-2" (click)="rechazar(pending.id)">Rechazar</button></td>
         </tr>         
       </tbody>
     </table>
