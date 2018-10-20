@@ -6,9 +6,13 @@ import { HttpClient, HttpHeaders, HttpParams  } from '@angular/common/http';
 import 'rxjs/add/operator/catch';
 
 import { environment } from '../../environments/environment';
+import { ClinicalHistory } from '../../models/clinicalHistory';
+
 const API_URL = environment.apiURL;
-const GET_PENDING = '/pendingadults';
-const APPROVE_USER = '/approve-adult/';
+const GET_PENDING = '/pendingclients';
+const CHANGE_STATUS = '/change-client-status/';
+const ADULT_HISTORY = '/clinicHistory/';
+const CLIENT_HISTORIES = '/clinicHistories';
 
 
 @Injectable({
@@ -21,21 +25,38 @@ export class GetInfoService  {
     */
    constructor(private http: HttpClient) { }
 
-   getPendingUsers(): Observable<userModel[]> {
+  getPendingUsers(): Observable<userModel[]> {
     const httpOptions = {
       headers: new HttpHeaders({
       })};
     return this.http.get<userModel[]>(API_URL + GET_PENDING, httpOptions);
   }
 
-  approveUser(id): Observable<userModel> {
+  getClinicHistories(): Observable<ClinicalHistory[]> {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type':  'application/x-www-form-urlencoded'
+      })};
+    return this.http.get<ClinicalHistory[]>(API_URL + CLIENT_HISTORIES, httpOptions);
+  }
+
+  changeStatus(id, status): Observable<userModel> {
     const httpOptions = {
       headers: new HttpHeaders({
         'Content-Type':  'application/x-www-form-urlencoded'
       })};
       const body = new HttpParams()
-      .set('approved', 'false');
-    return this.http.put<userModel>(API_URL + APPROVE_USER + id, httpOptions);
+      .set('status', status);
+      console.log("Cambiando " + id + " " + status);
+    return this.http.put<userModel>(API_URL + CHANGE_STATUS + id, httpOptions);
+  }
+
+  adultClinicHistory(id): Observable<ClinicalHistory> {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type':  'application/x-www-form-urlencoded'
+      })};
+    return this.http.put<ClinicalHistory>(API_URL + ADULT_HISTORY + id, httpOptions);
   }
 
     /**

@@ -2,25 +2,24 @@ import { userModel } from "./userInfoResponseModel";
 
 export class ClinicalHistory {
 
-  client:userModel;
-  groupBlood:string;
-  interViewDate:Date;
-  lastDoctorName:string;
-  lastDoctorPhone:string;
-  actualsickness:string;
-  medicalHistory:string;
+  id: number;
+  interview_date:Date;
+  regular_doctor_name:string;
+  regular_doctor_phone:string;
+  actual_diagnossis:string;
   weight:number;
-  size:number;
-  pulse:string;
-  heartRate:string;
-  respiratoryfrequency:string;
-  temperature:string;
-  allergies:string;
-  coronaryProblems:string;
+  height:number;
+  pulse:number;
+  heart_rate: number;
+  temperature: number;
   observations:string
-  
+  allergies:string;
+  coronary_problems:string;
+  medical_precedings:string;
+  adultId: number;
+  doctorId: number;
 
-    constructor(values: Object = {}) {
+  constructor(values: Object = {}) {
       //Constructor initialization
       Object.assign(this, values);
   }

@@ -18,11 +18,11 @@
           <th scope="row">{{pending.id}}</th>
           <td>{{pending.first_name}}</td>
           <td>{{pending.last_name}}</td>
-          <td *ngIf="pending.is_approved == null" >Cita Pendiente</td>
-          <td *ngIf="pending.is_approved == false" >Aprobación Pendiente</td>
-          <td *ngIf="pending.is_approved == null" ><button type="button" class="btn btn btn-info" (click)="programar(pending.id)">Programar Cita</button></td>
-          <td *ngIf="pending.is_approved == false" ><button type="button" class="btn btn-success" (click)="aprobar(pending.id)">Aprobar</button></td>
-        </tr>        
+          <td *ngIf="pending.clientStatusId == 1" >Inscrito</td>
+          <td *ngIf="pending.clientStatusId == 1" ><button type="button" class="btn btn btn-info" (click)="programar(pending.id)">Programar Cita</button></td>
+          <td *ngIf="pending.clientStatusId == 2 && !haveHistory(pending.id)">Pendiente Valoración</td>
+          <td *ngIf="pending.clientStatusId == 2 && !haveHistory(pending.id)"><button type="button" class="btn btn-success" (click)="aprobar(pending.id)">Ingresar Historia Clínica</button></td>
+        </tr>         
       </tbody>
     </table>
   </div>

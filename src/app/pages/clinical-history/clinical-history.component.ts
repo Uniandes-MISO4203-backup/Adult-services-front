@@ -14,18 +14,18 @@ export class ClinicalHistoryComponent implements OnInit {
 
   public clinicalHistory: ClinicalHistory;
   public groupBloods: string[];
+  clientUnknown: userModel = new userModel();
   
   constructor(private registerService: RegisterService,
     private toastrService: ToastrService,
     private router: Router) {  }
 
   ngOnInit() {
-    this.groupBloods = ["0+", "0-", "A+", "A-", "B+", "B-", "AB+", "AB-"];
-    var clientUnknown: userModel = new userModel();
-    clientUnknown.first_name = "--";
-    clientUnknown.last_name = "--";
+    this.groupBloods = ["0+", "0-", "A+", "A-", "B+", "B-", "AB+", "AB-"];    
+    this.clientUnknown.first_name = "--";
+    this.clientUnknown.last_name = "--";
     this.clinicalHistory = new ClinicalHistory({
-      client: clientUnknown,
+      adultId: this.clientUnknown.id,
       groupBlood: "0+",
       interViewDate: new Date(),
       lastDoctorName: "",
@@ -46,8 +46,8 @@ export class ClinicalHistoryComponent implements OnInit {
   }
 
   getFullNameClient():String{
-    if(!this.clinicalHistory.client) return "name not found";
-    return this.clinicalHistory.client.first_name+" "+this.clinicalHistory.client.last_name;
+    if(this.clientUnknown.first_name == null) return "name not found";
+    return this.clientUnknown.first_name+" "+this.clientUnknown.last_name;
   }
 
   onFormSubmit({ value, valid }: { value: ClinicalHistory, valid: boolean }) {

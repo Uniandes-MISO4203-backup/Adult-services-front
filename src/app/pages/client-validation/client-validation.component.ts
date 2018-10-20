@@ -4,6 +4,7 @@ import { AuthGuardService } from '../../services/auth-guard.service';
 import { userModel } from '../../../models/userInfoResponseModel';
 import { Router } from '@angular/router';
 import { GetInfoService } from '../../services/getInfo-services.service';
+import { ClinicalHistory } from '../../../models/clinicalHistory';
 
 @Component({
   selector: 'app-client-validation',
@@ -18,6 +19,7 @@ export class ClientValidationComponent implements OnInit {
   loggedUser: userModel;
 
   pendingUsers: userModel[];
+  clinicHistories: ClinicalHistory[];
 
   constructor(private authGuardService: AuthGuardService, 
     private router: Router,
@@ -34,6 +36,7 @@ export class ClientValidationComponent implements OnInit {
                 if(user.Role.name == "doctor") this.rol = "Dr.";
                 if(user.Role.name == "nurse") this.rol = "Enfermer@";
                 this.getUsers();
+                this.getClinicHistories();
             }
           }              
         });          
@@ -49,6 +52,8 @@ export class ClientValidationComponent implements OnInit {
   getUsers(){
     this.getInfo.getPendingUsers().subscribe(
       data => {
+        console.log("Usuarios pendientes: ");
+        console.log(data);
         this.pendingUsers = data;
     },error=>{
         console.log("Error en usuarios pendientes");
@@ -56,8 +61,20 @@ export class ClientValidationComponent implements OnInit {
     });
   }
 
+  getClinicHistories(){
+    this.getInfo.getClinicHistories().subscribe(
+      data => {
+        console.log("Historias Clinicas: ");
+        console.log(data);
+        this.clinicHistories = data;
+    },error=>{
+        console.log("Error en getClinicHistories");
+        console.log(error);
+    });
+  }
+
   aprobar(id){
-    this.getInfo.approveUser(id).subscribe(
+    this.getInfo.changeStatus(id, "aprobado").subscribe(
       data => {
         console.log("Usuario aprobado");
         console.log(data);   
@@ -71,7 +88,27 @@ export class ClientValidationComponent implements OnInit {
   }
 
   programar(id){
-    console.log("Usuario programado");
+    this.getInfo.changeStatus(id, "pendiente valoracion").subscribe(
+      data => {
+        console.log("Cambio de estado");
+        console.log("Usuario Pendiente de valoración");  
+        //Recargar la página... no funciona
+        this.router.navigated = false;
+        this.router.navigate([this.router.url]);     
+    },error=>{
+        console.log("Error pendiente valoración");
+        console.log(error);
+    });
+  }
+
+  haveHistory(id): boolean{
+    let _haveHistory = false
+    for (let history of this.clinicHistories) {
+      if(history.adultId == id){
+        _haveHistory = true;
+      }
+    }
+    return _haveHistory;
   }
 
 }
