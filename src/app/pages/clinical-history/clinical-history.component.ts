@@ -38,7 +38,7 @@ export class ClinicalHistoryComponent implements OnInit {
     })
   }
 
-  getFullNameClient():String{
+  getFullNameClient():string{
     if(!this.clinicalHistory.client) return "name not found";
     return this.clinicalHistory.client.firstName+" "+this.clinicalHistory.client.lastName;
   }

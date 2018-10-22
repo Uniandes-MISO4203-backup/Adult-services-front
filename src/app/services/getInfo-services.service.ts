@@ -33,8 +33,8 @@ export class GetInfoService  {
       headers: new HttpHeaders({
         'Content-Type':  'application/x-www-form-urlencoded'
       })};
-      const body = new HttpParams()
-      .set('approved', 'false');
+      //const body = new HttpParams()
+      //.set('approved', 'false');
     return this.http.put<userModel>(API_URL + APPROVE_USER + id, httpOptions);
   }
 
@@ -46,4 +46,3 @@ export class GetInfoService  {
         return throwError(error.error.errorMessage);
     }
 }
-
