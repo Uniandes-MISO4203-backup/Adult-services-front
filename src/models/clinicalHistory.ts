@@ -18,6 +18,8 @@ export class ClinicalHistory {
   medical_precedings:string;
   adultId: number;
   doctorId: number;
+  size: number;
+  groupBlood: string;
 
   constructor(values: Object = {}) {
       //Constructor initialization
