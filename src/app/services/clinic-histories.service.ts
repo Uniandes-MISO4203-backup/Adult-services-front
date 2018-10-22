@@ -1,3 +1,4 @@
+import { Appointment } from './../../models/appointment';
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpParams  } from '@angular/common/http';
 import 'rxjs/add/operator/catch';
@@ -31,8 +32,11 @@ export class ClinicHistoriesService {
     return this.http.get<Date>(API_URL + "/interviewDate/" + userId , httpOptions);
   }
 
-  getInterviewsForDoctor(doctorId): Observable<clinicHistoryModel[]>{
-    return null
+  getInterviewsForDoctor(doctorId): Observable<Appointment[]>{
+    const httpOptions = {
+      headers: new HttpHeaders({
+      })};
+    return this.http.get<Appointment[]>(API_URL + "/doctorAppointmets/" + doctorId , httpOptions);
   }
  
   

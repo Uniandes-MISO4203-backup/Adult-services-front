@@ -22,11 +22,11 @@ import { HeaderComponent } from './pages/ui-elements/header/header.component';
 import { RequestServiceComponent } from './pages/client/request-service/request-service.component';
 import { AdultRegistrationComponent } from './pages/registration/adult-registration/adult-registration.component';
 import { GetInfoService  } from './services/getInfo-services.service';
-import { DoctorInterviewsComponent } from './pages/doctor/doctor-interviews/doctor-interviews.component';
 import { BannerComponent } from './pages/ui-elements/banner/banner.component';
 import { SignInComponent } from './pages/sign-in/sign-in.component';
 import { ClinicalHistoryComponent } from './pages/doctor/clinical-history/clinical-history.component';
 import { AvailableDoctorsComponent } from './pages/available-doctors/available-doctors.component';
+import { UpcomingInterviewsComponent } from './pages/doctor/upcoming-interviews/upcoming-interviews.component';
 
 export function jokesProviderFactory(authGuardService: AuthGuardService) {
     return () => authGuardService.loadSession();
@@ -44,12 +44,12 @@ export function jokesProviderFactory(authGuardService: AuthGuardService) {
         LandingPageComponent,
         HeaderComponent,
         AdultRegistrationComponent,
-        DoctorInterviewsComponent,
         BannerComponent,
         SignInComponent,
         ClinicalHistoryComponent,
         RequestServiceComponent,
         AvailableDoctorsComponent,
+        UpcomingInterviewsComponent,
     ],
     imports: [
         BrowserModule,

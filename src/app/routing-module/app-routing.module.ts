@@ -14,8 +14,8 @@ import { HomeComponent } from '../pages/home/home.component';
 import { ClientValidationComponent } from '../pages/doctor/client-validation/client-validation.component';
 import { DoctorRegistrationComponent } from '../pages/registration/doctor-registration/doctor-registration.component';
 import { ClinicalHistoryComponent } from '../pages/doctor/clinical-history/clinical-history.component';
-import { DoctorInterviewsComponent } from '../pages/doctor/doctor-interviews/doctor-interviews.component'
 import { AvailableDoctorsComponent } from '../pages/available-doctors/available-doctors.component';
+import { UpcomingInterviewsComponent } from '../pages/doctor/upcoming-interviews/upcoming-interviews.component';
 
 
 const routes: Routes = [
@@ -46,7 +46,7 @@ const routes: Routes = [
     },
     {
         path: 'citas',
-        component: DoctorInterviewsComponent//ClientValidationComponent
+        component: UpcomingInterviewsComponent//ClientValidationComponent
     },
     {
         path: 'clinicalHistory/:id',
