@@ -5,7 +5,11 @@
             <h2 class="mainTitle">El Compañero</h2>
         </div>
     </a>
+
+
     <div id="navbarNavDropdown" class="navbar-collapse collapse">
+
+        <!---User isn't connected-->
         <ul class="navbar-nav mr-auto">
             <li class="nav-item dropdown" *ngIf="!active">
                 <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
@@ -17,13 +21,17 @@
                     <a id="adult-navbar-item" class="dropdown-item" routerLink="/register/nurse">Enfermero</a>
                 </div>
             </li>
-            <li class="nav-item active">
-                <a id="editorials-navbar-item" class="text-light" routerLink="{{menu.link}}" *ngFor="let menu of menus">{{menu.name}}</a>
-            </li>
-            <li class="nav-item" *ngIf="!active">
-                <a id="clinical-history-navbar-item" class="text-light" routerLink="/clinicalHistory">Historia Clinica</a>
+            <li class="nav-item active" *ngIf="active">
+                <a id="editorials-navbar-item" class="nav-item btn-space btn-primary btn text-light" routerLink="{{menu.link}}" *ngFor="let menu of menus">{{menu.name}}</a>
             </li>
         </ul>
+
+
+
+
+
+
+
         <ul class="navbar-nav">
             <li *ngIf="!active" class="nav-item"><a id="login-navbar-item" class="text-light" routerLink="/signIn"><span
                         class="ml-2 mr-2 fa fa-sign-in"></span>Ingresar</a></li>

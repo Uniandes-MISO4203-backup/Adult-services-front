@@ -1,0 +1,24 @@
+<div class="container">
+  <h1 class="text-center top50" id="doctor-name">Title...</h1>
+  <h4 class="text-center top30">Lista de los doctores disponibles</h4>
+  <div *ngIf="doctors != undefined && doctors.length > 0">
+    <table class="top30 table">
+      <thead>
+        <tr>
+          <th scope="col">ID</th>
+          <th scope="col">Nombre</th>
+          <th scope="col">Apellido</th>
+
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let doctor of doctors">
+          <th scope="row">{{doctor.id}}</th>
+          <td>{{doctor.first_name}}</td>
+          <td>{{doctor.last_name}}</td>
+          
+        </tr>         
+      </tbody>
+    </table>
+  </div>
+</div>
