@@ -87,4 +87,3 @@ export class GetInfoService  {
         return throwError(error.error.errorMessage);
     }
 }
-
