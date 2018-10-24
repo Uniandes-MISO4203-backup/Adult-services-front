@@ -73,29 +73,11 @@ export class ClientValidationComponent implements OnInit {
   }
 
   aprobar(id){
-    this.getInfo.changeStatus(id, "aprobado").subscribe(
-      data => {
-        console.log("Usuario aprobado");
-        console.log(data);   
-        //Recargar la página... no funciona
-        this.router.navigate(['/']);     
-    },error=>{
-        console.log("Error aprobar usuario");
-        console.log(error);
-    });
+    this.cambiarEstado(id,"aprobado")
   }
 
   rechazar(id){
-    this.getInfo.changeStatus(id, "no aprobado").subscribe(
-      data => {
-        console.log("Usuario no aprobado");
-        console.log(data);   
-        //Recargar la página... no funciona 
-        this.router.navigate(['/']);    
-    },error=>{
-        console.log("Error rechazar usuario");
-        console.log(error);
-    });
+    this.cambiarEstado(id,"no aprobado")
   }
 
   programar(id){
@@ -119,6 +101,19 @@ export class ClientValidationComponent implements OnInit {
       }
     }
     return _haveHistory;
+  }
+
+  cambiarEstado(id,estado){
+    this.getInfo.changeStatus(id, estado).subscribe(
+      data => {
+        console.log("Usuario " + estado);
+        console.log(data);   
+        //Recargar la página... no funciona 
+        this.router.navigate(['/']);    
+    },error=>{
+        console.log("Error cambiarEstado usuario");
+        console.log(error);
+    });
   }
 
 }
