@@ -32,7 +32,7 @@ export class InterviewInformationsComponent implements OnInit {
         this.authGuardService.user$.subscribe(user => {
           if (user != undefined) {
             this.loggedUser = user;
-            if (this.loggedUser.is_approved == false) {
+            if (!this.loggedUser.is_approved) {
              this.getUserInterviewDate()
             }
           }

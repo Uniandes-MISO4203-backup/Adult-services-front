@@ -88,12 +88,12 @@ export class ClientValidationComponent implements OnInit {
   rechazar(id){
     this.getInfo.changeStatus(id, "no aprobado").subscribe(
       data => {
-        console.log("Usuario aprobado");
+        console.log("Usuario no aprobado");
         console.log(data);   
-        //Recargar la página... no funciona
+        //Recargar la página... no funciona 
         this.router.navigate(['/']);    
     },error=>{
-        console.log("Error aprobar usuario");
+        console.log("Error rechazar usuario");
         console.log(error);
     });
   }

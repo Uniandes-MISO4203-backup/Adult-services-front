@@ -16,7 +16,7 @@ export class HeaderComponent implements OnInit {
     /**
      * The title that appears on the NavBar and the web browser
      */
-    title: String;
+    title: string;
 
 
     loggedUser: userModel;
@@ -58,7 +58,7 @@ export class HeaderComponent implements OnInit {
                                 //    id: "usuario", name: " Rol: "+ user.Role.name, icon: "user", link: "solicitudes"
                                 //}
                             ];
-                        } else if (this.loggedUser.Role.name == "adult" && this.loggedUser.is_approved == true) {
+                        } else if (this.loggedUser.Role.name == "adult" && (this.loggedUser.is_approved)) {
                             this.menus = [
                                 {
                                     id: "request-service", name: "Solicitar un servicio", icon: "user", link: "solicitar-servicio"

@@ -73,15 +73,15 @@ export class ClinicalHistoryComponent implements OnInit {
     })
   }
 
-  getFullNameClient():String{
+  getFullNameClient():string{
     if(this.adult.first_name == null) return "name not found";
     return this.adult.first_name+" "+this.adult.last_name;
   }
 
   onFormSubmit({ value, valid }: { value: ClinicalHistory, valid: boolean }) {
     this.clinicalHistory = value;
-    this.clinicalHistory.adultId = this.adult.id,
-    this.clinicalHistory.doctorId = this.loggedUser.id,
+    this.clinicalHistory.adultId = this.adult.id;
+    this.clinicalHistory.doctorId = this.loggedUser.id;
     console.log(this.clinicalHistory);
     //Web Service
     this.registerService.postHistotiesReg(this.clinicalHistory).subscribe(
