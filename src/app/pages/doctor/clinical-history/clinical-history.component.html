@@ -25,7 +25,7 @@
               <!--groupBlood block-->
               <div class="form-group required col-sm-6">
                 <div class="row">
-                  <label class="control-label col-sm-auto" for="groupBlood">Grupo Sanguineo</label>
+                  <label class="control-label col-sm-auto" for="groupBlood">Grupo Sanguíneo/RH</label>
                   <div class="col-sm-auto">
                     <select [ngModel]="clinicalHistory.groupBlood" #groupBlood="ngModel" id="groupBlood" name="groupBlood"
                       class="form-control" data-role="select" required>
@@ -36,7 +36,7 @@
                   <!--groupBlood error block-->
                   <div *ngIf="(groupBlood.touched)" class="text-danger">
                     <div *ngIf="groupBlood.errors?.required">
-                      Ingrese el grupo sanguineo
+                      Ingrese el grupo sanguineo/RH
                     </div>
                   </div>
                 </div>
@@ -66,36 +66,36 @@
                 </div>
               </div>
             </div>
-
+            
             <!--row 3-->
-            <div class="row form-group required">
-              <label class="control-label col-md-12">Último médico tratante</label>
-            </div>
+            <!--<div class="row form-group required">-->
+              <!--<label class="control-label col-md-12">Último médico tratante</label>-->
+            <!--</div>-->
             <!--row 3.1-->
-            <div class="row">
+            <!--<div class="row">-->
               <!--regular_doctor_name block-->
-              <div class="form-group col-md-6">
-                <input [ngModel]="clinicalHistory.regular_doctor_name" #regular_doctor_name="ngModel" id="regular_doctor_name" type="text"
-                  class="form-control" data-role="text" placeholder="Nombre y apellido" required name="regular_doctor_name">
+              <!--<div class="form-group col-md-6">-->
+                <!--<input [ngModel]="clinicalHistory.regular_doctor_name" #regular_doctor_name="ngModel" id="regular_doctor_name" type="text"
+                  class="form-control" data-role="text" placeholder="Nombre y apellido" required name="regular_doctor_name">-->
                 <!-- regular_doctor_name errors block -->
-                <div *ngIf="( regular_doctor_name.touched)" class="text-danger">
-                  <div *ngIf="regular_doctor_name.errors?.required">
+                <!--<div *ngIf="( regular_doctor_name.touched)" class="text-danger">-->
+                  <!--<div *ngIf="regular_doctor_name.errors?.required">
                     Ingrese nombre del último doctor
-                  </div>
-                </div>
-              </div>
+                  </div>-->
+                <!--</div>-->
+              <!--</div>-->
               <!--regular_doctor_phone block-->
-              <div class="form-group col-md-6">
-                <input [ngModel]="clinicalHistory.regular_doctor_phone" #regular_doctor_phone="ngModel" id="regular_doctor_phone" type="text"
-                  class="form-control" data-role="text" placeholder="Teléfono" required name="regular_doctor_phone">
+             <!-- <div class="form-group col-md-6">-->
+                <!--<input [ngModel]="clinicalHistory.regular_doctor_phone" #regular_doctor_phone="ngModel" id="regular_doctor_phone" type="text"
+                  class="form-control" data-role="text" placeholder="Teléfono" required name="regular_doctor_phone">-->
                 <!-- regular_doctor_phone errors block -->
-                <div *ngIf="(regular_doctor_phone.touched)" class="text-danger">
-                  <div *ngIf="regular_doctor_phone.errors?.required">
+                <!--<div *ngIf="(regular_doctor_phone.touched)" class="text-danger">-->
+                  <!--<div *ngIf="regular_doctor_phone.errors?.required">
                     Ingrese teléfono del último doctor
-                  </div>
-                </div>
-              </div>
-            </div>
+                  </div>-->
+               <!-- </div>-->
+              <!--</div>-->
+            <!--</div> -->
             <hr />
 
             <!--row 4-->
@@ -186,14 +186,14 @@
                     <!--pulse block-->
                     <div class="form-group required col-md-12">
                       <div class="row">
-                        <label class="control-label col-sm-3" for="pulse">Pulso</label>
+                        <label class="control-label col-sm-3" for="pulse">Frecuencia cardiaca</label>
                         <div class="col-sm-auto">
                           <input [ngModel]="clinicalHistory.pulse" #pulse="ngModel" id="pulse" name="pulse" type="text"
                             class="form-control" required>
                           <!-- pulse error block -->
                           <div *ngIf="(pulse.touched)" class="text-danger">
                             <div *ngIf="pulse.errors?.required">
-                              Ingrese pulso
+                              Ingrese frecuencia cardiaca
                             </div>
                           </div>
                         </div>
