@@ -570,9 +570,7 @@ h5 {
     .navbar-brand h1 {
       width: 130px;
     }
-    .navbar-brand img {
-      width: 100%;
-    }
+
     .counters-item:before {
       display: none;
     }
