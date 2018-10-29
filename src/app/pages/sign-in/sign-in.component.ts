@@ -54,7 +54,14 @@ export class SignInComponent implements OnInit {
         /*call here the token service*/
         this.login(token);
       }, error => {
-        this.toastrService.error(error, "Error");
+        var text: string
+        switch (error.statusText){
+          case "Not Found": text = "No existe usuario con este correo. " 
+          break;
+          case "Unauthorized": text = "Contraseña incorrecta, por favor verifica sus datos de conexión";
+          break;
+        }
+        this.toastrService.error(text, "Error");
       });
 
 
