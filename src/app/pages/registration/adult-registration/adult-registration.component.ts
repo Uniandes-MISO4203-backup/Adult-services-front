@@ -9,13 +9,13 @@ import { Router } from '@angular/router';
   styleUrls: ['./adult-registration.component.css']
 })
 export class AdultRegistrationComponent implements OnInit {
- 
+
   public gender: string[];
   public user: Adult;
 
   constructor(private registerService: RegisterService,
     private toastrService: ToastrService,
-    private router: Router) {  }
+    private router: Router) { }
 
   ngOnInit() {
     this.gender = ['Masculino', 'Femenino'];
@@ -40,9 +40,16 @@ export class AdultRegistrationComponent implements OnInit {
         console.log("Adult register response");
         console.log(data);
         this.router.navigate(['/']);
-    },error=>{
-        this.toastrService.error(error.toString(), "Error");
-    });
+      }, error => {
+        var text: string
+        switch (error.error.name) {
+          case "SequelizeUniqueConstraintError": text = "Un usuario ya esta registrado con este correo"
+          break;
+          default: text = "Error en su inscripción, por favor verifica que sus datos son correctos."
+        }
+        this.toastrService.error(text, "Error");
+      });
+      
 
   }
 

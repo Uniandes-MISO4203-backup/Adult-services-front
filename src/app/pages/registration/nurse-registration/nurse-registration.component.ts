@@ -41,7 +41,13 @@ export class NurseRegistrationComponent implements OnInit {
         console.log(data);
         this.router.navigate(['/solicitudes']);
     },error=>{
-        this.toastrService.error(error.toString(), "Error");
+      var text: string
+      switch (error.error.name) {
+        case "SequelizeUniqueConstraintError": text = "Un usuario ya esta registrado con este correo"
+        break;
+        default: text = "Error en su inscripción, por favor verifica que sus datos son correctos."
+      }
+      this.toastrService.error(text, "Error");
     });
   }
 
