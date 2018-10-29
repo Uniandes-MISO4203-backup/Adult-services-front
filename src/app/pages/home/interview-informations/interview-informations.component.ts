@@ -32,6 +32,7 @@ export class InterviewInformationsComponent implements OnInit {
         this.authGuardService.user$.subscribe(user => {
           if (user != undefined) {
             this.loggedUser = user;
+            console.log("Testing State: " + this.loggedUser.clientStatusId);;
             if (!this.loggedUser.is_approved) {
              this.getUserInterviewDate()
             }
@@ -49,10 +50,8 @@ export class InterviewInformationsComponent implements OnInit {
   }
 
   getUserInterviewDate() {
-
     return this.clinicHistoriesService.getInterviewDateFor(this.loggedUser.id).subscribe(
-      data => {
-  
+      data => {  
         this.interviewDate = moment(data).format('MMMM Do YYYY h:mm a')
         this.day = moment(data).locale("es").format("MMM Do YYYY");
         this.hour = moment(data).format("h:mm a");

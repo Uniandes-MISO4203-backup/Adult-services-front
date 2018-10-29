@@ -1,7 +1,7 @@
 <div class="container top50">
   <div class="text-center col-xs-12 col-sm-12 col-md-6 col-lg-6 offset-md-3 offset-lg-3">
     <h1>Bienvenido {{loggedUser.first_name}},</h1>
-    <div *ngIf="loggedUser.clientStatusId.name == 'inscrito'">
+    <div *ngIf="loggedUser.clientStatusId == 1">
       <h5 class="top30">Tu perfil se encuentra inscrito, para empezar a realizar solicitudes debes agendar una cita por cualquiera de los siguiente medios:
         <div class="top30">
           Cel: 321 523 622<br>
@@ -11,7 +11,7 @@
       </h5>
     </div>
 
-    <div *ngIf="loggedUser.clientStatusId.name == 'pendiente valoracion'">
+    <div *ngIf="loggedUser.clientStatusId == 2">
       <h3 class="top30">Tu perfil ya tiene una cita asignada:</h3>
       <h3 *ngIf="interviewDate != undefined"> el {{day}} a las {{hour}}</h3>
       
@@ -23,12 +23,12 @@
         </div>
     </div>
 
-    <div *ngIf="loggedUser.clientStatusId.name == 'aprobado'">
+    <div *ngIf="loggedUser.clientStatusId == 3">
       <h5 class="top30">Su cuenta ya se encuentra aprobada
       </h5>
     </div>
 
-    <div *ngIf="loggedUser.clientStatusId.name == 'no aprobado'">
+    <div *ngIf="loggedUser.clientStatusId == 4">
       <h5 class="top30">Su cuenta no ha sido aprobada.</h5>
       <p class="top30">En caso de cualquier duda puede comunicarse con nosotros por cualquiera de los siguiente medios:</p>
       <div>
