@@ -13,9 +13,9 @@ export class ClinicalHistory {
   heart_rate: number;
   temperature: number;
   observations:string
-  allergies:string;
-  coronary_problems:string;
-  medical_precedings:string;
+  allergies:Array<string>=["",""];
+  coronary_problems:Array<string>=[""];
+  medical_precedings:Array<string>=["",""];
   adultId: number;
   doctorId: number;
   size: number;

@@ -1,8 +1,9 @@
+import { FormBuilder, FormGroup, FormArray, FormControl } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 import { ClinicalHistory } from '../../../../models/clinicalHistory';
 import { RegisterService } from '../../../services/register-service.service';
 import { ToastrService } from 'ngx-toastr';
-import { ActivatedRoute  } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import { Router } from '@angular/router';
 import { userModel } from '../../../../models/userInfoResponseModel';
 import { AuthGuardService } from '../../../services/auth-guard.service';
@@ -20,43 +21,46 @@ export class ClinicalHistoryComponent implements OnInit {
   adult: userModel = new userModel();
   clinicHisotry: ClinicalHistory = new ClinicalHistory();
   loggedUser: userModel;
-  
+  formGroup: FormGroup;
+
+
   constructor(private registerService: RegisterService,
     private toastrService: ToastrService,
     private router: Router, private activeRoute: ActivatedRoute,
     private authGuardService: AuthGuardService,
-    private getInfo: GetInfoService) { 
-      this.authGuardService.active$.subscribe(active => {
-        if (active) {
-          this.authGuardService.user$.subscribe(user => {   
-            if (user != undefined){           
-              this.loggedUser = user;
-              this.activeRoute.params.subscribe( params =>{
-                let adultId = params['id'];
-                this.getInfo.getAdult(adultId).subscribe(adulto => {
-                  console.log(adulto);
-                  this.adult = adulto;
-                })
-                this.getInfo.adultClinicHistory(adultId).subscribe(history => {
-                  console.log(history);
-                  this.clinicHisotry = history;
-                })
+    private getInfo: GetInfoService) {
+    this.authGuardService.active$.subscribe(active => {
+      if (active) {
+        this.authGuardService.user$.subscribe(user => {   
+          if (user != undefined){           
+            this.loggedUser = user;
+            this.activeRoute.params.subscribe( params =>{
+              let adultId = params['id'];
+              this.getInfo.getAdult(adultId).subscribe(adulto => {
+                console.log(adulto);
+                this.adult = adulto;
               })
-            }              
-          });          
-        }else {
-          this.router.navigate(['/']);
-        }
-      });
-    }
+              this.getInfo.adultClinicHistory(adultId).subscribe(history => {
+                console.log(history);
+                this.clinicHisotry = history;
+              })
+            })
+          }              
+        });          
+      }else {
+        this.router.navigate(['/']);
+      }
+    });
+
+  }
 
   ngOnInit() {
-    this.groupBloods = ["0+", "0-", "A+", "A-", "B+", "B-", "AB+", "AB-"];    
+    this.groupBloods = ["0+", "0-", "A+", "A-", "B+", "B-", "AB+", "AB-"];
     this.adult.first_name = "--";
     this.adult.last_name = "--";
     this.clinicalHistory = new ClinicalHistory({
       adultId: this.adult.id,
-      doctorId: this.loggedUser.id,
+      doctorId: this.loggedUser.id,      
       interview_date: this.clinicHisotry.interview_date,
       regular_doctor_name: this.clinicHisotry.regular_doctor_name,
       regular_doctor_phone: this.clinicHisotry.regular_doctor_phone,
@@ -70,12 +74,14 @@ export class ClinicalHistoryComponent implements OnInit {
       allergies: this.clinicHisotry.allergies,
       coronary_problems: this.clinicHisotry.coronary_problems,
       medical_precedings: this.clinicHisotry.medical_precedings
-    })
+    });
+
   }
 
-  getFullNameClient():string{
-    if(this.adult.first_name == null) return "name not found";
-    return this.adult.first_name+" "+this.adult.last_name;
+
+  getFullNameClient(): string {
+    if (this.adult.first_name == null) return "name not found";
+    return this.adult.first_name + " " + this.adult.last_name;
   }
 
   onFormSubmit({ value, valid }: { value: ClinicalHistory, valid: boolean }) {
@@ -89,9 +95,40 @@ export class ClinicalHistoryComponent implements OnInit {
         console.log("Clinic Histories response");
         console.log(data);
         this.router.navigate(['']);
-    },error=>{
+      }, error => {
         this.toastrService.error(error.toString(), "Error");
-    });
+      });
+  }
+
+  addClinicalPrecending(index): void {
+    this.clinicHisotry.medical_precedings.push("");
+  }
+
+  removeClinicalPrecending(index): void {
+    if (index > 0) {
+      this.clinicHisotry.medical_precedings.splice(index, 1);
+    }
+  }
+
+
+  addAllergy(index): void {
+    this.clinicHisotry.allergies.push("");
+  }
+
+  removeAllergy(index): void {
+    if (index > 0) {
+      this.clinicHisotry.allergies.splice(index, 1);
+    }
+  }
+
+  addCoronary(index): void {
+    this.clinicHisotry.coronary_problems.push("");
+  }
+
+  removeCoronary(index): void {
+    if (index > 0) {
+      this.clinicHisotry.coronary_problems.splice(index, 1);
+    }
   }
 
 }
