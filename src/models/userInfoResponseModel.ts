@@ -11,7 +11,7 @@ export class userModel {
     adult_RH: string;
     is_approved: boolean;
     Role: roleModel;
-    clientStatusId: statusModel;   
+    clientStatusId: number;   
  
     constructor(values: Object = {}) {
       //Constructor initialization
