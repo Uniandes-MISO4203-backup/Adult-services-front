@@ -9,7 +9,7 @@
         "test": "ng test",
         "lint": "ng lint",
         "e2e": "ng e2e",
-        "compodoc": "./node_modules/.bin/compodoc -p src/tsconfig.app.json -w -s",
+        "compodoc": "./node_modules/.bin/compodoc -p src/tsconfig.app.json -w",
         "compodoc-jenkins": "./node_modules/.bin/compodoc -p src/tsconfig.app.json",
         "postinstall": "ng build --aot --prod",
         "cibuild": "ng test --code-coverage  && ng build --prod --no-progress"
