@@ -71,19 +71,25 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { NgModule } from &#x27;@angular/core&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { RequestServiceComponent } from &#x27;./../pages/client/request-service/request-service.component&#x27;;
+import { SignInComponent } from &#x27;./../pages/sign-in/sign-in.component&#x27;;
+import { NgModule } from &#x27;@angular/core&#x27;;
 import { CommonModule } from &#x27;@angular/common&#x27;;
 import { RouterModule, Routes } from &#x27;@angular/router&#x27;;
 
 // adult registering component
-import { AdultFormComponent } from &#x27;../pages/adult-form/form/form.component&#x27;
+import { AdultRegistrationComponent } from &#x27;../pages/registration/adult-registration/adult-registration.component&#x27;;
+
 
 //sign in component
-import { SignInComponentComponent } from &#x27;../pages/sign-in-module/sign-in-component/sign-in-component.component&#x27;
-import { NurseRegistrationComponent } from &#x27;../pages/nurse-registration/nurse-registration.component&#x27;;
+import { NurseRegistrationComponent } from &#x27;../pages/registration/nurse-registration/nurse-registration.component&#x27;;
 import { HomeComponent } from &#x27;../pages/home/home.component&#x27;;
-import { ClientValidationComponent } from &#x27;../pages/client-validation/client-validation.component&#x27;;
-import { DoctorRegistrationComponent } from &#x27;../pages/doctor-registration/doctor-registration.component&#x27;;
+import { ClientValidationComponent } from &#x27;../pages/doctor/client-validation/client-validation.component&#x27;;
+import { DoctorRegistrationComponent } from &#x27;../pages/registration/doctor-registration/doctor-registration.component&#x27;;
+import { ClinicalHistoryComponent } from &#x27;../pages/doctor/clinical-history/clinical-history.component&#x27;;
+import { AvailableDoctorsComponent } from &#x27;../pages/available-doctors/available-doctors.component&#x27;;
+import { UpcomingInterviewsComponent } from &#x27;../pages/doctor/upcoming-interviews/upcoming-interviews.component&#x27;;
+
 
 const routes: Routes &#x3D; [
     {
@@ -95,7 +101,7 @@ const routes: Routes &#x3D; [
         children: [
             {
                 path: &#x27;adult&#x27;,
-                component: AdultFormComponent
+                component: AdultRegistrationComponent
             },
             {
                 path: &#x27;nurse&#x27;,
@@ -109,12 +115,25 @@ const routes: Routes &#x3D; [
     },
     {
         path: &#x27;signIn&#x27;,
-        component: SignInComponentComponent
+        component: SignInComponent
     },
     {
-        path: &#x27;solicitudes&#x27;,
-        component: ClientValidationComponent
+        path: &#x27;citas&#x27;,
+        component: UpcomingInterviewsComponent//ClientValidationComponent
     },
+    {
+        path: &#x27;clinicalHistory/:id&#x27;,
+        component: ClinicalHistoryComponent
+    },
+    {
+        path: &#x27;solicitar-servicio&#x27;,
+        component: RequestServiceComponent
+    }, 
+    {
+        path: &#x27;all-doctors&#x27;,
+        component: AvailableDoctorsComponent
+    }
+
 ];
 
 @NgModule({

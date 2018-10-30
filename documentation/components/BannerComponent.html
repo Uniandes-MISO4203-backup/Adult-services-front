@@ -38,7 +38,7 @@
 
 <ol class="breadcrumb">
   <li>Components</li>
-  <li>FooterComponent</li>
+  <li>BannerComponent</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
@@ -61,7 +61,7 @@
     <h3>File</h3>
 </p>
 <p class="comment">
-    <code>src/app/pages/ui-elements/footer/footer.component.ts</code>
+    <code>src/app/pages/ui-elements/banner/banner.component.ts</code>
 </p>
 
 
@@ -91,19 +91,19 @@
 
             <tr>
                 <td class="col-md-3">selector</td>
-                <td class="col-md-9"><code>app-footer</code></td>
+                <td class="col-md-9"><code>app-banner</code></td>
             </tr>
 
             <tr>
                 <td class="col-md-3">styleUrls</td>
-                <td class="col-md-9"><code>footer.component.css</code></td>
+                <td class="col-md-9"><code>banner.component.scss</code></td>
             </tr>
 
 
 
             <tr>
                 <td class="col-md-3">templateUrl</td>
-                <td class="col-md-9"><code>./footer.component.html</code></td>
+                <td class="col-md-9"><code>./banner.component.html</code></td>
             </tr>
 
 
@@ -150,7 +150,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="8" class="link-to-prism">src/app/pages/ui-elements/footer/footer.component.ts:8</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="8" class="link-to-prism">src/app/pages/ui-elements/banner/banner.component.ts:8</a></div>
                             </td>
                         </tr>
 
@@ -189,7 +189,7 @@
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">src/app/pages/ui-elements/footer/footer.component.ts:12</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">src/app/pages/ui-elements/banner/banner.component.ts:12</a></div>
                             </td>
                         </tr>
 
@@ -215,11 +215,11 @@
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnInit } from &#x27;@angular/core&#x27;;
 
 @Component({
-  selector: &#x27;app-footer&#x27;,
-  templateUrl: &#x27;./footer.component.html&#x27;,
-  styleUrls: [&#x27;./footer.component.css&#x27;]
+  selector: &#x27;app-banner&#x27;,
+  templateUrl: &#x27;./banner.component.html&#x27;,
+  styleUrls: [&#x27;./banner.component.scss&#x27;]
 })
-export class FooterComponent implements OnInit {
+export class BannerComponent implements OnInit {
 
   constructor() { }
 
@@ -231,14 +231,16 @@ export class FooterComponent implements OnInit {
     </div>
 
     <div class="tab-pane fade " id="c-templateData">
-        <pre class="line-numbers"><code class="language-html">&lt;footer class&#x3D;&quot;footer bg-dark fixed-bottom&quot; id&#x3D;&quot;footer&quot;&gt;
-  &lt;div class&#x3D;&quot;container&quot;&gt;
-      &lt;p class&#x3D;&quot;navbar-text text-center&quot;&gt;
-          &lt;img src&#x3D;&quot;../../../assets/logo_uniandes_w.png&quot; alt&#x3D;&quot;logo&quot; width&#x3D;&quot;10%&quot; /&gt;&lt;span class&#x3D;&quot;text-white&quot;&gt; © El Compañero By Adult
-              Services&lt;/span&gt;
-      &lt;/p&gt;
-  &lt;/div&gt;
-&lt;/footer&gt;</code></pre>
+        <pre class="line-numbers"><code class="language-html">&lt;div class&#x3D;&quot;banner&quot;&gt;
+    &lt;div class&#x3D;&quot;container jumbotron-fluid&quot;&gt;
+      &lt;div class&#x3D;&quot;text-center&quot;&gt;
+        &lt;h1&gt;Bienvenidos a la mejor experiencia de acompañamiento.&lt;/h1&gt;
+        &lt;h3 class&#x3D;&quot;top30&quot;&gt;
+          Tu cuidador personal a un solo clic ! 
+        &lt;/h3&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;</code></pre>
     </div>
 
     <div class="tab-pane fade " id="c-tree">
@@ -266,10 +268,10 @@ export class FooterComponent implements OnInit {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><footer class="footer bg-dark fixed-bottom" id="footer">  <div class="container">      <p class="navbar-text text-center">          <img src="../../../assets/logo_uniandes_w.png" alt="logo" width="10%" /><span class="text-white"> © El Compañero By Adult              Services</span>      </p>  </div></footer></div>'
+        var COMPONENT_TEMPLATE = '<div><div class="banner">    <div class="container jumbotron-fluid">      <div class="text-center">        <h1>Bienvenidos a la mejor experiencia de acompañamiento.</h1>        <h3 class="top30">          Tu cuidador personal a un solo clic !         </h3>      </div>    </div>  </div></div>'
     var COMPONENTS = [{'name': 'AdultRegistrationComponent', 'selector': 'app-adult-registration'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'AvailableDoctorsComponent', 'selector': 'app-available-doctors'},{'name': 'BannerComponent', 'selector': 'app-banner'},{'name': 'ClientValidationComponent', 'selector': 'app-client-validation'},{'name': 'ClinicalHistoryComponent', 'selector': 'app-clinical-history'},{'name': 'DoctorRegistrationComponent', 'selector': 'app-doctor-registration'},{'name': 'FooterComponent', 'selector': 'app-footer'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'InterviewInformationsComponent', 'selector': 'app-interview-informations'},{'name': 'LandingPageComponent', 'selector': 'app-landing-page'},{'name': 'NurseRegistrationComponent', 'selector': 'app-nurse-registration'},{'name': 'RequestServiceComponent', 'selector': 'app-request-service'},{'name': 'SignInComponent', 'selector': 'app-sign-in'},{'name': 'UpcomingInterviewsComponent', 'selector': 'app-upcoming-interviews'}];
     var DIRECTIVES = [];
-    var ACTUAL_COMPONENT = {'name': 'FooterComponent'};
+    var ACTUAL_COMPONENT = {'name': 'BannerComponent'};
 </script>
 <script src="../js/tree.js"></script>
 
@@ -303,7 +305,7 @@ export class FooterComponent implements OnInit {
        <script>
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
             var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
-            var COMPODOC_CURRENT_PAGE_URL = 'FooterComponent.html';
+            var COMPODOC_CURRENT_PAGE_URL = 'BannerComponent.html';
        </script>
 
        <script src="../js/libs/custom-elements.min.js"></script>

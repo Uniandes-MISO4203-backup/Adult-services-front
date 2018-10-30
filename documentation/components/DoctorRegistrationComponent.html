@@ -61,7 +61,7 @@
     <h3>File</h3>
 </p>
 <p class="comment">
-    <code>src/app/pages/doctor-registration/doctor-registration.component.ts</code>
+    <code>src/app/pages/registration/doctor-registration/doctor-registration.component.ts</code>
 </p>
 
 
@@ -172,7 +172,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">src/app/pages/doctor-registration/doctor-registration.component.ts:16</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">src/app/pages/registration/doctor-registration/doctor-registration.component.ts:16</a></div>
                             </td>
                         </tr>
 
@@ -265,7 +265,7 @@
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="22" class="link-to-prism">src/app/pages/doctor-registration/doctor-registration.component.ts:22</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="22" class="link-to-prism">src/app/pages/registration/doctor-registration/doctor-registration.component.ts:22</a></div>
                             </td>
                         </tr>
 
@@ -303,7 +303,7 @@
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="31" class="link-to-prism">src/app/pages/doctor-registration/doctor-registration.component.ts:31</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="31" class="link-to-prism">src/app/pages/registration/doctor-registration/doctor-registration.component.ts:31</a></div>
                             </td>
                         </tr>
 
@@ -384,7 +384,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">src/app/pages/doctor-registration/doctor-registration.component.ts:15</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">src/app/pages/registration/doctor-registration/doctor-registration.component.ts:15</a></div>
                             </td>
                         </tr>
 
@@ -419,7 +419,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">src/app/pages/doctor-registration/doctor-registration.component.ts:16</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">src/app/pages/registration/doctor-registration/doctor-registration.component.ts:16</a></div>
                             </td>
                         </tr>
 
@@ -433,9 +433,9 @@
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnInit } from &#x27;@angular/core&#x27;;
-import { RegisterService } from &#x27;../../services/register-service.service&#x27;;
+import { RegisterService } from &#x27;../../../services/register-service.service&#x27;;
 import { ToastrService } from &#x27;ngx-toastr&#x27;;
-import { Doctor } from &#x27;../../../models/doctor&#x27;;
+import { Doctor } from &#x27;../../../../models/doctor&#x27;;
 import { Router } from &#x27;@angular/router&#x27;;
 
 
@@ -466,9 +466,10 @@ export class DoctorRegistrationComponent implements OnInit {
     this.user &#x3D; value;
     console.log(this.user);
     //Web Service
-    this.registerService.postUserReg(this.user).subscribe(
+    this.registerService.postDocReg(this.user).subscribe(
       data &#x3D;&gt; {
-        console.log(&quot;DoctorRegService Response: &quot; + data);
+        console.log(&quot;Doctor register response&quot;);
+        console.log(data);
         this.router.navigate([&#x27;/solicitudes&#x27;]);
     },error&#x3D;&gt;{
         this.toastrService.error(error.toString(), &quot;Error&quot;);
@@ -481,7 +482,7 @@ export class DoctorRegistrationComponent implements OnInit {
     </div>
 
     <div class="tab-pane fade " id="c-templateData">
-        <pre class="line-numbers"><code class="language-html">&lt;div class&#x3D;&quot;col-12&quot;&gt;
+        <pre class="line-numbers"><code class="language-html">&lt;div class&#x3D;&quot;col-12 top50&quot;&gt;
   &lt;div class&#x3D;&quot;col-12 col-sm-8 offset-sm-2 col-md-6 offset-md-3 col-lg-4 offset-lg-4 jumbotron&quot;&gt;
 
     &lt;form novalidate (ngSubmit)&#x3D;&quot;onFormSubmit(signupForm)&quot; #signupForm&#x3D;&quot;ngForm&quot;&gt;
@@ -490,13 +491,13 @@ export class DoctorRegistrationComponent implements OnInit {
 
         &lt;!--- Full Name Block ---&gt;
         &lt;div class&#x3D;&quot;form-group&quot;&gt;
-          &lt;label for&#x3D;&quot;inputfirstName&quot;&gt;Nombres&lt;/label&gt;
+          &lt;label for&#x3D;&quot;inputfirstName&quot;&gt;Nombre(s) &lt;span class&#x3D;&quot;text-danger&quot;&gt;*&lt;/span&gt;&lt;/label&gt;
           &lt;input type&#x3D;&quot;text&quot; class&#x3D;&quot;form-control&quot; [ngModel]&#x3D;&quot;user.firstName&quot; name&#x3D;&quot;firstName&quot; #firstName&#x3D;&quot;ngModel&quot; id&#x3D;&quot;inputfirstName&quot;
             placeholder&#x3D;&quot;Nombre Completo&quot; required&gt;
 
           &lt;!-- Full Name error block --&gt;
 
-          &lt;div *ngIf&#x3D;&quot;( firstName.touched)&quot; class&#x3D;&quot;col-sm-3 text-danger&quot;&gt;
+          &lt;div *ngIf&#x3D;&quot;( firstName.touched)&quot; class&#x3D;&quot;text-danger&quot;&gt;
             &lt;div *ngIf&#x3D;&quot;firstName.errors?.required&quot;&gt;
               Ingrese sus nombres completos
             &lt;/div&gt;
@@ -506,13 +507,13 @@ export class DoctorRegistrationComponent implements OnInit {
 
         &lt;!--- Last Name Block ---&gt;
         &lt;div class&#x3D;&quot;form-group&quot;&gt;
-          &lt;label for&#x3D;&quot;inputLastName&quot;&gt;Apellidos&lt;/label&gt;
+          &lt;label for&#x3D;&quot;inputLastName&quot;&gt;Apellido(s) &lt;span class&#x3D;&quot;text-danger&quot;&gt;*&lt;/span&gt;&lt;/label&gt;
           &lt;input type&#x3D;&quot;text&quot; class&#x3D;&quot;form-control&quot; [ngModel]&#x3D;&quot;user.lastName&quot; name&#x3D;&quot;lastName&quot; #lastName&#x3D;&quot;ngModel&quot; id&#x3D;&quot;inputLastName&quot;
             placeholder&#x3D;&quot;Apellidos&quot; required&gt;
 
           &lt;!-- Last Name error block --&gt;
 
-          &lt;div *ngIf&#x3D;&quot;( lastName.touched)&quot; class&#x3D;&quot;col-sm-3 text-danger&quot;&gt;
+          &lt;div *ngIf&#x3D;&quot;( lastName.touched)&quot; class&#x3D;&quot;text-danger&quot;&gt;
             &lt;div *ngIf&#x3D;&quot;lastName.errors?.required&quot;&gt;
               Ingrese sus apellidos completos
             &lt;/div&gt;
@@ -522,13 +523,13 @@ export class DoctorRegistrationComponent implements OnInit {
 
         &lt;!--- date of birth Block ---&gt;
         &lt;div class&#x3D;&quot;form-group&quot;&gt;
-          &lt;label for&#x3D;&quot;dateOfBirth&quot;&gt;Fecha de nacimiento&lt;/label&gt;
-          &lt;input type&#x3D;&quot;datetime&quot; class&#x3D;&quot;form-control&quot; [ngModel]&#x3D;&quot;user.dateOfBirth&quot; name&#x3D;&quot;dateOfBirth&quot; #dateOfBirth&#x3D;&quot;ngModel&quot;
+          &lt;label for&#x3D;&quot;dateOfBirth&quot;&gt;Fecha de nacimiento &lt;span class&#x3D;&quot;text-danger&quot;&gt;*&lt;/span&gt;&lt;/label&gt;
+          &lt;input type&#x3D;&quot;text&quot; placeholder&#x3D;&quot;yyyy/mm/dd&quot; class&#x3D;&quot;form-control&quot; [ngModel]&#x3D;&quot;user.dateOfBirth&quot; name&#x3D;&quot;dateOfBirth&quot; #dateOfBirth&#x3D;&quot;ngModel&quot;
             id&#x3D;&quot;dateOfBirth&quot; placeholder&#x3D;&quot;Fecha de nacimiento&quot; required&gt;
 
           &lt;!-- date of birth error block --&gt;
 
-          &lt;div *ngIf&#x3D;&quot;( dateOfBirth.touched)&quot; class&#x3D;&quot;col-sm-3 text-danger&quot;&gt;
+          &lt;div *ngIf&#x3D;&quot;( dateOfBirth.touched)&quot; class&#x3D;&quot;text-danger&quot;&gt;
             &lt;div *ngIf&#x3D;&quot;dateOfBirth.errors?.required&quot;&gt;
               Ingrese su fecha de nacimiento
             &lt;/div&gt;
@@ -538,18 +539,18 @@ export class DoctorRegistrationComponent implements OnInit {
 
         &lt;!--- Email Block ---&gt;
         &lt;div class&#x3D;&quot;form-group&quot;&gt;
-          &lt;label for&#x3D;&quot;inputEmail&quot;&gt;Email&lt;/label&gt;
+          &lt;label for&#x3D;&quot;inputEmail&quot;&gt;Email &lt;span class&#x3D;&quot;text-danger&quot;&gt;*&lt;/span&gt;&lt;/label&gt;
           &lt;input type&#x3D;&quot;text&quot; class&#x3D;&quot;form-control&quot; [ngModel]&#x3D;&quot;user.email&quot; name&#x3D;&quot;email&quot; #email&#x3D;&quot;ngModel&quot; id&#x3D;&quot;inputEmail&quot;
             placeholder&#x3D;&quot;Email&quot; pattern&#x3D;&quot;[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$&quot; required&gt;
 
           &lt;!-- Email error block --&gt;
 
-          &lt;div *ngIf&#x3D;&quot;email.invalid &amp;&amp; ( email.touched)&quot; class&#x3D;&quot;col-sm-3 text-danger&quot;&gt;
+          &lt;div *ngIf&#x3D;&quot;email.invalid &amp;&amp; ( email.touched)&quot; class&#x3D;&quot;text-danger&quot;&gt;
             &lt;div *ngIf&#x3D;&quot;email.errors?.required&quot;&gt;
-              Email field can&#x27;t be blank
+              Registre su email
             &lt;/div&gt;
             &lt;div *ngIf&#x3D;&quot;email.errors?.pattern &amp;&amp; email.touched&quot;&gt;
-              The email id doesn&#x27;t seem right
+              Registre un email válido
             &lt;/div&gt;
           &lt;/div&gt;
 
@@ -561,54 +562,55 @@ export class DoctorRegistrationComponent implements OnInit {
         &lt;div ngModelGroup&#x3D;&quot;password&quot; #userPassword&#x3D;&quot;ngModelGroup&quot;&gt;
           &lt;!--- Password Block ---&gt;
           &lt;div class&#x3D;&quot;form-group&quot;&gt;
-            &lt;label for&#x3D;&quot;inputPassword&quot;&gt;Password&lt;/label&gt;
+            &lt;label for&#x3D;&quot;inputPassword&quot;&gt;Password &lt;span class&#x3D;&quot;text-danger&quot;&gt;*&lt;/span&gt;&lt;/label&gt;
             &lt;input type&#x3D;&quot;password&quot; class&#x3D;&quot;form-control&quot; ngModel name&#x3D;&quot;pwd&quot; id&#x3D;&quot;inputPassword&quot; placeholder&#x3D;&quot;Password&quot;
               minlength&#x3D;&quot;8&quot; required&gt;
           &lt;/div&gt;
 
           &lt;div class&#x3D;&quot;form-group&quot;&gt;
-            &lt;label for&#x3D;&quot;confirmPassword&quot;&gt;Confirm Password&lt;/label&gt;
+            &lt;label for&#x3D;&quot;confirmPassword&quot;&gt;Confirm Password &lt;span class&#x3D;&quot;text-danger&quot;&gt;*&lt;/span&gt;&lt;/label&gt;
             &lt;input type&#x3D;&quot;password&quot; class&#x3D;&quot;form-control&quot; ngModel name&#x3D;&quot;confirmPwd&quot; id&#x3D;&quot;confirmPassword&quot; placeholder&#x3D;&quot;Confirm Password&quot;&gt;
           &lt;/div&gt;
 
           &lt;!-- Password error block --&gt;
           &lt;div *ngIf&#x3D;&quot;(userPassword.invalid|| userPassword.value?.pwd !&#x3D; userPassword.value?.confirmPwd) &amp;&amp; (userPassword.touched)&quot;
-            class&#x3D;&quot;col-sm-3 text-danger&quot;&gt;
+            class&#x3D;&quot;text-danger&quot;&gt;
 
             &lt;div *ngIf&#x3D;&quot;userPassword.invalid; else nomatch&quot;&gt;
-              Password needs to be more than 8 characters
+              Registre una contraseña de más de 8 caracteres
             &lt;/div&gt;
             &lt;ng-template #nomatch&gt;
-              Passwords don&#x27;t match
+              Contraseña no coincide
             &lt;/ng-template&gt;
 
           &lt;/div&gt;
 
         &lt;/div&gt;
 
-        &lt;!--- Select gender Block ---&gt;
-        &lt;div class&#x3D;&quot;form-group&quot;&gt;
-          &lt;label for&#x3D;&quot;select&quot;&gt;Gender&lt;/label&gt;
-          &lt;select id&#x3D;&quot;select&quot; [ngModel]&#x3D;&quot;user.gender&quot; name&#x3D;&quot;gender&quot; required&gt;
+         &lt;!--- Select gender Block ---&gt;
+         &lt;div class&#x3D;&quot;form-group&quot;&gt;
+          &lt;label for&#x3D;&quot;select&quot;&gt;Genero &lt;span class&#x3D;&quot;text-danger&quot;&gt;*&lt;/span&gt;&lt;/label&gt;
+          &lt;select id&#x3D;&quot;select&quot; [ngModel]&#x3D;&quot;user.gender&quot; name&#x3D;&quot;gender&quot; class&#x3D;&quot;form-control&quot; required&gt;
             &lt;option *ngFor&#x3D;&quot;let g of gender&quot; [value]&#x3D;&quot;g&quot;&gt; {{g}}
             &lt;/option&gt;
           &lt;/select&gt;
         &lt;/div&gt;
 
-        &lt;!--- Terms and conditions Block ---&gt;
-        &lt;div class&#x3D;&quot;form-group checkbox&quot;&gt;
-          &lt;label&gt;
-            &lt;input type&#x3D;&quot;checkbox&quot; ngModel name&#x3D;&quot;terms&quot; #terms&#x3D;&quot;ngModel&quot; required&gt; Confirm that you&#x27;ve read the Terms
-            and
-            Conditions
-          &lt;/label&gt;
+       &lt;!--- Terms and conditions Block ---&gt;
+       &lt;div class&#x3D;&quot;form-group checkbox&quot;&gt;
+        &lt;label&gt;
+          &lt;input type&#x3D;&quot;checkbox&quot; ngModel name&#x3D;&quot;terms&quot; #terms&#x3D;&quot;ngModel&quot; required/&gt;
+          Aceptar &lt;a data-toggle&#x3D;&quot;modal&quot; data-target&#x3D;&quot;#termsModal&quot; href&#x3D;&quot;#termsModal&quot;&gt;términos y condiciones&lt;/a&gt;
+          
+        &lt;/label&gt;
+       
+        &lt;!-- Terms checkbox error block --&gt;
+        &lt;div *ngIf&#x3D;&quot;(terms.invalid &amp;&amp; terms.touched)&quot; class&#x3D;&quot;text-danger&quot;&gt;
+          Acepte los terminos y condiciones para continuar
+        &lt;/div&gt;         
 
-          &lt;!-- Terms checkbox error block --&gt;
-          &lt;div *ngIf&#x3D;&quot;(terms.invalid &amp;&amp; terms.touched)&quot; class&#x3D;&quot;col-lg-4 text-danger&quot;&gt;
-            You need to check this box to continue
-          &lt;/div&gt;
+      &lt;/div&gt;
 
-        &lt;/div&gt;
 
         &lt;!--- Buttons Block ---&gt;
         &lt;div class&#x3D;&quot;form-group&quot;&gt;
@@ -617,6 +619,30 @@ export class DoctorRegistrationComponent implements OnInit {
         &lt;/div&gt;
       &lt;/fieldset&gt;
     &lt;/form&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;!-- Modal terms and conditions --&gt;
+&lt;div class&#x3D;&quot;modal fade&quot; id&#x3D;&quot;termsModal&quot; tabindex&#x3D;&quot;-1&quot; role&#x3D;&quot;dialog&quot; aria-labelledby&#x3D;&quot;exampleModalLabel&quot; aria-hidden&#x3D;&quot;true&quot;&gt;
+  &lt;div class&#x3D;&quot;modal-dialog&quot; role&#x3D;&quot;document&quot;&gt;
+    &lt;div class&#x3D;&quot;modal-content&quot;&gt;
+      &lt;div class&#x3D;&quot;modal-header&quot;&gt;
+        &lt;h5 class&#x3D;&quot;modal-title&quot; id&#x3D;&quot;exampleModalLabel&quot;&gt;Terminos y Condiciones&lt;/h5&gt;
+        &lt;button type&#x3D;&quot;button&quot; class&#x3D;&quot;close&quot; data-dismiss&#x3D;&quot;modal&quot; aria-label&#x3D;&quot;Close&quot;&gt;
+          &lt;span aria-hidden&#x3D;&quot;true&quot;&gt;&amp;times;&lt;/span&gt;
+        &lt;/button&gt;
+      &lt;/div&gt;
+      &lt;div class&#x3D;&quot;modal-body&quot;&gt;
+        &lt;h3 class&#x3D;&quot;text-center&quot;&gt;TÉRMINOS Y CONDICIONES&lt;/h3&gt;
+        &lt;p class&#x3D;&quot;text-justify&quot;&gt;
+          Los servicios se prestan a personas mayores quienes pueden desplazarse por su propio pie y quienes no tienen una condición médica crítica mental o física.
+        Si bien las personas que quieren utilizar estos servicios no tienen que ser pacientes de los médicos centro médico “La Tercera Edad”, para acceder, por primera vez, a los servicios de “El Compañero” la persona debe solicitar una valoración de su estado de salud con uno de los médicos de este centro.
+        Todos los servicios que solicite, generan un costo que deberá pagarse con un 50% de anticipo al asignar el servicio y el 50% al finalizar el servicio.
+      &lt;/div&gt;
+      &lt;div class&#x3D;&quot;modal-footer&quot;&gt;
+        &lt;button type&#x3D;&quot;button&quot; class&#x3D;&quot;btn btn-secondary&quot; data-dismiss&#x3D;&quot;modal&quot;&gt;Cerrar&lt;/button&gt;        
+      &lt;/div&gt;
+    &lt;/div&gt;
   &lt;/div&gt;
 &lt;/div&gt;</code></pre>
     </div>
@@ -646,8 +672,8 @@ export class DoctorRegistrationComponent implements OnInit {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><div class="col-12">  <div class="col-12 col-sm-8 offset-sm-2 col-md-6 offset-md-3 col-lg-4 offset-lg-4 jumbotron">    <form novalidate (ngSubmit)="onFormSubmit(signupForm)" #signupForm="ngForm">      <fieldset>        <legend>Registro Doctor</legend>        <!--- Full Name Block --->        <div class="form-group">          <label for="inputfirstName">Nombres</label>          <input type="text" class="form-control" [ngModel]="user.firstName" name="firstName" #firstName="ngModel" id="inputfirstName"            placeholder="Nombre Completo" required>          <!-- Full Name error block -->          <div *ngIf="( firstName.touched)" class="col-sm-3 text-danger">            <div *ngIf="firstName.errors?.required">              Ingrese sus nombres completos            </div>          </div>        </div>        <!--- End of Full Name Block --->        <!--- Last Name Block --->        <div class="form-group">          <label for="inputLastName">Apellidos</label>          <input type="text" class="form-control" [ngModel]="user.lastName" name="lastName" #lastName="ngModel" id="inputLastName"            placeholder="Apellidos" required>          <!-- Last Name error block -->          <div *ngIf="( lastName.touched)" class="col-sm-3 text-danger">            <div *ngIf="lastName.errors?.required">              Ingrese sus apellidos completos            </div>          </div>        </div>        <!--- End of Last Name Block --->        <!--- date of birth Block --->        <div class="form-group">          <label for="dateOfBirth">Fecha de nacimiento</label>          <input type="datetime" class="form-control" [ngModel]="user.dateOfBirth" name="dateOfBirth" #dateOfBirth="ngModel"            id="dateOfBirth" placeholder="Fecha de nacimiento" required>          <!-- date of birth error block -->          <div *ngIf="( dateOfBirth.touched)" class="col-sm-3 text-danger">            <div *ngIf="dateOfBirth.errors?.required">              Ingrese su fecha de nacimiento            </div>          </div>        </div>        <!--- date of birth Name Block --->        <!--- Email Block --->        <div class="form-group">          <label for="inputEmail">Email</label>          <input type="text" class="form-control" [ngModel]="user.email" name="email" #email="ngModel" id="inputEmail"            placeholder="Email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" required>          <!-- Email error block -->          <div *ngIf="email.invalid && ( email.touched)" class="col-sm-3 text-danger">            <div *ngIf="email.errors?.required">              Email field can\'t be blank            </div>            <div *ngIf="email.errors?.pattern && email.touched">              The email id doesn\'t seem right            </div>          </div>        </div>        <div ngModelGroup="password" #userPassword="ngModelGroup">          <!--- Password Block --->          <div class="form-group">            <label for="inputPassword">Password</label>            <input type="password" class="form-control" ngModel name="pwd" id="inputPassword" placeholder="Password"              minlength="8" required>          </div>          <div class="form-group">            <label for="confirmPassword">Confirm Password</label>            <input type="password" class="form-control" ngModel name="confirmPwd" id="confirmPassword" placeholder="Confirm Password">          </div>          <!-- Password error block -->          <div *ngIf="(userPassword.invalid|| userPassword.value?.pwd != userPassword.value?.confirmPwd) && (userPassword.touched)"            class="col-sm-3 text-danger">            <div *ngIf="userPassword.invalid; else nomatch">              Password needs to be more than 8 characters            </div>            <ng-template #nomatch>              Passwords don\'t match            </ng-template>          </div>        </div>        <!--- Select gender Block --->        <div class="form-group">          <label for="select">Gender</label>          <select id="select" [ngModel]="user.gender" name="gender" required>            <option *ngFor="let g of gender" [value]="g"> {{g}}            </option>          </select>        </div>        <!--- Terms and conditions Block --->        <div class="form-group checkbox">          <label>            <input type="checkbox" ngModel name="terms" #terms="ngModel" required> Confirm that you\'ve read the Terms            and            Conditions          </label>          <!-- Terms checkbox error block -->          <div *ngIf="(terms.invalid && terms.touched)" class="col-lg-4 text-danger">            You need to check this box to continue          </div>        </div>        <!--- Buttons Block --->        <div class="form-group">          <button type="reset" class="btn btn-default">Cancel</button>          <button type="submit" class="btn btn-primary" [disabled]="!signupForm.form.valid">Submit</button>        </div>      </fieldset>    </form>  </div></div></div>'
-    var COMPONENTS = [{'name': 'AdultFormComponent', 'selector': 'app-form'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'ClientValidationComponent', 'selector': 'app-client-validation'},{'name': 'DoctorRegistrationComponent', 'selector': 'app-doctor-registration'},{'name': 'FooterComponent', 'selector': 'app-footer'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'NurseRegistrationComponent', 'selector': 'app-nurse-registration'},{'name': 'SignInComponentComponent', 'selector': 'app-sign-in-component'},{'name': 'TableComponent', 'selector': 'app-table'},{'name': 'TableRowComponent', 'selector': '[app-table-row]'}];
+        var COMPONENT_TEMPLATE = '<div><div class="col-12 top50">  <div class="col-12 col-sm-8 offset-sm-2 col-md-6 offset-md-3 col-lg-4 offset-lg-4 jumbotron">    <form novalidate (ngSubmit)="onFormSubmit(signupForm)" #signupForm="ngForm">      <fieldset>        <legend>Registro Doctor</legend>        <!--- Full Name Block --->        <div class="form-group">          <label for="inputfirstName">Nombre(s) <span class="text-danger">*</span></label>          <input type="text" class="form-control" [ngModel]="user.firstName" name="firstName" #firstName="ngModel" id="inputfirstName"            placeholder="Nombre Completo" required>          <!-- Full Name error block -->          <div *ngIf="( firstName.touched)" class="text-danger">            <div *ngIf="firstName.errors?.required">              Ingrese sus nombres completos            </div>          </div>        </div>        <!--- End of Full Name Block --->        <!--- Last Name Block --->        <div class="form-group">          <label for="inputLastName">Apellido(s) <span class="text-danger">*</span></label>          <input type="text" class="form-control" [ngModel]="user.lastName" name="lastName" #lastName="ngModel" id="inputLastName"            placeholder="Apellidos" required>          <!-- Last Name error block -->          <div *ngIf="( lastName.touched)" class="text-danger">            <div *ngIf="lastName.errors?.required">              Ingrese sus apellidos completos            </div>          </div>        </div>        <!--- End of Last Name Block --->        <!--- date of birth Block --->        <div class="form-group">          <label for="dateOfBirth">Fecha de nacimiento <span class="text-danger">*</span></label>          <input type="text" placeholder="yyyy/mm/dd" class="form-control" [ngModel]="user.dateOfBirth" name="dateOfBirth" #dateOfBirth="ngModel"            id="dateOfBirth" placeholder="Fecha de nacimiento" required>          <!-- date of birth error block -->          <div *ngIf="( dateOfBirth.touched)" class="text-danger">            <div *ngIf="dateOfBirth.errors?.required">              Ingrese su fecha de nacimiento            </div>          </div>        </div>        <!--- date of birth Name Block --->        <!--- Email Block --->        <div class="form-group">          <label for="inputEmail">Email <span class="text-danger">*</span></label>          <input type="text" class="form-control" [ngModel]="user.email" name="email" #email="ngModel" id="inputEmail"            placeholder="Email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" required>          <!-- Email error block -->          <div *ngIf="email.invalid && ( email.touched)" class="text-danger">            <div *ngIf="email.errors?.required">              Registre su email            </div>            <div *ngIf="email.errors?.pattern && email.touched">              Registre un email válido            </div>          </div>        </div>        <div ngModelGroup="password" #userPassword="ngModelGroup">          <!--- Password Block --->          <div class="form-group">            <label for="inputPassword">Password <span class="text-danger">*</span></label>            <input type="password" class="form-control" ngModel name="pwd" id="inputPassword" placeholder="Password"              minlength="8" required>          </div>          <div class="form-group">            <label for="confirmPassword">Confirm Password <span class="text-danger">*</span></label>            <input type="password" class="form-control" ngModel name="confirmPwd" id="confirmPassword" placeholder="Confirm Password">          </div>          <!-- Password error block -->          <div *ngIf="(userPassword.invalid|| userPassword.value?.pwd != userPassword.value?.confirmPwd) && (userPassword.touched)"            class="text-danger">            <div *ngIf="userPassword.invalid; else nomatch">              Registre una contraseña de más de 8 caracteres            </div>            <ng-template #nomatch>              Contraseña no coincide            </ng-template>          </div>        </div>         <!--- Select gender Block --->         <div class="form-group">          <label for="select">Genero <span class="text-danger">*</span></label>          <select id="select" [ngModel]="user.gender" name="gender" class="form-control" required>            <option *ngFor="let g of gender" [value]="g"> {{g}}            </option>          </select>        </div>       <!--- Terms and conditions Block --->       <div class="form-group checkbox">        <label>          <input type="checkbox" ngModel name="terms" #terms="ngModel" required/>          Aceptar <a data-toggle="modal" data-target="#termsModal" href="#termsModal">términos y condiciones</a>                  </label>               <!-- Terms checkbox error block -->        <div *ngIf="(terms.invalid && terms.touched)" class="text-danger">          Acepte los terminos y condiciones para continuar        </div>               </div>        <!--- Buttons Block --->        <div class="form-group">          <button type="reset" class="btn btn-default">Cancel</button>          <button type="submit" class="btn btn-primary" [disabled]="!signupForm.form.valid">Submit</button>        </div>      </fieldset>    </form>  </div></div><!-- Modal terms and conditions --><div class="modal fade" id="termsModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">  <div class="modal-dialog" role="document">    <div class="modal-content">      <div class="modal-header">        <h5 class="modal-title" id="exampleModalLabel">Terminos y Condiciones</h5>        <button type="button" class="close" data-dismiss="modal" aria-label="Close">          <span aria-hidden="true">&times;</span>        </button>      </div>      <div class="modal-body">        <h3 class="text-center">TÉRMINOS Y CONDICIONES</h3>        <p class="text-justify">          Los servicios se prestan a personas mayores quienes pueden desplazarse por su propio pie y quienes no tienen una condición médica crítica mental o física.        Si bien las personas que quieren utilizar estos servicios no tienen que ser pacientes de los médicos centro médico “La Tercera Edad”, para acceder, por primera vez, a los servicios de “El Compañero” la persona debe solicitar una valoración de su estado de salud con uno de los médicos de este centro.        Todos los servicios que solicite, generan un costo que deberá pagarse con un 50% de anticipo al asignar el servicio y el 50% al finalizar el servicio.      </div>      <div class="modal-footer">        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>              </div>    </div>  </div></div></div>'
+    var COMPONENTS = [{'name': 'AdultRegistrationComponent', 'selector': 'app-adult-registration'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'AvailableDoctorsComponent', 'selector': 'app-available-doctors'},{'name': 'BannerComponent', 'selector': 'app-banner'},{'name': 'ClientValidationComponent', 'selector': 'app-client-validation'},{'name': 'ClinicalHistoryComponent', 'selector': 'app-clinical-history'},{'name': 'DoctorRegistrationComponent', 'selector': 'app-doctor-registration'},{'name': 'FooterComponent', 'selector': 'app-footer'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'InterviewInformationsComponent', 'selector': 'app-interview-informations'},{'name': 'LandingPageComponent', 'selector': 'app-landing-page'},{'name': 'NurseRegistrationComponent', 'selector': 'app-nurse-registration'},{'name': 'RequestServiceComponent', 'selector': 'app-request-service'},{'name': 'SignInComponent', 'selector': 'app-sign-in'},{'name': 'UpcomingInterviewsComponent', 'selector': 'app-upcoming-interviews'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'DoctorRegistrationComponent'};
 </script>

@@ -38,7 +38,7 @@
 
 <ol class="breadcrumb">
   <li>Components</li>
-  <li>HomeComponent</li>
+  <li>UpcomingInterviewsComponent</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
@@ -61,7 +61,7 @@
     <h3>File</h3>
 </p>
 <p class="comment">
-    <code>src/app/pages/home/home.component.ts</code>
+    <code>src/app/pages/doctor/upcoming-interviews/upcoming-interviews.component.ts</code>
 </p>
 
 
@@ -91,19 +91,19 @@
 
             <tr>
                 <td class="col-md-3">selector</td>
-                <td class="col-md-9"><code>app-home</code></td>
+                <td class="col-md-9"><code>app-upcoming-interviews</code></td>
             </tr>
 
             <tr>
                 <td class="col-md-3">styleUrls</td>
-                <td class="col-md-9"><code>home.component.scss</code></td>
+                <td class="col-md-9"><code>upcoming-interviews.component.css</code></td>
             </tr>
 
 
 
             <tr>
                 <td class="col-md-3">templateUrl</td>
-                <td class="col-md-9"><code>./home.component.html</code></td>
+                <td class="col-md-9"><code>./upcoming-interviews.component.html</code></td>
             </tr>
 
 
@@ -124,7 +124,7 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
-                                <a href="#active">active</a>
+                                <a href="#appointments">appointments</a>
                             </li>
                             <li>
                                 <a href="#loggedUser">loggedUser</a>
@@ -142,6 +142,9 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
+                                <a href="#getDoctorInterviews">getDoctorInterviews</a>
+                            </li>
+                            <li>
                                 <a href="#ngOnInit">ngOnInit</a>
                             </li>
                         </ul>
@@ -156,6 +159,78 @@
     </table>
 </section>
 
+    <section>
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(clinicHistoriesService: <a href="../injectables/ClinicHistoriesService.html">ClinicHistoriesService</a>, authGuardService: <a href="../injectables/AuthGuardService.html">AuthGuardService</a>, router: <a href="https://angular.io/api/router/Router" target="_blank">Router</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">src/app/pages/doctor/upcoming-interviews/upcoming-interviews.component.ts:17</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>clinicHistoriesService</td>
+                                                  
+                                                        <td>
+                                                                    <code><a href="../injectables/ClinicHistoriesService.html" target="_self" >ClinicHistoriesService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>authGuardService</td>
+                                                  
+                                                        <td>
+                                                                    <code><a href="../injectables/AuthGuardService.html" target="_self" >AuthGuardService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>router</td>
+                                                  
+                                                        <td>
+                                                                    <code><a href="https://angular.io/api/router/Router" target="_blank" >Router</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
 
 
 
@@ -166,6 +241,44 @@
         <h3 id="methods">
             Methods
         </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="getDoctorInterviews"></a>
+                        <span class="name">
+                            <b>
+                            getDoctorInterviews
+                            </b>
+                            <a href="#getDoctorInterviews"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>getDoctorInterviews()</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="43" class="link-to-prism">src/app/pages/doctor/upcoming-interviews/upcoming-interviews.component.ts:43</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
         <table class="table table-sm table-bordered">
             <tbody>
                 <tr>
@@ -188,7 +301,7 @@
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="40" class="link-to-prism">src/app/pages/home/home.component.ts:40</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="39" class="link-to-prism">src/app/pages/doctor/upcoming-interviews/upcoming-interviews.component.ts:39</a></div>
                             </td>
                         </tr>
 
@@ -215,29 +328,30 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-                        <a name="active"></a>
+                        <a name="appointments"></a>
                         <span class="name">
                             <b>
-                            active
+                            appointments
                             </b>
-                            <a href="#active"><span class="icon ion-ios-link"></span></a>
+                            <a href="#appointments"><span class="icon ion-ios-link"></span></a>
                         </span>
                     </td>
                 </tr>
                 <tr>
                     <td class="col-md-4">
-                        <code>active:     <code></code>
+                        <code>appointments:     <code><a href="../classes/Appointment.html" target="_self" >Appointment[]</a></code>
 </code>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                            <i>Default value : </i><code>true</code>
+                            <i>Type : </i>    <code><a href="../classes/Appointment.html" target="_self" >Appointment[]</a></code>
+
                         </td>
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">src/app/pages/home/home.component.ts:14</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">src/app/pages/doctor/upcoming-interviews/upcoming-interviews.component.ts:16</a></div>
                             </td>
                         </tr>
 
@@ -271,7 +385,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">src/app/pages/home/home.component.ts:16</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">src/app/pages/doctor/upcoming-interviews/upcoming-interviews.component.ts:17</a></div>
                             </td>
                         </tr>
 
@@ -284,65 +398,92 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnInit } from &#x27;@angular/core&#x27;;
-import { AuthGuardService } from &#x27;../../services/auth-guard.service&#x27;;
-import { userModel } from &#x27;../../../models/userInfoResponseModel&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { userModel } from &#x27;./../../../../models/userInfoResponseModel&#x27;;
+import { AuthGuardService } from &#x27;./../../../services/auth-guard.service&#x27;;
+import { Component, OnInit } from &#x27;@angular/core&#x27;;
+import { Appointment } from &#x27;../../../../models/appointment&#x27;;
+import { ClinicHistoriesService } from &#x27;../../../services/clinic-histories.service&#x27;;
 import { Router } from &#x27;@angular/router&#x27;;
-import { Observable } from &#x27;rxjs/Observable&#x27;;
+import * as moment from &#x27;moment&#x27;;
 
 @Component({
-  selector: &#x27;app-home&#x27;,
-  templateUrl: &#x27;./home.component.html&#x27;,
-  styleUrls: [&#x27;./home.component.scss&#x27;]
+  selector: &#x27;app-upcoming-interviews&#x27;,
+  templateUrl: &#x27;./upcoming-interviews.component.html&#x27;,
+  styleUrls: [&#x27;./upcoming-interviews.component.css&#x27;]
 })
-export class HomeComponent implements OnInit {
+export class UpcomingInterviewsComponent implements OnInit {
 
-  active &#x3D; true;
+  appointments: Appointment[]
+  loggedUser: userModel
 
-  loggedUser: userModel;
+  constructor(private clinicHistoriesService: ClinicHistoriesService,
+    private authGuardService: AuthGuardService,
+    private router: Router) {
 
-  /**
-     * @ignore
-     */
-  constructor(private authGuardService: AuthGuardService, private router: Router) {
     this.authGuardService.active$.subscribe(active &#x3D;&gt; {
       console.log(&quot;Is active&quot;, active);
       if (active) {
-        this.active &#x3D; true;
-        this.router.navigate([&#x27;/&#x27;]);
         this.authGuardService.user$.subscribe(user &#x3D;&gt; {
           if (user !&#x3D; undefined) {
             this.loggedUser &#x3D; user;
+            this.getDoctorInterviews()
           }
         });
-
       } else {
-        this.active &#x3D; false;
         this.router.navigate([&#x27;/&#x27;]);
       }
     });
+
   }
 
   ngOnInit() {
-
   }
 
+
+  getDoctorInterviews() {
+    return this.clinicHistoriesService.getInterviewsForDoctor(this.loggedUser.id).subscribe(
+      data &#x3D;&gt; {
+        console.log(data)
+        this.appointments &#x3D; data
+        for (var appointment of this.appointments) {
+          console.log(appointment)
+          appointment.interview_date &#x3D; moment(appointment.interview_date).locale(&quot;es&quot;).format(&#x27;D MMMM YYYY h:mm a&#x27;)
+        }
+      }, error &#x3D;&gt; {
+        console.log(&quot;Error fetching interviews for doctor&quot;);
+        console.log(error);
+      });
+
+  }
 }
+
 </code></pre>
     </div>
 
     <div class="tab-pane fade " id="c-templateData">
-        <pre class="line-numbers"><code class="language-html">&lt;div *ngIf&#x3D;&quot;active &amp;&amp; loggedUser.Role.name &#x3D;&#x3D; &#x27;adult&#x27; &quot;&gt;
-  &lt;app-interview-informations &gt;[loggedUser]&#x3D;&quot;loggedUser&quot;&lt;/app-interview-informations&gt;
-&lt;/div&gt;
-&lt;div *ngIf&#x3D;&quot;active &amp;&amp; loggedUser.Role.name &#x3D;&#x3D; &#x27;doctor&#x27;&quot;&gt;
-    &lt;app-client-validation&gt;&lt;/app-client-validation&gt;
-&lt;/div&gt;
-&lt;div *ngIf&#x3D;&quot;active &amp;&amp; loggedUser.Role.name &#x3D;&#x3D; &#x27;nurse&#x27;&quot;&gt;
-  &lt;app-client-validation&gt;&lt;/app-client-validation&gt;
-&lt;/div&gt;
-&lt;div *ngIf&#x3D;&quot;!active&quot;&gt;
-  &lt;app-landing-page&gt;&lt;/app-landing-page&gt;
+        <pre class="line-numbers"><code class="language-html">&lt;div class&#x3D;&quot;container&quot;&gt;
+  &lt;h1 class&#x3D;&quot;text-center top50&quot; id&#x3D;&quot;doctor-name&quot;&gt;Citas de valoracion&lt;/h1&gt;
+  &lt;h4 class&#x3D;&quot;text-center top30&quot;&gt;{{appointments.length}} cita(s) a venir&lt;/h4&gt;
+  &lt;div *ngIf&#x3D;&quot;appointments !&#x3D; undefined &amp;&amp; appointments.length &gt; 0&quot;&gt;
+    &lt;table class&#x3D;&quot;top30 table&quot;&gt;
+      &lt;thead&gt;
+        &lt;tr&gt;
+          &lt;th scope&#x3D;&quot;col&quot;&gt;Fecha&lt;/th&gt;
+          &lt;th scope&#x3D;&quot;col&quot;&gt;Nombre&lt;/th&gt;
+          &lt;th scope&#x3D;&quot;col&quot;&gt;Apellido&lt;/th&gt;
+
+        &lt;/tr&gt;
+      &lt;/thead&gt;
+      &lt;tbody&gt;
+        &lt;tr *ngFor&#x3D;&quot;let appointment of appointments&quot;&gt;
+          &lt;th scope&#x3D;&quot;row&quot;&gt;{{appointment.interview_date}}&lt;/th&gt;
+          &lt;td&gt;{{appointment.adult.first_name}}&lt;/td&gt;
+          &lt;td&gt;{{appointment.adult.last_name}}&lt;/td&gt;
+          
+        &lt;/tr&gt;         
+      &lt;/tbody&gt;
+    &lt;/table&gt;
+  &lt;/div&gt;
 &lt;/div&gt;</code></pre>
     </div>
 
@@ -371,10 +512,10 @@ export class HomeComponent implements OnInit {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><div *ngIf="active && loggedUser.Role.name == \'adult\' ">  <app-interview-informations >[loggedUser]="loggedUser"</app-interview-informations></div><div *ngIf="active && loggedUser.Role.name == \'doctor\'">    <app-client-validation></app-client-validation></div><div *ngIf="active && loggedUser.Role.name == \'nurse\'">  <app-client-validation></app-client-validation></div><div *ngIf="!active">  <app-landing-page></app-landing-page></div></div>'
+        var COMPONENT_TEMPLATE = '<div><div class="container">  <h1 class="text-center top50" id="doctor-name">Citas de valoracion</h1>  <h4 class="text-center top30">{{appointments.length}} cita(s) a venir</h4>  <div *ngIf="appointments != undefined && appointments.length > 0">    <table class="top30 table">      <thead>        <tr>          <th scope="col">Fecha</th>          <th scope="col">Nombre</th>          <th scope="col">Apellido</th>        </tr>      </thead>      <tbody>        <tr *ngFor="let appointment of appointments">          <th scope="row">{{appointment.interview_date}}</th>          <td>{{appointment.adult.first_name}}</td>          <td>{{appointment.adult.last_name}}</td>                  </tr>               </tbody>    </table>  </div></div></div>'
     var COMPONENTS = [{'name': 'AdultRegistrationComponent', 'selector': 'app-adult-registration'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'AvailableDoctorsComponent', 'selector': 'app-available-doctors'},{'name': 'BannerComponent', 'selector': 'app-banner'},{'name': 'ClientValidationComponent', 'selector': 'app-client-validation'},{'name': 'ClinicalHistoryComponent', 'selector': 'app-clinical-history'},{'name': 'DoctorRegistrationComponent', 'selector': 'app-doctor-registration'},{'name': 'FooterComponent', 'selector': 'app-footer'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'InterviewInformationsComponent', 'selector': 'app-interview-informations'},{'name': 'LandingPageComponent', 'selector': 'app-landing-page'},{'name': 'NurseRegistrationComponent', 'selector': 'app-nurse-registration'},{'name': 'RequestServiceComponent', 'selector': 'app-request-service'},{'name': 'SignInComponent', 'selector': 'app-sign-in'},{'name': 'UpcomingInterviewsComponent', 'selector': 'app-upcoming-interviews'}];
     var DIRECTIVES = [];
-    var ACTUAL_COMPONENT = {'name': 'HomeComponent'};
+    var ACTUAL_COMPONENT = {'name': 'UpcomingInterviewsComponent'};
 </script>
 <script src="../js/tree.js"></script>
 
@@ -408,7 +549,7 @@ export class HomeComponent implements OnInit {
        <script>
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
             var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
-            var COMPODOC_CURRENT_PAGE_URL = 'HomeComponent.html';
+            var COMPODOC_CURRENT_PAGE_URL = 'UpcomingInterviewsComponent.html';
        </script>
 
        <script src="../js/libs/custom-elements.min.js"></script>
