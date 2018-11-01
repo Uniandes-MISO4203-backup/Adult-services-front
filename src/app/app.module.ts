@@ -28,6 +28,7 @@ import { ClinicalHistoryComponent } from './pages/doctor/clinical-history/clinic
 import { AvailableDoctorsComponent } from './pages/available-doctors/available-doctors.component';
 import { UpcomingInterviewsComponent } from './pages/doctor/upcoming-interviews/upcoming-interviews.component';
 
+
 export function jokesProviderFactory(authGuardService: AuthGuardService) {
     return () => authGuardService.loadSession();
 }
@@ -49,7 +50,7 @@ export function jokesProviderFactory(authGuardService: AuthGuardService) {
         ClinicalHistoryComponent,
         RequestServiceComponent,
         AvailableDoctorsComponent,
-        UpcomingInterviewsComponent,
+        UpcomingInterviewsComponent        
     ],
     imports: [
         BrowserModule,

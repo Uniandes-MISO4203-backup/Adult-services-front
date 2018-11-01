@@ -1,10 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute  } from '@angular/router';
-import { Router } from '@angular/router';
-import { EnfermeroDis } from '../../../../models/EnfermerosDis';
-import { AuthGuardService } from '../../../services/auth-guard.service';
-import { GetInfoService } from '../../../services/getInfo-services.service';
-import { userModel } from '../../../../models/userInfoResponseModel';
+import { RequestService } from '../../../../models/requestService';
 
 @Component({
   selector: 'app-request-service',
@@ -12,6 +7,8 @@ import { userModel } from '../../../../models/userInfoResponseModel';
   styleUrls: ['./request-service.component.css']
 })
 export class RequestServiceComponent implements OnInit {
+  public requestService: RequestService;
+  public servicesType:Array<string>;
 
   adultId: string;  
   enfermerosDisponibles: EnfermeroDis[];
@@ -43,32 +40,14 @@ export class RequestServiceComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.watchComments = false;
-  }
 
-  getEnfermerosDisponibles(){
-    this.getInfo.getEnfermerosDisponibles().subscribe(
-      data => {
-        console.log("Enfermeros disponibles: ");
-        console.log(data);
-        this.enfermerosDisponibles = data;
-    },error=>{
-        console.log("Error en getClinicHistories");
-        console.log(error);
-    });
-  }
-
-  solicitud(id){
+    this.servicesType=["servicio 1","servicio 2","servicio 3"];
+    this.requestService= new RequestService();
 
   }
 
-  getComments(id){
-    this.watchComments = true;
-    for (let enf of this.enfermerosDisponibles) {
-      if(enf.id == id ){
-        this.services = enf.Services;        
-      }
-    }
-  }
+  onFormSubmit({ value, valid }: { value: RequestService, valid: boolean }) {
+    this.requestService = value;
+    console.log(this.requestService);
 
 }
