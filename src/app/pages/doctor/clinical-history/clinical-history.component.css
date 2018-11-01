@@ -6,10 +6,30 @@
         font-size: inherit;
 }
 
-.clinical-history .title{
+.clinical-history .title-clinical-history{
         margin-bottom: 4rem; 
 }
 
 .clinical-history .number{
     max-width: 5rem;
 }
+.clinical-history .container-form{
+       padding:0% 10% 0% 10%;
+}
+.clinical-history .center-table{        
+        width:90%;
+        margin-left:auto; 
+    margin-right:auto;
+}
+
+.clinical-history .center-table td{        
+        padding:5px;
+}
+
+.clinical-history .cell-input{
+        width: 90%;
+}
+.clinical-history .cell-button{
+        width: 10%;
+}
+

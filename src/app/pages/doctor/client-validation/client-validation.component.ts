@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, TemplateRef} from '@angular/core';
 import { Client } from '../../../../models/client';
 import { AuthGuardService } from '../../../services/auth-guard.service';
 import { GetInfoService } from '../../../services/getInfo-services.service';
@@ -6,24 +6,26 @@ import { userModel } from '../../../../models/userInfoResponseModel';
 import { Router } from '@angular/router';
 import { ClinicalHistory } from '../../../../models/clinicalHistory';
 
+
 @Component({
   selector: 'app-client-validation',
   templateUrl: './client-validation.component.html',
   styleUrls: ['./client-validation.component.css']
 })
 export class ClientValidationComponent implements OnInit {
-
+  public pendingReject:userModel=new userModel();
   rol: string;
   user_name: string;
   loggedUser: userModel;
 
   pendingUsers: userModel[];
-  clinicHistories: ClinicalHistory[];
+  clinicHistories: ClinicalHistory[];  
 
   constructor(private authGuardService: AuthGuardService, 
     private router: Router,
-    private getInfo: GetInfoService ) { 
-
+    private getInfo: GetInfoService
+     ) { 
+    this.clinicHistories=[];
     this.authGuardService.active$.subscribe(active => {
       console.log("Is active", active);
       if (active) {
@@ -76,8 +78,8 @@ export class ClientValidationComponent implements OnInit {
     this.cambiarEstado(id,"aprobado")
   }
 
-  rechazar(id){
-    this.cambiarEstado(id,"no aprobado")
+  rechazar(){
+    this.cambiarEstado(this.pendingReject.id,this.pendingReject.rejectClientExplains)
   }
 
   programar(id){
@@ -93,7 +95,7 @@ export class ClientValidationComponent implements OnInit {
     });
   }
 
-  haveHistory(id): boolean{
+  haveHistory(id): boolean{   
     let _haveHistory = false
     for (let history of this.clinicHistories) {
       if(history.adultId == id){
@@ -116,4 +118,9 @@ export class ClientValidationComponent implements OnInit {
     });
   }
 
+  setRejectClient(pending:userModel){
+        this.pendingReject=pending;      
+  }
+
 }
+
