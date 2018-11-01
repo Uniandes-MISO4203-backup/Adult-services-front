@@ -49,11 +49,6 @@ export class HeaderComponent implements OnInit {
                                 //    id: "historia_clinica", name: "Historia Clinica", icon: "user", link: "clinicalHistory"
                                 //},
 
-                                //TO REMOVE
-                                {
-                                    id: "all-doctors", name: "Ver los doctores (Temporal)", icon: "user", link: "all-doctors"
-                                }
-
                                 //{
                                 //    id: "usuario", name: " Rol: "+ user.Role.name, icon: "user", link: "solicitudes"
                                 //}

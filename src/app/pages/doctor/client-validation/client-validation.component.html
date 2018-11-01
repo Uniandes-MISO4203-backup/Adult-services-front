@@ -22,9 +22,47 @@
           <td *ngIf="pending.clientStatusId == 2 && !haveHistory(pending.id)">Pendiente Valoración</td>
           <td *ngIf="pending.clientStatusId == 2 && !haveHistory(pending.id)"><button type="button" class="btn btn-primary" [routerLink]="['clinicalHistory',pending.id]">Ingresar Historia Clínica</button></td>
           <td *ngIf="pending.clientStatusId == 2 && haveHistory(pending.id)">Aprobar</td>
-          <td *ngIf="pending.clientStatusId == 2 && haveHistory(pending.id)"><button type="button" class="btn btn-success" (click)="aprobar(pending.id)">Aprobar</button><button type="button" class="btn btn-danger ml-2" (click)="rechazar(pending.id)">Rechazar</button></td>
+          <td *ngIf="pending.clientStatusId == 2 && haveHistory(pending.id)"><button type="button" class="btn btn-success" (click)="aprobar(pending.id)">Aprobar</button>
+                                                                             <button type="button" class="btn btn-danger ml-2" (click)="setRejectClient(pending)" data-toggle="modal" data-target="#rejectClientModal">Rechazar</button></td>
         </tr>         
       </tbody>
     </table>
   </div>
 </div>
+
+
+
+<div #rejectClientModal id="rejectClientModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+     <form novalidate id="rejectClientForm" class="form-horizontal"  role="form" #rejectClientForm="ngForm">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Terminos y Condiciones</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <h4 class="text-center">Rechazo de cliente</h4>
+       
+        <fieldset>
+          <legend class="w-auto control-label">Explicación</legend>
+          <textarea [(ngModel)]="pendingReject.rejectClientExplains" #rejectClientExplains="ngModel" id="rejectClientExplains" name="rejectClientExplains"
+            rows="4" class="form-control" data-role="textarea" required></textarea>
+          <!-- Explains error block -->
+          <div *ngIf="(rejectClientExplains.touched)" class="text-danger">
+            <div *ngIf="rejectClientExplains?.required">
+              Ingrese explicación
+            </div>
+          </div>
+        </fieldset>
+      </div>
+      <div class="modal-footer modal-footer-reject-client-popup">        
+        <button type="reset" class="btn btn-default btn-space" data-dismiss="modal">Cancelar</button>        
+        <button type="button" class="btn btn-default btn-space" data-dismiss="modal" [disabled]="!rejectClientForm.form.valid" (click)="rechazar()">Confirmar rechazo</button>
+      </div>
+    </form>
+    </div>
+  </div>
+</div>
+

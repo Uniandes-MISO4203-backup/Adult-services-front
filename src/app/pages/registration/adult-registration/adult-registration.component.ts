@@ -39,6 +39,7 @@ export class AdultRegistrationComponent implements OnInit {
       data => {
         console.log("Adult register response");
         console.log(data);
+        this.toastrService.success("Inscripción realizada con éxito !", "Exito")
         this.router.navigate(['/']);
       }, error => {
         var text: string

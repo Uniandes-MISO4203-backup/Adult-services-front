@@ -40,8 +40,8 @@
         <!--- date of birth Block --->
         <div class="form-group">
           <label for="dateOfBirth">Fecha de nacimiento <span class="text-danger">*</span></label>
-          <input type="text" placeholder="yyyy/mm/dd" class="form-control" [ngModel]="user.dateOfBirth" name="dateOfBirth" #dateOfBirth="ngModel"
-            id="dateOfBirth" placeholder="Fecha de nacimiento" required>
+          <input type="text" placeholder="yyyy/mm/dd" class="form-control" [ngModel]="user.dateOfBirth" name="dateOfBirth"
+            #dateOfBirth="ngModel" id="dateOfBirth" placeholder="Fecha de nacimiento" required>
 
           <!-- date of birth error block -->
 
@@ -103,8 +103,8 @@
 
         </div>
 
-         <!--- Select gender Block --->
-         <div class="form-group">
+        <!--- Select gender Block --->
+        <div class="form-group">
           <label for="select">Genero <span class="text-danger">*</span></label>
           <select id="select" [ngModel]="user.gender" name="gender" class="form-control" required>
             <option *ngFor="let g of gender" [value]="g"> {{g}}
@@ -112,20 +112,20 @@
           </select>
         </div>
 
-       <!--- Terms and conditions Block --->
-       <div class="form-group checkbox">
-        <label>
-          <input type="checkbox" ngModel name="terms" #terms="ngModel" required/>
-          Aceptar <a data-toggle="modal" data-target="#termsModal" href="#termsModal">términos y condiciones</a>
-          
-        </label>
-       
-        <!-- Terms checkbox error block -->
-        <div *ngIf="(terms.invalid && terms.touched)" class="text-danger">
-          Acepte los terminos y condiciones para continuar
-        </div>         
+        <!--- Terms and conditions Block --->
+        <div class="form-group checkbox">
+          <label>
+            <input type="checkbox" ngModel name="terms" #terms="ngModel" required />
+            Aceptar <a data-toggle="modal" data-target="#termsModal" href="#termsModal">términos y condiciones</a>
 
-      </div>
+          </label>
+
+          <!-- Terms checkbox error block -->
+          <div *ngIf="(terms.invalid && terms.touched)" class="text-danger">
+            Acepte los terminos y condiciones para continuar
+          </div>
+
+        </div>
 
 
         <!--- Buttons Block --->
@@ -151,12 +151,27 @@
       <div class="modal-body">
         <h3 class="text-center">TÉRMINOS Y CONDICIONES</h3>
         <p class="text-justify">
-          Los servicios se prestan a personas mayores quienes pueden desplazarse por su propio pie y quienes no tienen una condición médica crítica mental o física.
-        Si bien las personas que quieren utilizar estos servicios no tienen que ser pacientes de los médicos centro médico “La Tercera Edad”, para acceder, por primera vez, a los servicios de “El Compañero” la persona debe solicitar una valoración de su estado de salud con uno de los médicos de este centro.
-        Todos los servicios que solicite, generan un costo que deberá pagarse con un 50% de anticipo al asignar el servicio y el 50% al finalizar el servicio.
+          Los servicios se prestan a personas mayores quienes pueden desplazarse por su
+          propio pie y quienes no tienen una condición médica crítica mental o física.
+          Si bien las personas que quieren utilizar estos servicios no tienen que ser
+          pacientes de los médicos centro médico “La Tercera Edad”, para acceder, por
+          primera vez, a los servicios de “El Compañero” la persona debe solicitar una
+          valoración de su estado de salud con uno de los médicos de este centro.
+          Todos los servicios que solicite, generan un costo que deberá pagarse con un
+          50% de anticipo al asignar el servicio y el 50% al finalizar el servicio.
+          Con respecto a la ubicación geográfica de residencia del paciente, el servicio sólo
+          se presta para el área urbana de la ciudad. El área rural aún no tiene cobertura.
+          Los servicios de acompañamiento por enfermeros (as), se deben solicitar con
+          mínimo dos (2) días hábiles de anterioridad a la fecha en que se requieren, en
+          caso contrario no será posible autorizar la prestación del servicio.
+          Los enfermeros cuentan con disponibilidad para la prestación de los servicios por
+          días más no por horas, por lo tanto, si se requiere de un servicio de
+          acompañamiento, se debe solicitar por días, e igualmente, el cobro se realizará
+          por el o los días de servicio.
+        </p>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>        
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
       </div>
     </div>
   </div>
