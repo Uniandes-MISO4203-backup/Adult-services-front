@@ -1,0 +1,25 @@
+.request-service .jumbotron{
+    padding: 1rem 2rem
+}
+
+.request-service legend{
+    font-size: inherit;
+}
+
+.request-service .title-request-service{
+    margin-bottom: 4rem; 
+}
+
+.request-service .container-form{
+   padding:0% 10% 0% 10%;
+}
+
+.request-service #service_date,
+.request-service #service_hour_init,
+.request-service #service_hour_end
+{
+    width: 120px;
+}
+.request-service #serviceType{
+    width: 280px;
+}

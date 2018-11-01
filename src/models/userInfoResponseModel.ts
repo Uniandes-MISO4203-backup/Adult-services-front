@@ -11,7 +11,8 @@ export class userModel {
     adult_RH: string;
     is_approved: boolean;
     Role: roleModel;
-    clientStatusId: number;   
+    clientStatusId: number; 
+    rejectClientExplains:String; 
  
     constructor(values: Object = {}) {
       //Constructor initialization

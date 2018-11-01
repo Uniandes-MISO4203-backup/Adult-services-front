@@ -59,6 +59,10 @@ const routes: Routes = [
     {
         path: 'all-doctors',
         component: AvailableDoctorsComponent
+    },
+    {
+        path: 'client-validation',
+        component: ClientValidationComponent
     }
 
 ];
