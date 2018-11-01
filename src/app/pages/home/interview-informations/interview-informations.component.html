@@ -24,8 +24,8 @@
     </div>
 
     <div *ngIf="loggedUser.clientStatusId == 3">
-      <h5 class="top30">Su cuenta ya se encuentra aprobada
-      </h5>
+      <h5 class="top30">Su cuenta ya se encuentra aprobada solicite un servicio: </h5>
+      <button type="button" class="btn btn-success" (click)="solicitar(loggedUser.id)">Solicitar Servicio</button>     
     </div>
 
     <div *ngIf="loggedUser.clientStatusId == 4">

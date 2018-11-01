@@ -59,7 +59,10 @@ export class InterviewInformationsComponent implements OnInit {
         console.log("Error fetching interview informations");
         console.log(error);
       });
+  }
 
+  solicitar(id){
+    this.router.navigate(['/solicitar-servicio/' + id]);
   }
   
 }

@@ -39,6 +39,7 @@ export class NurseRegistrationComponent implements OnInit {
       data => {
         console.log("Nurse register response");
         console.log(data);
+        this.toastrService.success("Inscripción realizada con éxito !", "Exito")
         this.router.navigate(['/solicitudes']);
     },error=>{
       var text: string
