@@ -20,5 +20,6 @@ export class RequestServiceComponent implements OnInit {
   onFormSubmit({ value, valid }: { value: RequestService, valid: boolean }) {
     this.requestService = value;
     console.log(this.requestService);
-
+  }
+  
 }
