@@ -376,8 +376,7 @@ export class AvailableDoctorsComponent implements OnInit {
 
     <div class="tab-pane fade " id="c-templateData">
         <pre class="line-numbers"><code class="language-html">&lt;div class&#x3D;&quot;container&quot;&gt;
-  &lt;h1 class&#x3D;&quot;text-center top50&quot; id&#x3D;&quot;doctor-name&quot;&gt;Title...&lt;/h1&gt;
-  &lt;h4 class&#x3D;&quot;text-center top30&quot;&gt;Lista de los doctores disponibles&lt;/h4&gt;
+  &lt;h1 class&#x3D;&quot;text-center top50&quot; id&#x3D;&quot;doctor-name&quot;&gt;Lista de los doctores disponibles.&lt;/h1&gt;
   &lt;div *ngIf&#x3D;&quot;doctors !&#x3D; undefined &amp;&amp; doctors.length &gt; 0&quot;&gt;
     &lt;table class&#x3D;&quot;top30 table&quot;&gt;
       &lt;thead&gt;
@@ -426,7 +425,7 @@ export class AvailableDoctorsComponent implements OnInit {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><div class="container">  <h1 class="text-center top50" id="doctor-name">Title...</h1>  <h4 class="text-center top30">Lista de los doctores disponibles</h4>  <div *ngIf="doctors != undefined && doctors.length > 0">    <table class="top30 table">      <thead>        <tr>          <th scope="col">ID</th>          <th scope="col">Nombre</th>          <th scope="col">Apellido</th>        </tr>      </thead>      <tbody>        <tr *ngFor="let doctor of doctors">          <th scope="row">{{doctor.id}}</th>          <td>{{doctor.first_name}}</td>          <td>{{doctor.last_name}}</td>                  </tr>               </tbody>    </table>  </div></div></div>'
+        var COMPONENT_TEMPLATE = '<div><div class="container">  <h1 class="text-center top50" id="doctor-name">Lista de los doctores disponibles.</h1>  <div *ngIf="doctors != undefined && doctors.length > 0">    <table class="top30 table">      <thead>        <tr>          <th scope="col">ID</th>          <th scope="col">Nombre</th>          <th scope="col">Apellido</th>        </tr>      </thead>      <tbody>        <tr *ngFor="let doctor of doctors">          <th scope="row">{{doctor.id}}</th>          <td>{{doctor.first_name}}</td>          <td>{{doctor.last_name}}</td>                  </tr>               </tbody>    </table>  </div></div></div>'
     var COMPONENTS = [{'name': 'AdultRegistrationComponent', 'selector': 'app-adult-registration'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'AvailableDoctorsComponent', 'selector': 'app-available-doctors'},{'name': 'BannerComponent', 'selector': 'app-banner'},{'name': 'ClientValidationComponent', 'selector': 'app-client-validation'},{'name': 'ClinicalHistoryComponent', 'selector': 'app-clinical-history'},{'name': 'DoctorRegistrationComponent', 'selector': 'app-doctor-registration'},{'name': 'FooterComponent', 'selector': 'app-footer'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'InterviewInformationsComponent', 'selector': 'app-interview-informations'},{'name': 'LandingPageComponent', 'selector': 'app-landing-page'},{'name': 'NurseRegistrationComponent', 'selector': 'app-nurse-registration'},{'name': 'RequestServiceComponent', 'selector': 'app-request-service'},{'name': 'SignInComponent', 'selector': 'app-sign-in'},{'name': 'UpcomingInterviewsComponent', 'selector': 'app-upcoming-interviews'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'AvailableDoctorsComponent'};

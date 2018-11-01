@@ -272,7 +272,7 @@
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="51" class="link-to-prism">src/app/pages/home/interview-informations/interview-informations.component.ts:51</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="52" class="link-to-prism">src/app/pages/home/interview-informations/interview-informations.component.ts:52</a></div>
                             </td>
                         </tr>
 
@@ -310,7 +310,7 @@
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="47" class="link-to-prism">src/app/pages/home/interview-informations/interview-informations.component.ts:47</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="48" class="link-to-prism">src/app/pages/home/interview-informations/interview-informations.component.ts:48</a></div>
                             </td>
                         </tr>
 
@@ -548,6 +548,7 @@ export class InterviewInformationsComponent implements OnInit {
         this.authGuardService.user$.subscribe(user &#x3D;&gt; {
           if (user !&#x3D; undefined) {
             this.loggedUser &#x3D; user;
+            console.log(&quot;Testing State: &quot; + this.loggedUser.clientStatusId);;
             if (!this.loggedUser.is_approved) {
              this.getUserInterviewDate()
             }
@@ -565,10 +566,8 @@ export class InterviewInformationsComponent implements OnInit {
   }
 
   getUserInterviewDate() {
-
     return this.clinicHistoriesService.getInterviewDateFor(this.loggedUser.id).subscribe(
-      data &#x3D;&gt; {
-  
+      data &#x3D;&gt; {  
         this.interviewDate &#x3D; moment(data).format(&#x27;MMMM Do YYYY h:mm a&#x27;)
         this.day &#x3D; moment(data).locale(&quot;es&quot;).format(&quot;MMM Do YYYY&quot;);
         this.hour &#x3D; moment(data).format(&quot;h:mm a&quot;);
@@ -586,7 +585,7 @@ export class InterviewInformationsComponent implements OnInit {
         <pre class="line-numbers"><code class="language-html">&lt;div class&#x3D;&quot;container top50&quot;&gt;
   &lt;div class&#x3D;&quot;text-center col-xs-12 col-sm-12 col-md-6 col-lg-6 offset-md-3 offset-lg-3&quot;&gt;
     &lt;h1&gt;Bienvenido {{loggedUser.first_name}},&lt;/h1&gt;
-    &lt;div *ngIf&#x3D;&quot;loggedUser.clientStatusId.name &#x3D;&#x3D; &#x27;inscrito&#x27;&quot;&gt;
+    &lt;div *ngIf&#x3D;&quot;loggedUser.clientStatusId &#x3D;&#x3D; 1&quot;&gt;
       &lt;h5 class&#x3D;&quot;top30&quot;&gt;Tu perfil se encuentra inscrito, para empezar a realizar solicitudes debes agendar una cita por cualquiera de los siguiente medios:
         &lt;div class&#x3D;&quot;top30&quot;&gt;
           Cel: 321 523 622&lt;br&gt;
@@ -596,7 +595,7 @@ export class InterviewInformationsComponent implements OnInit {
       &lt;/h5&gt;
     &lt;/div&gt;
 
-    &lt;div *ngIf&#x3D;&quot;loggedUser.clientStatusId.name &#x3D;&#x3D; &#x27;pendiente valoracion&#x27;&quot;&gt;
+    &lt;div *ngIf&#x3D;&quot;loggedUser.clientStatusId &#x3D;&#x3D; 2&quot;&gt;
       &lt;h3 class&#x3D;&quot;top30&quot;&gt;Tu perfil ya tiene una cita asignada:&lt;/h3&gt;
       &lt;h3 *ngIf&#x3D;&quot;interviewDate !&#x3D; undefined&quot;&gt; el {{day}} a las {{hour}}&lt;/h3&gt;
       
@@ -608,12 +607,12 @@ export class InterviewInformationsComponent implements OnInit {
         &lt;/div&gt;
     &lt;/div&gt;
 
-    &lt;div *ngIf&#x3D;&quot;loggedUser.clientStatusId.name &#x3D;&#x3D; &#x27;aprobado&#x27;&quot;&gt;
+    &lt;div *ngIf&#x3D;&quot;loggedUser.clientStatusId &#x3D;&#x3D; 3&quot;&gt;
       &lt;h5 class&#x3D;&quot;top30&quot;&gt;Su cuenta ya se encuentra aprobada
       &lt;/h5&gt;
     &lt;/div&gt;
 
-    &lt;div *ngIf&#x3D;&quot;loggedUser.clientStatusId.name &#x3D;&#x3D; &#x27;no aprobado&#x27;&quot;&gt;
+    &lt;div *ngIf&#x3D;&quot;loggedUser.clientStatusId &#x3D;&#x3D; 4&quot;&gt;
       &lt;h5 class&#x3D;&quot;top30&quot;&gt;Su cuenta no ha sido aprobada.&lt;/h5&gt;
       &lt;p class&#x3D;&quot;top30&quot;&gt;En caso de cualquier duda puede comunicarse con nosotros por cualquiera de los siguiente medios:&lt;/p&gt;
       &lt;div&gt;
@@ -652,7 +651,7 @@ export class InterviewInformationsComponent implements OnInit {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><div class="container top50">  <div class="text-center col-xs-12 col-sm-12 col-md-6 col-lg-6 offset-md-3 offset-lg-3">    <h1>Bienvenido {{loggedUser.first_name}},</h1>    <div *ngIf="loggedUser.clientStatusId.name == \'inscrito\'">      <h5 class="top30">Tu perfil se encuentra inscrito, para empezar a realizar solicitudes debes agendar una cita por cualquiera de los siguiente medios:        <div class="top30">          Cel: 321 523 622<br>          Tel: 6935555<br>          Correo: adult_service@gmail.com<br>        </div>      </h5>    </div>    <div *ngIf="loggedUser.clientStatusId.name == \'pendiente valoracion\'">      <h3 class="top30">Tu perfil ya tiene una cita asignada:</h3>      <h3 *ngIf="interviewDate != undefined"> el {{day}} a las {{hour}}</h3>            <p class="top30">En caso de cualquier duda puede comunicarse con nosotros por cualquiera de los siguiente medios:</p>        <div>          Cel: 321 523 622<br>          Tel: 6935555<br>          Correo: adult_service@gmail.com<br>        </div>    </div>    <div *ngIf="loggedUser.clientStatusId.name == \'aprobado\'">      <h5 class="top30">Su cuenta ya se encuentra aprobada      </h5>    </div>    <div *ngIf="loggedUser.clientStatusId.name == \'no aprobado\'">      <h5 class="top30">Su cuenta no ha sido aprobada.</h5>      <p class="top30">En caso de cualquier duda puede comunicarse con nosotros por cualquiera de los siguiente medios:</p>      <div>        Cel: 321 523 622<br>        Tel: 6935555<br>        Correo: adult_service@gmail.com<br>      </div>    </div>  </div> </div></div>'
+        var COMPONENT_TEMPLATE = '<div><div class="container top50">  <div class="text-center col-xs-12 col-sm-12 col-md-6 col-lg-6 offset-md-3 offset-lg-3">    <h1>Bienvenido {{loggedUser.first_name}},</h1>    <div *ngIf="loggedUser.clientStatusId == 1">      <h5 class="top30">Tu perfil se encuentra inscrito, para empezar a realizar solicitudes debes agendar una cita por cualquiera de los siguiente medios:        <div class="top30">          Cel: 321 523 622<br>          Tel: 6935555<br>          Correo: adult_service@gmail.com<br>        </div>      </h5>    </div>    <div *ngIf="loggedUser.clientStatusId == 2">      <h3 class="top30">Tu perfil ya tiene una cita asignada:</h3>      <h3 *ngIf="interviewDate != undefined"> el {{day}} a las {{hour}}</h3>            <p class="top30">En caso de cualquier duda puede comunicarse con nosotros por cualquiera de los siguiente medios:</p>        <div>          Cel: 321 523 622<br>          Tel: 6935555<br>          Correo: adult_service@gmail.com<br>        </div>    </div>    <div *ngIf="loggedUser.clientStatusId == 3">      <h5 class="top30">Su cuenta ya se encuentra aprobada      </h5>    </div>    <div *ngIf="loggedUser.clientStatusId == 4">      <h5 class="top30">Su cuenta no ha sido aprobada.</h5>      <p class="top30">En caso de cualquier duda puede comunicarse con nosotros por cualquiera de los siguiente medios:</p>      <div>        Cel: 321 523 622<br>        Tel: 6935555<br>        Correo: adult_service@gmail.com<br>      </div>    </div>  </div> </div></div>'
     var COMPONENTS = [{'name': 'AdultRegistrationComponent', 'selector': 'app-adult-registration'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'AvailableDoctorsComponent', 'selector': 'app-available-doctors'},{'name': 'BannerComponent', 'selector': 'app-banner'},{'name': 'ClientValidationComponent', 'selector': 'app-client-validation'},{'name': 'ClinicalHistoryComponent', 'selector': 'app-clinical-history'},{'name': 'DoctorRegistrationComponent', 'selector': 'app-doctor-registration'},{'name': 'FooterComponent', 'selector': 'app-footer'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'InterviewInformationsComponent', 'selector': 'app-interview-informations'},{'name': 'LandingPageComponent', 'selector': 'app-landing-page'},{'name': 'NurseRegistrationComponent', 'selector': 'app-nurse-registration'},{'name': 'RequestServiceComponent', 'selector': 'app-request-service'},{'name': 'SignInComponent', 'selector': 'app-sign-in'},{'name': 'UpcomingInterviewsComponent', 'selector': 'app-upcoming-interviews'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'InterviewInformationsComponent'};
