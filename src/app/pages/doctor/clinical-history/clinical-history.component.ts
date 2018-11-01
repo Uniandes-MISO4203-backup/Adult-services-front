@@ -88,9 +88,10 @@ export class ClinicalHistoryComponent implements OnInit {
       data => {
         console.log("Clinic Histories response");
         console.log(data);
-        this.router.navigate(['']);
-    },error=>{
-        this.toastrService.error(error.toString(), "Error");
+        this.toastrService.success("Historia clinica guardada con éxito !", "Exito")
+        this.router.navigate(['/']);
+    },error => {
+        this.toastrService.error("Error guardando la historia clinica. Verfica que los datos son correctos", "Error");
     });
   }
 
