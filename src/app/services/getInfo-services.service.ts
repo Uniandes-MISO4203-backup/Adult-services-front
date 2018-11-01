@@ -8,6 +8,7 @@ import 'rxjs/add/operator/catch';
 
 import { environment } from '../../environments/environment';
 import { ClinicalHistory } from '../../models/clinicalHistory';
+import { EnfermeroDis } from '../../models/EnfermerosDis';
 
 const API_URL = environment.apiURL;
 const GET_PENDING = '/pendingclients';
@@ -16,6 +17,7 @@ const ADULT_HISTORY = '/clinicHistory/';
 const ADULT = '/adult/';
 const CLIENT_HISTORIES = '/clinicHistories';
 const ALL_DOCTORS = '/doctors';
+const AVALIABLE_NURSES = '/nursesCommentsEvaluation';
 
 
 @Injectable({
@@ -41,6 +43,14 @@ export class GetInfoService  {
         'Content-Type':  'application/x-www-form-urlencoded'
       })};
     return this.http.get<ClinicalHistory[]>(API_URL + CLIENT_HISTORIES, httpOptions);
+  }
+
+  getEnfermerosDisponibles(): Observable<EnfermeroDis[]> {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type':  'application/x-www-form-urlencoded'
+      })};
+    return this.http.get<EnfermeroDis[]>(API_URL + AVALIABLE_NURSES, httpOptions);
   }
 
   changeStatus(id, status): Observable<userModel> {

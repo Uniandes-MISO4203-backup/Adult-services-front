@@ -58,25 +58,15 @@ export class HeaderComponent implements OnInit {
                                 //    id: "usuario", name: " Rol: "+ user.Role.name, icon: "user", link: "solicitudes"
                                 //}
                             ];
-                        } else if (this.loggedUser.Role.name == "adult" && (this.loggedUser.is_approved)) {
+                        } else if (this.loggedUser.Role.name == "adult" && this.loggedUser.clientStatusId == 3 ) {
                             this.menus = [
                                 {
-                                    id: "request-service", name: "Solicitar un servicio", icon: "user", link: "solicitar-servicio"
-                                },
-
-                                //TO REMOVE
-                                {
-                                    id: "all-doctors", name: "Ver los doctores (Temporal)", icon: "user", link: "all-doctors"
+                                    id: "ver-servicios", name: "Mis servicios", icon: "user", link: ""
                                 }
                             ]
                             
                         } else {
-                            this.menus = [
-                                //TO REMOVE
-                                {
-                                    id: "all-doctors", name: "Ver los doctores (Temporal)", icon: "user", link: "all-doctors"
-                                }
-                            ]
+                            
                         }
                     }
                 });

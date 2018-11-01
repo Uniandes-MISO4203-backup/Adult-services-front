@@ -53,7 +53,7 @@ const routes: Routes = [
         component: ClinicalHistoryComponent
     },
     {
-        path: 'solicitar-servicio',
+        path: 'solicitar-servicio/:id',
         component: RequestServiceComponent
     }, 
     {
