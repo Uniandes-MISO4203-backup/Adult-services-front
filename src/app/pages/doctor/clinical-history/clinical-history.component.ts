@@ -23,7 +23,6 @@ export class ClinicalHistoryComponent implements OnInit {
   loggedUser: userModel;
   formGroup: FormGroup;
 
-
   constructor(private registerService: RegisterService,
     private toastrService: ToastrService,
     private router: Router, private activeRoute: ActivatedRoute,
