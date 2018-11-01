@@ -5,6 +5,7 @@ import { GetInfoService } from '../../../services/getInfo-services.service';
 import { userModel } from '../../../../models/userInfoResponseModel';
 import { Router } from '@angular/router';
 import { ClinicalHistory } from '../../../../models/clinicalHistory';
+import { ToastrService } from 'ngx-toastr';
 
 
 @Component({
@@ -23,9 +24,11 @@ export class ClientValidationComponent implements OnInit {
 
   constructor(private authGuardService: AuthGuardService, 
     private router: Router,
-    private getInfo: GetInfoService
-     ) { 
+
+    private toastrService: ToastrService,
+    private getInfo: GetInfoService ) { 
     this.clinicHistories=[];
+
     this.authGuardService.active$.subscribe(active => {
       console.log("Is active", active);
       if (active) {
@@ -56,7 +59,11 @@ export class ClientValidationComponent implements OnInit {
         console.log("Usuarios pendientes: ");
         console.log(data);
         this.pendingUsers = data;
+        if (this.pendingUsers.length == 0) {
+          this.toastrService.info("No clientes pendientes de aprobación", "Info")
+        }
     },error=>{
+        this.toastrService.error("Error recuperando los clientes pendientes de validación", "Error")
         console.log("Error en usuarios pendientes");
         console.log(error);
     });
@@ -88,8 +95,9 @@ export class ClientValidationComponent implements OnInit {
         console.log("Cambio de estado");
         console.log("Usuario Pendiente de valoración");  
         //Recargar la página... no funciona
-        this.router.navigate(['/']);    
+        this.router.navigate(['']);    
     },error=>{
+        this.toastrService.error("Error programando cita para el cliente", "Error")
         console.log("Error pendiente valoración");
         console.log(error);
     });
@@ -109,10 +117,17 @@ export class ClientValidationComponent implements OnInit {
     this.getInfo.changeStatus(id, estado).subscribe(
       data => {
         console.log("Usuario " + estado);
-        console.log(data);   
+        console.log(data);
+        if (estado == "aprobado") {
+          this.toastrService.success("Cliente aprobado con éxito", "Exito")
+        } else if (estado == "no aprobado"){
+          this.toastrService.success("Cliente rechazado con éxito", "Exito")
+        }
+        
         //Recargar la página... no funciona 
-        this.router.navigate(['/']);    
+        this.router.navigate(['']);    
     },error=>{
+        this.toastrService.error("Error cambiando el estado del cliente", "Error")
         console.log("Error cambiarEstado usuario");
         console.log(error);
     });

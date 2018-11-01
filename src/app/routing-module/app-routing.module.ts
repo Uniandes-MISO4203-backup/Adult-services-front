@@ -38,7 +38,7 @@ const routes: Routes = [
                 path: 'doctor',
                 component: DoctorRegistrationComponent
             },
-        ]
+        ],
     },
     {
         path: 'signIn',
@@ -53,7 +53,7 @@ const routes: Routes = [
         component: ClinicalHistoryComponent
     },
     {
-        path: 'solicitar-servicio',
+        path: 'solicitar-servicio/:id',
         component: RequestServiceComponent
     }, 
     {
@@ -64,13 +64,13 @@ const routes: Routes = [
         path: 'client-validation',
         component: ClientValidationComponent
     }
-
-];
+]
+;
 
 @NgModule({
     imports: [
         CommonModule,
-        RouterModule.forRoot(routes, { onSameUrlNavigation: 'reload' })
+        RouterModule.forRoot(routes, {onSameUrlNavigation: 'reload'})
     ],
     exports: [RouterModule],
     declarations: []
