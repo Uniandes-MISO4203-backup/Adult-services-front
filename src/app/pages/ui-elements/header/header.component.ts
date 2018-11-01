@@ -61,7 +61,7 @@ export class HeaderComponent implements OnInit {
                         } else if (this.loggedUser.Role.name == "adult" && this.loggedUser.clientStatusId == 3 ) {
                             this.menus = [
                                 {
-                                    id: "ver-servicios", name: "Mis servicios", icon: "user", link: ""
+                                    id: "ver-servicios", name: "Mis servicios", icon: "user", link: "myservices"
                                 }
                             ]
                             

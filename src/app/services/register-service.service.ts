@@ -7,9 +7,11 @@ import { HttpClient, HttpHeaders, HttpParams  } from '@angular/common/http';
 import 'rxjs/add/operator/catch';
 
 import { environment } from '../../environments/environment';
+import { NewService } from '../../models/serviceModel';
 const API_URL = environment.apiURL;
 const API_DOCTOR_REG = '/doctors';
 const API_ADULT_REG = '/adult';
+const API_SERV_REG = '/companionService';
 const API_NURSE_REG = '/nurses';
 const API_HISTORIES_REG = '/clinicHistory';
 
@@ -51,6 +53,24 @@ export class RegisterService {
       .set('birthDate', user.dateOfBirth)
       .set('RH', "A+");
       return this.http.post<userModel>(API_URL + API_ADULT_REG,body, httpOptions);
+  }
+
+  postServReg(service): Observable<NewService> {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type':  'application/x-www-form-urlencoded'
+      })};
+      const body = new HttpParams()
+      .set('startDate', service.startDate)
+      .set('endDate', service.startDate)
+      .set('type', service.type)
+      .set('description', service.description)
+      .set('price', service.price)
+      .set('adultEvaluation', '0')
+      .set('nurseEvaluation', '0')
+      .set('adultId', service.adultId)
+      .set('nurseId', service.nurseId);
+      return this.http.post<NewService>(API_URL + API_SERV_REG,body, httpOptions);
   }
 
   postNurseReg(user): Observable<userModel> {

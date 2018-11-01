@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute  } from '@angular/router';
+import { ActivatedRoute, NavigationExtras  } from '@angular/router';
 import { Router } from '@angular/router';
 import { EnfermeroDis } from '../../../../models/EnfermerosDis';
 import { AuthGuardService } from '../../../services/auth-guard.service';
@@ -56,10 +56,6 @@ export class RequestServiceComponent implements OnInit {
         console.log("Error en getClinicHistories");
         console.log(error);
     });
-  }
-
-  solicitud(id){
-
   }
 
   getComments(id){

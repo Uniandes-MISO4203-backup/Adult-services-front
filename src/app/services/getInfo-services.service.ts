@@ -9,9 +9,11 @@ import 'rxjs/add/operator/catch';
 import { environment } from '../../environments/environment';
 import { ClinicalHistory } from '../../models/clinicalHistory';
 import { EnfermeroDis } from '../../models/EnfermerosDis';
+import { MyService } from '../../models/myServices';
 
 const API_URL = environment.apiURL;
 const GET_PENDING = '/pendingclients';
+const GET_MYSERVICES = '/companionServicesByAdultId/';
 const CHANGE_STATUS = '/change-client-status/';
 const ADULT_HISTORY = '/clinicHistory/';
 const ADULT = '/adult/';
@@ -35,6 +37,13 @@ export class GetInfoService  {
       headers: new HttpHeaders({
       })};
     return this.http.get<userModel[]>(API_URL + GET_PENDING, httpOptions);
+  }
+
+  getServicios(id): Observable<MyService[]> {  
+    const httpOptions = {
+      headers: new HttpHeaders({
+      })};
+    return this.http.get<MyService[]>(API_URL + GET_MYSERVICES + id, httpOptions);
   }
 
   getClinicHistories(): Observable<ClinicalHistory[]> {

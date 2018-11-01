@@ -18,7 +18,7 @@
             <td>{{nurse.first_name}}</td>
             <td>{{nurse.last_name}}</td>
             <td>{{nurse.nurse_evaluation_count}} </td>
-            <td><button type="button" class="btn btn btn-info" (click)="solicitud(nurse.id)">Agendar</button>
+            <td><button type="button" class="btn btn btn-info" [routerLink]="['/servicio', nurse.id]">Agendar</button>
                 <button type="button" class="btn btn btn-info" (click)="getComments(nurse.id)">Ver comentarios</button></td>            
            </tr>         
         </tbody>
