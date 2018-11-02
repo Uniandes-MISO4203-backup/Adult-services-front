@@ -66,8 +66,8 @@ export class RegisterService {
       .set('type', service.type)
       .set('description', service.description)
       .set('price', service.price)
-      .set('adultEvaluation', '0')
-      .set('nurseEvaluation', '0')
+      .set('adultEvaluation', '-1')
+      .set('nurseEvaluation', '-1')
       .set('adultId', service.adultId)
       .set('nurseId', service.nurseId);
       return this.http.post<NewService>(API_URL + API_SERV_REG,body, httpOptions);
