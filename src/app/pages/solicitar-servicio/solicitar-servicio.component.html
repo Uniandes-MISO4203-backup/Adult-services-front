@@ -7,7 +7,7 @@
 
         <!--- Start Date Block --->
         <div class="form-group">
-          <label for="inputstartDate">Fecha (yyyy/mm/dd) <span class="text-danger">*</span></label>
+          <label for="inputstartDate">Fecha Inicio (yyyy/mm/dd) <span class="text-danger">*</span></label>
           <input type="text" class="form-control" [ngModel]="service.startDate" name="startDate" #startDate="ngModel" id="inputstartDate"
             placeholder="2018/10/31" required>
 
@@ -15,7 +15,23 @@
 
           <div *ngIf="( startDate.touched)" class="text-danger">
             <div *ngIf="startDate.errors?.required">
-              Ingrese fecha
+              Ingrese fecha válida
+            </div>
+          </div>
+        </div>
+        <!--- End of Full Name Block --->
+
+        <!--- End Date Block --->
+        <div class="form-group">
+          <label for="inputendDate">Fecha Fin(yyyy/mm/dd) <span class="text-danger">*</span></label>
+          <input type="text" class="form-control" [ngModel]="service.endDate" name="endDate" #endDate="ngModel" id="inputendDate"
+            placeholder="2018/11/10" required>
+
+          <!-- End Date error block -->
+
+          <div *ngIf="( endDate.touched)" class="text-danger">
+            <div *ngIf="endDate.errors?.required">
+              Ingrese fecha válida
             </div>
           </div>
         </div>

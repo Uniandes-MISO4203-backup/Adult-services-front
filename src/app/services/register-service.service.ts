@@ -62,7 +62,7 @@ export class RegisterService {
       })};
       const body = new HttpParams()
       .set('startDate', service.startDate)
-      .set('endDate', service.startDate)
+      .set('endDate', service.endDate)
       .set('type', service.type)
       .set('description', service.description)
       .set('price', service.price)
