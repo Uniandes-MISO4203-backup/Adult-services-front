@@ -27,7 +27,7 @@
 
     <div *ngIf="watchComments">
         <ul *ngFor="let service of services" class="list-group">
-            <li class="list-group-item d-flex justify-content-between align-items-center">
+            <li *ngIf="service.start_date != service.end_date" class="list-group-item d-flex justify-content-between align-items-center">
                 {{service.adult_comment}}
                 <span class="badge badge-primary badge-pill">{{service.nurse_evaluation}}</span>
             </li>

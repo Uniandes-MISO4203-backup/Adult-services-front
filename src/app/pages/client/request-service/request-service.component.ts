@@ -60,8 +60,8 @@ export class RequestServiceComponent implements OnInit {
 
   getComments(id){
     this.watchComments = true;
-    for (let enf of this.enfermerosDisponibles) {
-      if(enf.id == id ){
+    for (let enf of this.enfermerosDisponibles) {      
+      if(enf.id == id ){        
         this.services = enf.Services;        
       }
     }
