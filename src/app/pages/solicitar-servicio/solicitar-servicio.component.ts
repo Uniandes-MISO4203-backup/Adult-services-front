@@ -81,6 +81,7 @@ export class SolicitarServicioComponent implements OnInit {
       data => {
         console.log("Service create response");
         console.log(data);
+        this.toastrService.success('Su solicitud ha sido creada con éxito, puedes verificar su estado en la sección "mis servicios" ', "Exito");
         this.router.navigate(['/']);
       }, error => {
         var text: string

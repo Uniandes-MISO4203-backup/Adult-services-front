@@ -7,6 +7,7 @@ import { AuthGuardService } from '../../services/auth-guard.service';
 import { GetInfoService } from '../../services/getInfo-services.service';
 import { userModel } from '../../../models/userInfoResponseModel';
 import { MyService } from '../../../models/myServices';
+import * as moment from 'moment';
 
 @Component({
   selector: 'app-mis-servicios',
@@ -47,6 +48,13 @@ export class MisServiciosComponent implements OnInit {
         console.log("Servicios Generados: ");
         console.log(data);
         this.services = data;
+
+        for (let service of this.services) {
+          console.log(service.start_date)
+          service.start_date = moment(service.start_date).locale('es').format('MMMM Do YYYY h:mm a')
+          service.end_date = moment(service.end_date).locale('es').format('MMMM Do YYYY h:mm a')
+        }
+
     },error=>{
         console.log("Error en Get Servicios");
         console.log(error);

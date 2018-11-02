@@ -22,7 +22,9 @@ export class ClinicalHistoryComponent implements OnInit {
   clinicHisotry: ClinicalHistory = new ClinicalHistory();
   loggedUser: userModel;
   formGroup: FormGroup;
-
+  allergies: string[]
+  coronay_problems: string[]
+  medical_preceedings: string[]
 
   constructor(private registerService: RegisterService,
     private toastrService: ToastrService,

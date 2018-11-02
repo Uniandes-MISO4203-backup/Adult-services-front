@@ -1,8 +1,8 @@
 export class MyService {
 
   id: number;
-  start_date: Date;
-  end_date: Date;
+  start_date: string;
+  end_date: string;
   type: string;
   description: string;
   estimated_price: number;

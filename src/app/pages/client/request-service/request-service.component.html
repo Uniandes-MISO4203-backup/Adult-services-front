@@ -18,15 +18,15 @@
             <td>{{nurse.first_name}}</td>
             <td>{{nurse.last_name}}</td>
             <td>{{nurse.nurse_evaluation_count}} </td>
-            <td><button type="button" class="btn btn btn-info" [routerLink]="['/servicio', nurse.id]">Agendar</button>
-                <button type="button" class="btn btn btn-info" (click)="getComments(nurse.id)">Ver comentarios</button></td>            
+            <td><button type="button" class="btn btn btn-info btn-space" [routerLink]="['/servicio', nurse.id]">Agendar</button>
+                <button type="button" class="btn btn btn-info btn-space" (click)="getComments(nurse.id)">Ver comentarios</button></td>            
            </tr>         
         </tbody>
       </table>
     </div>
 
     <div *ngIf="watchComments">
-        <ul *ngFor="let service of services" class="list-group">
+        <ul *ngFor="let service of services" class="list-group top5">
             <li *ngIf="service.start_date != service.end_date" class="list-group-item d-flex justify-content-between align-items-center">
                 {{service.adult_comment}}
                 <span class="badge badge-primary badge-pill">{{service.nurse_evaluation}}</span>
