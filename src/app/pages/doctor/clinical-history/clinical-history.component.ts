@@ -103,4 +103,16 @@ export class ClinicalHistoryComponent implements OnInit {
         this.router.navigate(['']);
   }
 
+  addClinicalPrecending(){
+
+  }
+
+  addAllergy(){
+
+  }
+
+  addCoronary(){
+    
+  }
+
 }
