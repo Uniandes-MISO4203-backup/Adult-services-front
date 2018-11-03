@@ -27,6 +27,8 @@ import { SignInComponent } from './pages/sign-in/sign-in.component';
 import { ClinicalHistoryComponent } from './pages/doctor/clinical-history/clinical-history.component';
 import { AvailableDoctorsComponent } from './pages/available-doctors/available-doctors.component';
 import { UpcomingInterviewsComponent } from './pages/doctor/upcoming-interviews/upcoming-interviews.component';
+import { SolicitarServicioComponent } from './pages/solicitar-servicio/solicitar-servicio.component';
+import { MisServiciosComponent } from './pages/mis-servicios/mis-servicios.component';
 
 
 export function jokesProviderFactory(authGuardService: AuthGuardService) {
@@ -50,7 +52,9 @@ export function jokesProviderFactory(authGuardService: AuthGuardService) {
         ClinicalHistoryComponent,
         RequestServiceComponent,
         AvailableDoctorsComponent,
-        UpcomingInterviewsComponent        
+        UpcomingInterviewsComponent,
+        SolicitarServicioComponent,
+        MisServiciosComponent,
     ],
     imports: [
         BrowserModule,

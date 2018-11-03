@@ -1,0 +1,74 @@
+<div class="col-12 top50">
+  <div class="col-12 col-sm-8 offset-sm-2 col-md-6 offset-md-3 col-lg-4 offset-lg-4 jumbotron">
+
+    <form novalidate (ngSubmit)="onFormSubmit(signupForm)" #signupForm="ngForm">
+      <fieldset>
+        <legend>Solicitar acompañamiento</legend>
+
+        <!--- Start Date Block --->
+        <div class="form-group">
+          <label for="inputstartDate">Fecha Inicio (yyyy/mm/dd) <span class="text-danger">*</span></label>
+          <input type="text" class="form-control" [ngModel]="service.startDate" name="startDate" #startDate="ngModel" id="inputstartDate"
+            placeholder="2018/10/31" required>
+
+          <!-- Start Date error block -->
+
+          <div *ngIf="( startDate.touched)" class="text-danger">
+            <div *ngIf="startDate.errors?.required">
+              Ingrese fecha válida
+            </div>
+          </div>
+        </div>
+        <!--- End of Full Name Block --->
+
+        <!--- End Date Block --->
+        <div class="form-group">
+          <label for="inputendDate">Fecha Fin(yyyy/mm/dd) <span class="text-danger">*</span></label>
+          <input type="text" class="form-control" [ngModel]="service.endDate" name="endDate" #endDate="ngModel" id="inputendDate"
+            placeholder="2018/11/10" required>
+
+          <!-- End Date error block -->
+
+          <div *ngIf="( endDate.touched)" class="text-danger">
+            <div *ngIf="endDate.errors?.required">
+              Ingrese fecha válida
+            </div>
+          </div>
+        </div>
+        <!--- End of Full Name Block --->
+
+        <!--- Descripción Block --->
+        <div class="form-group">
+          <label for="inputdescription">Descripción <span class="text-danger">*</span></label>
+          <input type="text" class="form-control" [ngModel]="service.description" name="description" #description="ngModel" id="inputdescription"
+            placeholder="Acompañamiento al centro centro comercial" required>
+
+          <!-- Descripción error block -->
+
+          <div *ngIf="( description.touched)" class="text-danger">
+            <div *ngIf="description.errors?.required">
+              Ingrese la descripción de la solicitud
+            </div>
+          </div>
+        </div>
+        <!--- End of Last Name Block --->
+
+         <!--- Select Tipo Block --->
+         <div class="form-group">
+          <label for="select">Tipo <span class="text-danger">*</span></label>
+          <select id="select" [ngModel]="service.type" name="type" class="form-control" required>
+            <option *ngFor="let g of tipo" [value]="g"> {{g}}
+            </option>
+          </select>
+        </div>
+
+        <!--- Buttons Block --->
+        <div class="form-group">
+          <button type="reset" class="btn btn-default btn-space">Cancelar</button>
+          <button type="submit" class="btn btn-primary btn-space" [disabled]="!signupForm.form.valid">Enviar</button>
+        </div>
+      </fieldset>
+    </form>
+  </div>
+</div>
+

@@ -22,6 +22,9 @@ export class ClinicalHistoryComponent implements OnInit {
   clinicHisotry: ClinicalHistory = new ClinicalHistory();
   loggedUser: userModel;
   formGroup: FormGroup;
+  allergies: string[]
+  coronay_problems: string[]
+  medical_preceedings: string[]
 
   constructor(private registerService: RegisterService,
     private toastrService: ToastrService,
@@ -100,40 +103,18 @@ export class ClinicalHistoryComponent implements OnInit {
         this.toastrService.error("Error guardando la historia clinica. Verfica que los datos son correctos", "Error");
     });
         this.router.navigate(['']);
-      }, error => {
-        this.toastrService.error(error.toString(), "Error");
-      });
   }
 
-  addClinicalPrecending(index): void {
-    this.clinicHisotry.medical_precedings.push("");
+  addClinicalPrecending(){
+
   }
 
-  removeClinicalPrecending(index): void {
-    if (index > 0) {
-      this.clinicHisotry.medical_precedings.splice(index, 1);
-    }
+  addAllergy(){
+
   }
 
-
-  addAllergy(index): void {
-    this.clinicHisotry.allergies.push("");
-  }
-
-  removeAllergy(index): void {
-    if (index > 0) {
-      this.clinicHisotry.allergies.splice(index, 1);
-    }
-  }
-
-  addCoronary(index): void {
-    this.clinicHisotry.coronary_problems.push("");
-  }
-
-  removeCoronary(index): void {
-    if (index > 0) {
-      this.clinicHisotry.coronary_problems.splice(index, 1);
-    }
+  addCoronary(){
+    
   }
 
 }

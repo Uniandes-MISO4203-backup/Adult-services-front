@@ -1,0 +1,31 @@
+<div class="container">
+    <div *ngIf="services == undefined || services.length == 0">
+           <h4 class="text-center top30">No ha solicitado servicios</h4>
+    </div>    
+    <div *ngIf="services != undefined && services.length > 0">
+        <h4 class="text-center top30">Listado de servicios</h4>
+      <table class="top30 table">
+        <thead>
+          <tr>
+            <th scope="col">Fecha</th>
+            <th scope="col">Tipo</th>
+            <th scope="col">Descripción</th>
+            <th scope="col">Enfermero</th>
+            <th scope="col">Precio</th>
+            <th scope="col">Estado</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let service of services">
+            <td>{{service.start_date}}</td>
+            <td>{{service.type}}</td>
+            <td>{{service.description}} </td>    
+            <td>Juanito </td>   
+            <td>{{service.estimated_price}} </td>      
+            <td>{{service.serviceStatusId}} </td>   
+           </tr>         
+        </tbody>
+      </table>
+    </div>
+    
+  </div>

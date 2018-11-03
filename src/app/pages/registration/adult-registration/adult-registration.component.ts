@@ -50,8 +50,6 @@ export class AdultRegistrationComponent implements OnInit {
         }
         this.toastrService.error(text, "Error");
       });
-      
-
   }
 
 

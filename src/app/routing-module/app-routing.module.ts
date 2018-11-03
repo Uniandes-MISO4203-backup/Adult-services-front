@@ -11,11 +11,12 @@ import { AdultRegistrationComponent } from '../pages/registration/adult-registra
 //sign in component
 import { NurseRegistrationComponent } from '../pages/registration/nurse-registration/nurse-registration.component';
 import { HomeComponent } from '../pages/home/home.component';
-import { ClientValidationComponent } from '../pages/doctor/client-validation/client-validation.component';
 import { DoctorRegistrationComponent } from '../pages/registration/doctor-registration/doctor-registration.component';
 import { ClinicalHistoryComponent } from '../pages/doctor/clinical-history/clinical-history.component';
 import { AvailableDoctorsComponent } from '../pages/available-doctors/available-doctors.component';
 import { UpcomingInterviewsComponent } from '../pages/doctor/upcoming-interviews/upcoming-interviews.component';
+import { SolicitarServicioComponent } from '../pages/solicitar-servicio/solicitar-servicio.component';
+import { MisServiciosComponent } from '../pages/mis-servicios/mis-servicios.component';
 
 
 const routes: Routes = [
@@ -59,10 +60,14 @@ const routes: Routes = [
     {
         path: 'all-doctors',
         component: AvailableDoctorsComponent
+    }, 
+    {
+        path: 'servicio/:id',
+        component: SolicitarServicioComponent
     },
     {
-        path: 'client-validation',
-        component: ClientValidationComponent
+        path: 'myservices',
+        component: MisServiciosComponent
     }
 ]
 ;
