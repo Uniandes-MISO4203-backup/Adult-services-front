@@ -8,7 +8,7 @@ import 'rxjs/add/operator/catch';
 
 import { environment } from '../../environments/environment';
 import { ClinicalHistory } from '../../models/clinicalHistory';
-import { EnfermeroDis } from '../../models/EnfermerosDis';
+import { EnfermeroDis } from '../../models/enfermerosDis';
 import { MyService } from '../../models/myServices';
 
 const API_URL = environment.apiURL;

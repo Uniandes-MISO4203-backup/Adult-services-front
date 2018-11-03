@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 
 import { ActivatedRoute, NavigationExtras  } from '@angular/router';
 import { Router } from '@angular/router';
-import { EnfermeroDis } from '../../../models/EnfermerosDis';
 import { AuthGuardService } from '../../services/auth-guard.service';
 import { GetInfoService } from '../../services/getInfo-services.service';
 import { userModel } from '../../../models/userInfoResponseModel';
