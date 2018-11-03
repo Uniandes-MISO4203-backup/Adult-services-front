@@ -518,14 +518,14 @@ export class NurseRegistrationComponent implements OnInit {
 
   constructor(private registerService: RegisterService,
     private toastrService: ToastrService,
-    private router: Router) {  }
+    private router: Router) { }
 
   ngOnInit() {
     this.gender &#x3D; [&#x27;Masculino&#x27;, &#x27;Femenino&#x27;];
     this.user &#x3D; new Nurse({
       firstName: &quot;&quot;, lastName: &quot;&quot;, dateOfBirth: &quot;&quot;,
-      email: &quot;&quot;, password: { pwd: &quot;&quot;, confirm_pwd: &quot;&quot; }, 
-      resume:&quot;&quot;, terms: false
+      email: &quot;&quot;, password: { pwd: &quot;&quot;, confirm_pwd: &quot;&quot; },
+      resume: &quot;&quot;, terms: false
     });
   }
 
@@ -543,15 +543,16 @@ export class NurseRegistrationComponent implements OnInit {
         console.log(data);
         this.toastrService.success(&quot;Inscripción realizada con éxito !&quot;, &quot;Exito&quot;)
         this.router.navigate([&#x27;/solicitudes&#x27;]);
-    },error&#x3D;&gt;{
-      var text: string
-      switch (error.error.name) {
-        case &quot;SequelizeUniqueConstraintError&quot;: text &#x3D; &quot;Un usuario ya esta registrado con este correo&quot;
-        break;
-        default: text &#x3D; &quot;Error en su inscripción, por favor verifica que sus datos son correctos.&quot;
-      }
-      this.toastrService.error(text, &quot;Error&quot;);
-    });
+      }, error &#x3D;&gt; {
+        var text: string
+        if (error.error.name &#x3D;&#x3D; &quot;Un usuario ya esta registrado con este correo&quot;) {
+          text &#x3D; &quot;Un usuario ya esta registrado con este correo&quot;
+        }
+        else {
+          text &#x3D; &quot;Error en su inscripción, por favor verifica que sus datos son correctos.&quot;
+        }
+        this.toastrService.error(text, &quot;Error&quot;);
+      });
   }
 
 }
