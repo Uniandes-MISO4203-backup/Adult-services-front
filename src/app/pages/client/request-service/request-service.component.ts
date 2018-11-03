@@ -57,7 +57,7 @@ export class RequestServiceComponent implements OnInit {
         console.log(error);
     });
   }
-
+  
   getComments(id){
     this.watchComments = true;
     for (let enf of this.enfermerosDisponibles) {      
@@ -66,5 +66,4 @@ export class RequestServiceComponent implements OnInit {
       }
     }
   }
-
 }
