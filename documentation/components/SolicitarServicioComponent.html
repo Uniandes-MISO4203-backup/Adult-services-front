@@ -539,7 +539,7 @@
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnInit } from &#x27;@angular/core&#x27;;
-import { ActivatedRoute  } from &#x27;@angular/router&#x27;;
+import { ActivatedRoute } from &#x27;@angular/router&#x27;;
 import { Router } from &#x27;@angular/router&#x27;;
 import { ToastrService } from &#x27;ngx-toastr&#x27;;
 
@@ -566,26 +566,26 @@ export class SolicitarServicioComponent implements OnInit {
 
   constructor(private router: Router, private activeRoute: ActivatedRoute,
     private getInfo: GetInfoService, private authGuardService: AuthGuardService,
-    private registerService: RegisterService, private toastrService: ToastrService,) {
-      this.authGuardService.active$.subscribe(active &#x3D;&gt; {
-        console.log(&quot;Is active&quot;, active);
-        if (active) {
-          this.authGuardService.user$.subscribe(user &#x3D;&gt; {   
-            if (user !&#x3D; undefined){           
-              this.loggedUser &#x3D; user;
-              if (user.first_name !&#x3D;&#x3D; undefined ){
-                this.activeRoute.params.subscribe( params &#x3D;&gt;{
-                  this.nurseId &#x3D; params[&#x27;id&#x27;];
-                });
-              }
-            }              
-          });          
-        }else {
-          this.router.navigate([&#x27;/&#x27;]);
-        }
-      });
+    private registerService: RegisterService, private toastrService: ToastrService, ) {
+    this.authGuardService.active$.subscribe(active &#x3D;&gt; {
+      console.log(&quot;Is active&quot;, active);
+      if (active) {
+        this.authGuardService.user$.subscribe(user &#x3D;&gt; {
+          if (user !&#x3D; undefined) {
+            this.loggedUser &#x3D; user;
+            if (user.first_name !&#x3D;&#x3D; undefined) {
+              this.activeRoute.params.subscribe(params &#x3D;&gt; {
+                this.nurseId &#x3D; params[&#x27;id&#x27;];
+              });
+            }
+          }
+        });
+      } else {
+        this.router.navigate([&#x27;/&#x27;]);
+      }
+    });
 
-    }
+  }
 
   ngOnInit() {
     this.tipo &#x3D; [&#x27;Acompañamiento&#x27;, &#x27;Salida&#x27;];
@@ -601,20 +601,20 @@ export class SolicitarServicioComponent implements OnInit {
     this.service &#x3D; value;
     this.service.adultId &#x3D; this.loggedUser.id + &quot;&quot;;
     this.service.nurseId &#x3D; this.nurseId;
-    switch(value.type) { 
-      case this.tipo[0]: { 
-         this.service.price &#x3D; &quot;50000&quot;;
-         break; 
-      } 
-      case this.tipo[1]: { 
-        this.service.price &#x3D; &quot;150000&quot;; 
-         break; 
-      } 
-      default: { 
+    switch (value.type) {
+      case this.tipo[0]: {
+        this.service.price &#x3D; &quot;50000&quot;;
+        break;
+      }
+      case this.tipo[1]: {
+        this.service.price &#x3D; &quot;150000&quot;;
+        break;
+      }
+      default: {
         this.service.price &#x3D; &quot;5000&quot;;
-         break; 
-      } 
-   } 
+        break;
+      }
+    }
     console.log(this.service);
     //Web Service
     this.registerService.postServReg(this.service).subscribe(
@@ -625,10 +625,11 @@ export class SolicitarServicioComponent implements OnInit {
         this.router.navigate([&#x27;/&#x27;]);
       }, error &#x3D;&gt; {
         var text: string
-        switch (error.error.name) {
-          case &quot;SequelizeUniqueConstraintError&quot;: text &#x3D; &quot;Un servicio ya esta registrado&quot;
-          break;
-          default: text &#x3D; &quot;Error en su inscripción, por favor verifica que sus datos son correctos.&quot;
+        if (error.error.name &#x3D;&#x3D; &quot;Un usuario ya esta registrado con este correo&quot;) {
+          text &#x3D; &quot;Un usuario ya esta registrado con este correo&quot;
+        }
+        else {
+          text &#x3D; &quot;Error en su inscripción, por favor verifica que sus datos son correctos.&quot;
         }
         this.toastrService.error(text, &quot;Error&quot;);
       });
