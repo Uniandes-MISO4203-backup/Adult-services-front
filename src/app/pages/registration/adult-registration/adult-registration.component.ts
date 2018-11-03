@@ -43,10 +43,12 @@ export class AdultRegistrationComponent implements OnInit {
         this.router.navigate(['/']);
       }, error => {
         var text: string
-        switch (error.error.name) {
-          case "SequelizeUniqueConstraintError": text = "Un usuario ya esta registrado con este correo"
-          break;
-          default: text = "Error en su inscripción, por favor verifica que sus datos son correctos."
+
+        if (error.error.name == "Un usuario ya esta registrado con este correo") {
+          text = "Un usuario ya esta registrado con este correo"
+        }
+        else {
+          text = "Error en su inscripción, por favor verifica que sus datos son correctos."
         }
         this.toastrService.error(text, "Error");
       });

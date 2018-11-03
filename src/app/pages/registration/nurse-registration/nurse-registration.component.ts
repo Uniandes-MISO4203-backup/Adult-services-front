@@ -16,14 +16,14 @@ export class NurseRegistrationComponent implements OnInit {
 
   constructor(private registerService: RegisterService,
     private toastrService: ToastrService,
-    private router: Router) {  }
+    private router: Router) { }
 
   ngOnInit() {
     this.gender = ['Masculino', 'Femenino'];
     this.user = new Nurse({
       firstName: "", lastName: "", dateOfBirth: "",
-      email: "", password: { pwd: "", confirm_pwd: "" }, 
-      resume:"", terms: false
+      email: "", password: { pwd: "", confirm_pwd: "" },
+      resume: "", terms: false
     });
   }
 
@@ -41,15 +41,16 @@ export class NurseRegistrationComponent implements OnInit {
         console.log(data);
         this.toastrService.success("Inscripción realizada con éxito !", "Exito")
         this.router.navigate(['/solicitudes']);
-    },error=>{
-      var text: string
-      switch (error.error.name) {
-        case "SequelizeUniqueConstraintError": text = "Un usuario ya esta registrado con este correo"
-        break;
-        default: text = "Error en su inscripción, por favor verifica que sus datos son correctos."
-      }
-      this.toastrService.error(text, "Error");
-    });
+      }, error => {
+        var text: string
+        if (error.error.name == "Un usuario ya esta registrado con este correo") {
+          text = "Un usuario ya esta registrado con este correo"
+        }
+        else {
+          text = "Error en su inscripción, por favor verifica que sus datos son correctos."
+        }
+        this.toastrService.error(text, "Error");
+      });
   }
 
 }

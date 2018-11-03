@@ -53,15 +53,12 @@ export class HeaderComponent implements OnInit {
                                 //    id: "usuario", name: " Rol: "+ user.Role.name, icon: "user", link: "solicitudes"
                                 //}
                             ];
-                        } else if (this.loggedUser.Role.name == "adult" && this.loggedUser.clientStatusId == 3 ) {
+                        } else if (this.loggedUser.Role.name == "adult" && this.loggedUser.clientStatusId == 3) {
                             this.menus = [
                                 {
                                     id: "ver-servicios", name: "Mis servicios", icon: "user", link: "myservices"
                                 }
                             ]
-                            
-                        } else {
-                            
                         }
                     }
                 });

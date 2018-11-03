@@ -66,7 +66,7 @@ export class SolicitarServicioComponent implements OnInit {
          this.service.price = "50000";
          break; 
       } 
-      case this.tipo[0]: { 
+      case this.tipo[1]: { 
         this.service.price = "150000"; 
          break; 
       } 
