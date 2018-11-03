@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute  } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 
@@ -26,26 +26,26 @@ export class SolicitarServicioComponent implements OnInit {
 
   constructor(private router: Router, private activeRoute: ActivatedRoute,
     private getInfo: GetInfoService, private authGuardService: AuthGuardService,
-    private registerService: RegisterService, private toastrService: ToastrService,) {
-      this.authGuardService.active$.subscribe(active => {
-        console.log("Is active", active);
-        if (active) {
-          this.authGuardService.user$.subscribe(user => {   
-            if (user != undefined){           
-              this.loggedUser = user;
-              if (user.first_name !== undefined ){
-                this.activeRoute.params.subscribe( params =>{
-                  this.nurseId = params['id'];
-                });
-              }
-            }              
-          });          
-        }else {
-          this.router.navigate(['/']);
-        }
-      });
+    private registerService: RegisterService, private toastrService: ToastrService, ) {
+    this.authGuardService.active$.subscribe(active => {
+      console.log("Is active", active);
+      if (active) {
+        this.authGuardService.user$.subscribe(user => {
+          if (user != undefined) {
+            this.loggedUser = user;
+            if (user.first_name !== undefined) {
+              this.activeRoute.params.subscribe(params => {
+                this.nurseId = params['id'];
+              });
+            }
+          }
+        });
+      } else {
+        this.router.navigate(['/']);
+      }
+    });
 
-    }
+  }
 
   ngOnInit() {
     this.tipo = ['Acompañamiento', 'Salida'];
@@ -61,20 +61,20 @@ export class SolicitarServicioComponent implements OnInit {
     this.service = value;
     this.service.adultId = this.loggedUser.id + "";
     this.service.nurseId = this.nurseId;
-    switch(value.type) { 
-      case this.tipo[0]: { 
-         this.service.price = "50000";
-         break; 
-      } 
-      case this.tipo[1]: { 
-        this.service.price = "150000"; 
-         break; 
-      } 
-      default: { 
+    switch (value.type) {
+      case this.tipo[0]: {
+        this.service.price = "50000";
+        break;
+      }
+      case this.tipo[1]: {
+        this.service.price = "150000";
+        break;
+      }
+      default: {
         this.service.price = "5000";
-         break; 
-      } 
-   } 
+        break;
+      }
+    }
     console.log(this.service);
     //Web Service
     this.registerService.postServReg(this.service).subscribe(
@@ -85,10 +85,11 @@ export class SolicitarServicioComponent implements OnInit {
         this.router.navigate(['/']);
       }, error => {
         var text: string
-        switch (error.error.name) {
-          case "SequelizeUniqueConstraintError": text = "Un servicio ya esta registrado"
-          break;
-          default: text = "Error en su inscripción, por favor verifica que sus datos son correctos."
+        if (error.error.name == "Un usuario ya esta registrado con este correo") {
+          text = "Un usuario ya esta registrado con este correo"
+        }
+        else {
+          text = "Error en su inscripción, por favor verifica que sus datos son correctos."
         }
         this.toastrService.error(text, "Error");
       });
