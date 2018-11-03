@@ -11,6 +11,7 @@ export class ClinicalHistory {
   height:number;
   pulse:number;
   heart_rate: number;
+  breathing_rate:number;
   temperature: number;
   observations:string
   allergies:Array<string>=["",""];

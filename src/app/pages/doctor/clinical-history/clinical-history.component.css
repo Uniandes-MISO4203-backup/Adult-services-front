@@ -22,6 +22,10 @@
     margin-right:auto;
 }
 
+.btn-circle{
+        border-radius: 50% !important;
+      }
+
 .clinical-history .center-table td{        
         padding:5px;
 }

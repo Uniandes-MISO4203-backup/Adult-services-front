@@ -93,20 +93,16 @@
             <!--row 5-->
             <div class="row">
               <!--medicalHistory block-->
-              <div class="col-md-12 form-group required">
-                <table class="center-table">
+              <div class="col-md-12 form-group required" [formGroup]="medical_preceedings_form_group">
+                <table class="center-table" formArrayName="medical_preceedings">
                   <tr>
                     <td class="text-center control-label">Antecedentes Médicos</td>
                   </tr>
-                  <tr *ngFor="let medical_preceding of clinicalHistory.medical_precedings; let i=index">
+                  <tr *ngFor="let medical_preceding of medical_preceedings.controls; let i=index">
                     <td class="cell-input">
-                      <input type="text" class="form-control" #medical_precedings="ngModel" [(ngModel)]="clinicalHistory.medical_precedings[i].value"
-                        name="medical_preceding_{{i}}" id="medical_preceding_{{i}}" required>
-                      <div *ngIf="(medical_precedings.touched)" class="text-danger">
-                        <div *ngIf="medical_precedings.errors?.required">
-                          Ingrese antecedente
-                        </div>
-                      </div>
+                      <input type="text" class="form-control" name="medical_preceding_{{i}}" id="medical_preceding_{{i}}"
+                        [formControlName]="i" required>
+
                     </td>
                     <td class="cell-button">
                       <button type="button" (click)="removeClinicalPrecending(i)" title="Remover" class="btn btn-danger btn-circle"
@@ -118,6 +114,14 @@
                     <td colspan="2">
                       <button type="button" (click)="addClinicalPrecending()" title="Agregar antecedente" class="btn btn-primary btn-circle"><i
                           class="fa fa-plus"></i></button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td colspan="2">
+                      <div *ngIf="!medical_preceedings_form_group.valid" class="text-danger">
+                        Llene todos los campos antecedentes medicos
+                      </div>
+
                     </td>
                   </tr>
                 </table>
@@ -173,13 +177,13 @@
                     <!--pulse block-->
                     <div class="form-group required col-md-12">
                       <div class="row">
-                        <label class="control-label col-sm-3" for="pulse">Frecuencia cardiaca</label>
+                        <label class="control-label col-sm-3" for="heart_rate">Frecuencia cardiaca</label>
                         <div class="col-sm-auto">
-                          <input [(ngModel)]="clinicalHistory.pulse" #pulse="ngModel" id="pulse" name="pulse" type="text"
-                            class="form-control" required>
+                          <input [(ngModel)]="clinicalHistory.heart_rate" #heart_rate="ngModel" id="heart_rate" name="heart_rate"
+                            type="number" class="form-control" required>
                           <!-- pulse error block -->
-                          <div *ngIf="(pulse.touched)" class="text-danger">
-                            <div *ngIf="pulse.errors?.required">
+                          <div *ngIf="(heart_rate.touched)" class="text-danger">
+                            <div *ngIf="heart_rate.errors?.required">
                               Ingrese frecuencia cardiaca
                             </div>
                           </div>
@@ -193,13 +197,13 @@
                     <!--respiratoryfrequency block-->
                     <div class="form-group required col-md-12">
                       <div class="row">
-                        <label class="control-label col-sm-3" for="heart_rate">Frecuencia respiratoria</label>
+                        <label class="control-label col-sm-3" for="breathing_rate">Frecuencia respiratoria</label>
                         <div class="col-sm-auto">
-                          <input type="text" [(ngModel)]="clinicalHistory.heart_rate" #heart_rate="ngModel" id="heart_rate"
-                            name="heart_rate" class="form-control" required>
+                          <input type="number" [(ngModel)]="clinicalHistory.breathing_rate" #breathing_rate="ngModel"
+                            id="breathing_rate" name="breathing_rate" class="form-control" required>
                           <!-- respiratoryfrequency error block -->
-                          <div *ngIf="(heart_rate.touched)" class="text-danger">
-                            <div *ngIf="heart_rate.errors?.required">
+                          <div *ngIf="(breathing_rate.touched)" class="text-danger">
+                            <div *ngIf="breathing_rate.errors?.required">
                               Ingrese frecuencia respiratoria
                             </div>
                           </div>
@@ -236,34 +240,38 @@
             <!--row 7-->
             <div class="row">
               <!--allergies block-->
-              <div class="col-md-12 form-group required">
-                  <table class="center-table">
-                      <tr>
-                        <td class="text-center control-label">Alergias</td>
-                      </tr>
-                      <tr *ngFor="let allergy of clinicalHistory.allergies; let i=index">
-                        <td class="cell-input">
-                          <input type="text" class="form-control" #allergy="ngModel" [(ngModel)]="clinicalHistory.allergies[i].value"
-                            name="allergy_{{i}}" id="allergy_{{i}}" required>
-                          <div *ngIf="(allergy.touched)" class="text-danger">
-                            <div *ngIf="allergy.errors?.required">
-                              Ingrese Alergia
-                            </div>
-                          </div>
-                        </td>
-                        <td class="cell-button">
-                          <button type="button" (click)="removeAllergy(i)" title="Remover" class="btn btn-danger btn-circle"
-                            [hidden]="i<=0">
-                            <i class="fa fa-minus"></i></button>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td colspan="2">
-                          <button type="button" (click)="addAllergy()" title="Agregar alergia" class="btn btn-primary btn-circle"><i
-                              class="fa fa-plus"></i></button>
-                        </td>
-                      </tr>
-                    </table>
+              <div class="col-md-12 form-group required" [formGroup]="allergies_form_group">
+                <table class="center-table" formArrayName="allergies">
+                  <tr>
+                    <td class="text-center control-label">Alergias</td>
+                  </tr>
+                  <tr *ngFor="let allergy of allergies.controls; let i=index">
+                    <td class="cell-input">
+                      <input type="text" class="form-control" [formControlName]="i" required name="allergy_{{i}}" id="allergy_{{i}}"
+                        required>
+
+                    </td>
+                    <td class="cell-button">
+                      <button type="button" (click)="removeAllergy(i)" title="Remover" class="btn btn-danger btn-circle"
+                        [hidden]="i<=0">
+                        <i class="fa fa-minus"></i></button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td colspan="2">
+                      <button type="button" (click)="addAllergy()" title="Agregar alergia" class="btn btn-primary btn-circle"><i
+                          class="fa fa-plus"></i></button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td colspan="2">
+                      <div *ngIf="!allergies_form_group.valid" class="text-danger">
+                        Llene todos los campos de alergias
+                      </div>
+
+                    </td>
+                  </tr>
+                </table>
               </div>
             </div>
 
@@ -273,38 +281,41 @@
             <!--row 8-->
             <div class="row">
               <!--coronaryProblems block-->
-              <div class="col-md-12 form-group required">
-                  <table class="center-table">
-                      <tr>
-                        <td class="text-center control-label">Problemas Coronarios</td>
-                      </tr>
-                      <tr *ngFor="let coronary of clinicalHistory.coronary_problems; let i=index">
-                        <td class="cell-input">
-                          <input type="text" class="form-control" #coronary="ngModel" [(ngModel)]="clinicalHistory.coronary_problems[i].value"
-                            name="coronary_{{i}}" id="coronary_{{i}}" required>
-                          <div *ngIf="(coronary.touched)" class="text-danger">
-                            <div *ngIf="coronary.errors?.required">
-                              Ingrese problema coronario
-                            </div>
-                          </div>
-                        </td>
-                        <td class="cell-button">
-                          <button type="button" (click)="removeCoronary(i)" title="Remover" class="btn btn-danger btn-circle"
-                            [hidden]="i<=0">
-                            <i class="fa fa-minus"></i></button>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td colspan="2">
-                          <button type="button" (click)="addCoronary()" title="Agregar problema coronario" class="btn btn-primary btn-circle"><i
-                              class="fa fa-plus"></i></button>
-                        </td>
-                      </tr>
-                    </table>
+              <div class="col-md-12 form-group required" [formGroup]="coronary_problems_form_group">
+                <table class="center-table" formArrayName="coronary_problems">
+                  <tr>
+                    <td class="text-center control-label">Problemas Coronarios</td>
+                  </tr>
+                  <tr *ngFor="let coronary of coronary_problems.controls; let i=index">
+                    <td class="cell-input">
+                      <input type="text" class="form-control" name="coronary_{{i}}" id="coronary_{{i}}"
+                        [formControlName]="i" required>
+                    </td>
+                    <td class="cell-button">
+                      <button type="button" (click)="removeCoronary(i)" title="Remover" class="btn btn-danger btn-circle"
+                        [hidden]="i<=0">
+                        <i class="fa fa-minus"></i></button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td colspan="2">
+                      <button type="button" (click)="addCoronary()" title="Agregar problema coronario" class="btn btn-primary btn-circle"><i
+                          class="fa fa-plus"></i></button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td colspan="2">
+                      <div *ngIf="!coronary_problems_form_group.valid" class="text-danger">
+                        Llene todos los campos de problemas coronarios
+                      </div>
+
+                    </td>
+                  </tr>
+                </table>
               </div>
             </div>
 
-            <hr/>
+            <hr />
             <!--row 9-->
             <div class="row">
               <!--observations block-->
@@ -326,7 +337,7 @@
             <!--buttons block-->
             <div class="form-group">
               <button type="reset" class="btn btn-default btn-space" [routerLink]="['']">Cancelar</button>
-              <button class="btn btn-primary btn-space" [disabled]="!clinicalHistoryForm.form.valid">Enviar</button>
+              <button class="btn btn-primary btn-space" [disabled]="!clinicalHistoryForm.form.valid || !coronary_problems_form_group.valid || !medical_preceedings_form_group.valid || !allergies_form_group.valid">Enviar</button>
             </div>
           </form>
         </div>
