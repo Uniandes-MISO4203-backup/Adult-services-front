@@ -38,7 +38,7 @@
 
 <ol class="breadcrumb">
   <li>Components</li>
-  <li>RequestServiceComponent</li>
+  <li>SolicitarServicioComponent</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
@@ -61,7 +61,7 @@
     <h3>File</h3>
 </p>
 <p class="comment">
-    <code>src/app/pages/client/request-service/request-service.component.ts</code>
+    <code>src/app/pages/solicitar-servicio/solicitar-servicio.component.ts</code>
 </p>
 
 
@@ -91,19 +91,19 @@
 
             <tr>
                 <td class="col-md-3">selector</td>
-                <td class="col-md-9"><code>app-request-service</code></td>
+                <td class="col-md-9"><code>app-solicitar-servicio</code></td>
             </tr>
 
             <tr>
                 <td class="col-md-3">styleUrls</td>
-                <td class="col-md-9"><code>request-service.component.css</code></td>
+                <td class="col-md-9"><code>solicitar-servicio.component.css</code></td>
             </tr>
 
 
 
             <tr>
                 <td class="col-md-3">templateUrl</td>
-                <td class="col-md-9"><code>./request-service.component.html</code></td>
+                <td class="col-md-9"><code>./solicitar-servicio.component.html</code></td>
             </tr>
 
 
@@ -124,19 +124,16 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
-                                <a href="#adultId">adultId</a>
-                            </li>
-                            <li>
-                                <a href="#enfermerosDisponibles">enfermerosDisponibles</a>
-                            </li>
-                            <li>
                                 <a href="#loggedUser">loggedUser</a>
                             </li>
                             <li>
-                                <a href="#services">services</a>
+                                <a href="#nurseId">nurseId</a>
                             </li>
                             <li>
-                                <a href="#watchComments">watchComments</a>
+                                <a href="#service">service</a>
+                            </li>
+                            <li>
+                                <a href="#tipo">tipo</a>
                             </li>
                         </ul>
                     </td>
@@ -151,13 +148,10 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
-                                <a href="#getComments">getComments</a>
-                            </li>
-                            <li>
-                                <a href="#getEnfermerosDisponibles">getEnfermerosDisponibles</a>
-                            </li>
-                            <li>
                                 <a href="#ngOnInit">ngOnInit</a>
+                            </li>
+                            <li>
+                                <a href="#onFormSubmit">onFormSubmit</a>
                             </li>
                         </ul>
                     </td>
@@ -177,12 +171,12 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(router: <a href="https://angular.io/api/router/Router" target="_blank">Router</a>, activeRoute: <a href="https://angular.io/api/router/ActivatedRoute" target="_blank">ActivatedRoute</a>, getInfo: <a href="../injectables/GetInfoService.html">GetInfoService</a>, authGuardService: <a href="../injectables/AuthGuardService.html">AuthGuardService</a>)</code>
+<code>constructor(router: <a href="https://angular.io/api/router/Router" target="_blank">Router</a>, activeRoute: <a href="https://angular.io/api/router/ActivatedRoute" target="_blank">ActivatedRoute</a>, getInfo: <a href="../injectables/GetInfoService.html">GetInfoService</a>, authGuardService: <a href="../injectables/AuthGuardService.html">AuthGuardService</a>, registerService: <a href="../injectables/RegisterService.html">RegisterService</a>, toastrService: ToastrService)</code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">src/app/pages/client/request-service/request-service.component.ts:20</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="25" class="link-to-prism">src/app/pages/solicitar-servicio/solicitar-servicio.component.ts:25</a></div>
                             </td>
                         </tr>
 
@@ -247,6 +241,30 @@
                                                     </td>
                                                     
                                                 </tr>
+                                                <tr>
+                                                        <td>registerService</td>
+                                                  
+                                                        <td>
+                                                                    <code><a href="../injectables/RegisterService.html" target="_self" >RegisterService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>toastrService</td>
+                                                  
+                                                        <td>
+                                                                    <code>ToastrService</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
                                         </tbody>
                                     </table>
                             </div>
@@ -269,25 +287,63 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-                        <a name="getComments"></a>
+                        <a name="ngOnInit"></a>
                         <span class="name">
                             <b>
-                            getComments
+                            ngOnInit
                             </b>
-                            <a href="#getComments"><span class="icon ion-ios-link"></span></a>
+                            <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
                         </span>
                     </td>
                 </tr>
                 <tr>
                     <td class="col-md-4">
-<code>getComments(id: )</code>
+<code>ngOnInit()</code>
                     </td>
                 </tr>
 
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="61" class="link-to-prism">src/app/pages/client/request-service/request-service.component.ts:61</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="50" class="link-to-prism">src/app/pages/solicitar-servicio/solicitar-servicio.component.ts:50</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="onFormSubmit"></a>
+                        <span class="name">
+                            <b>
+                            onFormSubmit
+                            </b>
+                            <a href="#onFormSubmit"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>onFormSubmit(undefined: literal type)</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="60" class="link-to-prism">src/app/pages/solicitar-servicio/solicitar-servicio.component.ts:60</a></div>
                             </td>
                         </tr>
 
@@ -301,12 +357,15 @@
                                         <thead>
                                             <tr>
                                                 <td>Name</td>
+                                                    <td>Type</td>
                                                 <td>Optional</td>
                                             </tr>
                                         </thead>
                                         <tbody>
                                                 <tr>
-                                                        <td>id</td>
+                                                        <td>
+                                                                    <code>literal type</code>
+                                                        </td>
                                                     
                                                     <td>
                                                             No
@@ -330,82 +389,6 @@
                 </tr>
             </tbody>
         </table>
-        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-4">
-                        <a name="getEnfermerosDisponibles"></a>
-                        <span class="name">
-                            <b>
-                            getEnfermerosDisponibles
-                            </b>
-                            <a href="#getEnfermerosDisponibles"><span class="icon ion-ios-link"></span></a>
-                        </span>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-<code>getEnfermerosDisponibles()</code>
-                    </td>
-                </tr>
-
-
-                        <tr>
-                            <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="49" class="link-to-prism">src/app/pages/client/request-service/request-service.component.ts:49</a></div>
-                            </td>
-                        </tr>
-
-
-                <tr>
-                    <td class="col-md-4">
-
-                            <div class="io-description">
-                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
-
-                            </div>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-4">
-                        <a name="ngOnInit"></a>
-                        <span class="name">
-                            <b>
-                            ngOnInit
-                            </b>
-                            <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
-                        </span>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-<code>ngOnInit()</code>
-                    </td>
-                </tr>
-
-
-                        <tr>
-                            <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="45" class="link-to-prism">src/app/pages/client/request-service/request-service.component.ts:45</a></div>
-                            </td>
-                        </tr>
-
-
-                <tr>
-                    <td class="col-md-4">
-
-                            <div class="io-description">
-                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
-
-                            </div>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
 </section>
 
     <section>
@@ -413,74 +396,6 @@
         <h3 id="inputs">
             Properties
         </h3>
-        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-4">
-                        <a name="adultId"></a>
-                        <span class="name">
-                            <b>
-                            adultId
-                            </b>
-                            <a href="#adultId"><span class="icon ion-ios-link"></span></a>
-                        </span>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <code>adultId:     <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
-</code>
-                    </td>
-                </tr>
-                    <tr>
-                        <td class="col-md-4">
-                            <i>Type : </i>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
-
-                        </td>
-                    </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">src/app/pages/client/request-service/request-service.component.ts:16</a></div>
-                            </td>
-                        </tr>
-
-
-            </tbody>
-        </table>
-        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-4">
-                        <a name="enfermerosDisponibles"></a>
-                        <span class="name">
-                            <b>
-                            enfermerosDisponibles
-                            </b>
-                            <a href="#enfermerosDisponibles"><span class="icon ion-ios-link"></span></a>
-                        </span>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <code>enfermerosDisponibles:     <code><a href="../classes/EnfermeroDis.html" target="_self" >EnfermeroDis[]</a></code>
-</code>
-                    </td>
-                </tr>
-                    <tr>
-                        <td class="col-md-4">
-                            <i>Type : </i>    <code><a href="../classes/EnfermeroDis.html" target="_self" >EnfermeroDis[]</a></code>
-
-                        </td>
-                    </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">src/app/pages/client/request-service/request-service.component.ts:17</a></div>
-                            </td>
-                        </tr>
-
-
-            </tbody>
-        </table>
         <table class="table table-sm table-bordered">
             <tbody>
                 <tr>
@@ -508,7 +423,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">src/app/pages/client/request-service/request-service.component.ts:18</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="23" class="link-to-prism">src/app/pages/solicitar-servicio/solicitar-servicio.component.ts:23</a></div>
                             </td>
                         </tr>
 
@@ -519,30 +434,30 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-                        <a name="services"></a>
+                        <a name="nurseId"></a>
                         <span class="name">
                             <b>
-                            services
+                            nurseId
                             </b>
-                            <a href="#services"><span class="icon ion-ios-link"></span></a>
+                            <a href="#nurseId"><span class="icon ion-ios-link"></span></a>
                         </span>
                     </td>
                 </tr>
                 <tr>
                     <td class="col-md-4">
-                        <code>services:     <code>literal type</code>
+                        <code>nurseId:     <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
 </code>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                            <i>Type : </i>    <code>literal type</code>
+                            <i>Type : </i>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
 
                         </td>
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">src/app/pages/client/request-service/request-service.component.ts:20</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="24" class="link-to-prism">src/app/pages/solicitar-servicio/solicitar-servicio.component.ts:24</a></div>
                             </td>
                         </tr>
 
@@ -553,30 +468,64 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-                        <a name="watchComments"></a>
+                        <a name="service"></a>
                         <span class="name">
                             <b>
-                            watchComments
+                            service
                             </b>
-                            <a href="#watchComments"><span class="icon ion-ios-link"></span></a>
+                            <a href="#service"><span class="icon ion-ios-link"></span></a>
                         </span>
                     </td>
                 </tr>
                 <tr>
                     <td class="col-md-4">
-                        <code>watchComments:     <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+                        <code>service:     <code><a href="../classes/NewService.html" target="_self" >NewService</a></code>
 </code>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                            <i>Type : </i>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+                            <i>Type : </i>    <code><a href="../classes/NewService.html" target="_self" >NewService</a></code>
 
                         </td>
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">src/app/pages/client/request-service/request-service.component.ts:19</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="22" class="link-to-prism">src/app/pages/solicitar-servicio/solicitar-servicio.component.ts:22</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="tipo"></a>
+                        <span class="name">
+                            <b>
+                            tipo
+                            </b>
+                            <a href="#tipo"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <code>tipo:     <code>string[]</code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>string[]</code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="25" class="link-to-prism">src/app/pages/solicitar-servicio/solicitar-servicio.component.ts:25</a></div>
                             </td>
                         </tr>
 
@@ -590,29 +539,34 @@
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnInit } from &#x27;@angular/core&#x27;;
-import { ActivatedRoute, NavigationExtras  } from &#x27;@angular/router&#x27;;
+import { ActivatedRoute  } from &#x27;@angular/router&#x27;;
 import { Router } from &#x27;@angular/router&#x27;;
-import { EnfermeroDis } from &#x27;../../../../models/enfermerosDis&#x27;;
-import { AuthGuardService } from &#x27;../../../services/auth-guard.service&#x27;;
-import { GetInfoService } from &#x27;../../../services/getInfo-services.service&#x27;;
-import { userModel } from &#x27;../../../../models/userInfoResponseModel&#x27;;
+import { ToastrService } from &#x27;ngx-toastr&#x27;;
+
+import { AuthGuardService } from &#x27;../../services/auth-guard.service&#x27;;
+import { GetInfoService } from &#x27;../../services/getInfo-services.service&#x27;;
+import { RegisterService } from &#x27;../../services/register-service.service&#x27;;
+
+
+import { userModel } from &#x27;../../../models/userInfoResponseModel&#x27;;
+import { NewService } from &#x27;../../../models/serviceModel&#x27;;
+import { THIS_EXPR } from &#x27;@angular/compiler/src/output/output_ast&#x27;;
 
 @Component({
-  selector: &#x27;app-request-service&#x27;,
-  templateUrl: &#x27;./request-service.component.html&#x27;,
-  styleUrls: [&#x27;./request-service.component.css&#x27;]
+  selector: &#x27;app-solicitar-servicio&#x27;,
+  templateUrl: &#x27;./solicitar-servicio.component.html&#x27;,
+  styleUrls: [&#x27;./solicitar-servicio.component.css&#x27;]
 })
-export class RequestServiceComponent implements OnInit {
+export class SolicitarServicioComponent implements OnInit {
 
-  adultId: string;  
-  enfermerosDisponibles: EnfermeroDis[];
+  service: NewService;
   loggedUser: userModel;
-  watchComments: boolean;
-  services: { start_date: Date, end_date: Date, nurse_evaluation: number, adult_comment: string, nurse_comment: string };  
+  nurseId: string;
+  tipo: string[];
 
   constructor(private router: Router, private activeRoute: ActivatedRoute,
-    private getInfo: GetInfoService, private authGuardService: AuthGuardService) {      
-
+    private getInfo: GetInfoService, private authGuardService: AuthGuardService,
+    private registerService: RegisterService, private toastrService: ToastrService,) {
       this.authGuardService.active$.subscribe(active &#x3D;&gt; {
         console.log(&quot;Is active&quot;, active);
         if (active) {
@@ -621,9 +575,8 @@ export class RequestServiceComponent implements OnInit {
               this.loggedUser &#x3D; user;
               if (user.first_name !&#x3D;&#x3D; undefined ){
                 this.activeRoute.params.subscribe( params &#x3D;&gt;{
-                  this.adultId &#x3D; params[&#x27;id&#x27;];
+                  this.nurseId &#x3D; params[&#x27;id&#x27;];
                 });
-                this.getEnfermerosDisponibles();
               }
             }              
           });          
@@ -631,73 +584,135 @@ export class RequestServiceComponent implements OnInit {
           this.router.navigate([&#x27;/&#x27;]);
         }
       });
-  }
+
+    }
 
   ngOnInit() {
-    this.watchComments &#x3D; false;
-  }
-
-  getEnfermerosDisponibles(){
-    this.getInfo.getEnfermerosDisponibles().subscribe(
-      data &#x3D;&gt; {
-        console.log(&quot;Enfermeros disponibles: &quot;);
-        console.log(data);
-        this.enfermerosDisponibles &#x3D; data;
-    },error&#x3D;&gt;{
-        console.log(&quot;Error en getClinicHistories&quot;);
-        console.log(error);
+    this.tipo &#x3D; [&#x27;Acompañamiento&#x27;, &#x27;Salida&#x27;];
+    //Create a new user object
+    this.service &#x3D; new NewService({
+      startDate: &quot;&quot;, endDate: &quot;&quot;, type: &quot;&quot;,
+      description: &quot;&quot;, price: &quot;&quot;, adultEvaluation: &quot;&quot;,
+      nurseEvaluation: &quot;&quot;, adultId: &quot;&quot;, nurseId: &quot;&quot;,
     });
   }
-  
-  getComments(id){
-    this.watchComments &#x3D; true;
-    for (let enf of this.enfermerosDisponibles) {      
-      if(enf.id &#x3D;&#x3D; id ){        
-        this.services &#x3D; enf.Services;        
-      }
-    }
+
+  onFormSubmit({ value, valid }: { value: NewService, valid: boolean }) {
+    this.service &#x3D; value;
+    this.service.adultId &#x3D; this.loggedUser.id + &quot;&quot;;
+    this.service.nurseId &#x3D; this.nurseId;
+    switch(value.type) { 
+      case this.tipo[0]: { 
+         this.service.price &#x3D; &quot;50000&quot;;
+         break; 
+      } 
+      case this.tipo[0]: { 
+        this.service.price &#x3D; &quot;150000&quot;; 
+         break; 
+      } 
+      default: { 
+        this.service.price &#x3D; &quot;5000&quot;;
+         break; 
+      } 
+   } 
+    console.log(this.service);
+    //Web Service
+    this.registerService.postServReg(this.service).subscribe(
+      data &#x3D;&gt; {
+        console.log(&quot;Service create response&quot;);
+        console.log(data);
+        this.toastrService.success(&#x27;Su solicitud ha sido creada con éxito, puedes verificar su estado en la sección &quot;mis servicios&quot; &#x27;, &quot;Exito&quot;);
+        this.router.navigate([&#x27;/&#x27;]);
+      }, error &#x3D;&gt; {
+        var text: string
+        switch (error.error.name) {
+          case &quot;SequelizeUniqueConstraintError&quot;: text &#x3D; &quot;Un servicio ya esta registrado&quot;
+          break;
+          default: text &#x3D; &quot;Error en su inscripción, por favor verifica que sus datos son correctos.&quot;
+        }
+        this.toastrService.error(text, &quot;Error&quot;);
+      });
   }
+
 }
 </code></pre>
     </div>
 
     <div class="tab-pane fade " id="c-templateData">
-        <pre class="line-numbers"><code class="language-html">&lt;div class&#x3D;&quot;container&quot;&gt;
-    &lt;div *ngIf&#x3D;&quot;enfermerosDisponibles &#x3D;&#x3D; undefined || enfermerosDisponibles.length &#x3D;&#x3D; 0&quot;&gt;
-           &lt;h4 class&#x3D;&quot;text-center top30&quot;&gt;No hay enfermeros disponibles&lt;/h4&gt;
-    &lt;/div&gt;    
-    &lt;div *ngIf&#x3D;&quot;enfermerosDisponibles !&#x3D; undefined &amp;&amp; enfermerosDisponibles.length &gt; 0&quot;&gt;
-        &lt;h4 class&#x3D;&quot;text-center top30&quot;&gt;Listado de enfermeros disponibles&lt;/h4&gt;
-      &lt;table class&#x3D;&quot;top30 table&quot;&gt;
-        &lt;thead&gt;
-          &lt;tr&gt;
-            &lt;th scope&#x3D;&quot;col&quot;&gt;Nombre&lt;/th&gt;
-            &lt;th scope&#x3D;&quot;col&quot;&gt;Apellido&lt;/th&gt;
-            &lt;th scope&#x3D;&quot;col&quot;&gt;Puntaje&lt;/th&gt;
-            &lt;th scope&#x3D;&quot;col&quot;&gt;Opciones&lt;/th&gt;
-          &lt;/tr&gt;
-        &lt;/thead&gt;
-        &lt;tbody&gt;
-          &lt;tr *ngFor&#x3D;&quot;let nurse of enfermerosDisponibles&quot;&gt;
-            &lt;td&gt;{{nurse.first_name}}&lt;/td&gt;
-            &lt;td&gt;{{nurse.last_name}}&lt;/td&gt;
-            &lt;td&gt;{{nurse.nurse_evaluation_count}} &lt;/td&gt;
-            &lt;td&gt;&lt;button type&#x3D;&quot;button&quot; class&#x3D;&quot;btn btn btn-info btn-space&quot; [routerLink]&#x3D;&quot;[&#x27;/servicio&#x27;, nurse.id]&quot;&gt;Agendar&lt;/button&gt;
-                &lt;button type&#x3D;&quot;button&quot; class&#x3D;&quot;btn btn btn-info btn-space&quot; (click)&#x3D;&quot;getComments(nurse.id)&quot;&gt;Ver comentarios&lt;/button&gt;&lt;/td&gt;            
-           &lt;/tr&gt;         
-        &lt;/tbody&gt;
-      &lt;/table&gt;
-    &lt;/div&gt;
+        <pre class="line-numbers"><code class="language-html">&lt;div class&#x3D;&quot;col-12 top50&quot;&gt;
+  &lt;div class&#x3D;&quot;col-12 col-sm-8 offset-sm-2 col-md-6 offset-md-3 col-lg-4 offset-lg-4 jumbotron&quot;&gt;
 
-    &lt;div *ngIf&#x3D;&quot;watchComments&quot;&gt;
-        &lt;ul *ngFor&#x3D;&quot;let service of services&quot; class&#x3D;&quot;list-group top5&quot;&gt;
-            &lt;li *ngIf&#x3D;&quot;service.start_date !&#x3D; service.end_date&quot; class&#x3D;&quot;list-group-item d-flex justify-content-between align-items-center&quot;&gt;
-                {{service.adult_comment}}
-                &lt;span class&#x3D;&quot;badge badge-primary badge-pill&quot;&gt;{{service.nurse_evaluation}}&lt;/span&gt;
-            &lt;/li&gt;
-        &lt;/ul&gt;
-    &lt;/div&gt;
+    &lt;form novalidate (ngSubmit)&#x3D;&quot;onFormSubmit(signupForm)&quot; #signupForm&#x3D;&quot;ngForm&quot;&gt;
+      &lt;fieldset&gt;
+        &lt;legend&gt;Solicitar acompañamiento&lt;/legend&gt;
+
+        &lt;!--- Start Date Block ---&gt;
+        &lt;div class&#x3D;&quot;form-group&quot;&gt;
+          &lt;label for&#x3D;&quot;inputstartDate&quot;&gt;Fecha Inicio (yyyy/mm/dd) &lt;span class&#x3D;&quot;text-danger&quot;&gt;*&lt;/span&gt;&lt;/label&gt;
+          &lt;input type&#x3D;&quot;text&quot; class&#x3D;&quot;form-control&quot; [ngModel]&#x3D;&quot;service.startDate&quot; name&#x3D;&quot;startDate&quot; #startDate&#x3D;&quot;ngModel&quot; id&#x3D;&quot;inputstartDate&quot;
+            placeholder&#x3D;&quot;2018/10/31&quot; required&gt;
+
+          &lt;!-- Start Date error block --&gt;
+
+          &lt;div *ngIf&#x3D;&quot;( startDate.touched)&quot; class&#x3D;&quot;text-danger&quot;&gt;
+            &lt;div *ngIf&#x3D;&quot;startDate.errors?.required&quot;&gt;
+              Ingrese fecha válida
+            &lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;!--- End of Full Name Block ---&gt;
+
+        &lt;!--- End Date Block ---&gt;
+        &lt;div class&#x3D;&quot;form-group&quot;&gt;
+          &lt;label for&#x3D;&quot;inputendDate&quot;&gt;Fecha Fin(yyyy/mm/dd) &lt;span class&#x3D;&quot;text-danger&quot;&gt;*&lt;/span&gt;&lt;/label&gt;
+          &lt;input type&#x3D;&quot;text&quot; class&#x3D;&quot;form-control&quot; [ngModel]&#x3D;&quot;service.endDate&quot; name&#x3D;&quot;endDate&quot; #endDate&#x3D;&quot;ngModel&quot; id&#x3D;&quot;inputendDate&quot;
+            placeholder&#x3D;&quot;2018/11/10&quot; required&gt;
+
+          &lt;!-- End Date error block --&gt;
+
+          &lt;div *ngIf&#x3D;&quot;( endDate.touched)&quot; class&#x3D;&quot;text-danger&quot;&gt;
+            &lt;div *ngIf&#x3D;&quot;endDate.errors?.required&quot;&gt;
+              Ingrese fecha válida
+            &lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;!--- End of Full Name Block ---&gt;
+
+        &lt;!--- Descripción Block ---&gt;
+        &lt;div class&#x3D;&quot;form-group&quot;&gt;
+          &lt;label for&#x3D;&quot;inputdescription&quot;&gt;Descripción &lt;span class&#x3D;&quot;text-danger&quot;&gt;*&lt;/span&gt;&lt;/label&gt;
+          &lt;input type&#x3D;&quot;text&quot; class&#x3D;&quot;form-control&quot; [ngModel]&#x3D;&quot;service.description&quot; name&#x3D;&quot;description&quot; #description&#x3D;&quot;ngModel&quot; id&#x3D;&quot;inputdescription&quot;
+            placeholder&#x3D;&quot;Acompañamiento al centro centro comercial&quot; required&gt;
+
+          &lt;!-- Descripción error block --&gt;
+
+          &lt;div *ngIf&#x3D;&quot;( description.touched)&quot; class&#x3D;&quot;text-danger&quot;&gt;
+            &lt;div *ngIf&#x3D;&quot;description.errors?.required&quot;&gt;
+              Ingrese la descripción de la solicitud
+            &lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;!--- End of Last Name Block ---&gt;
+
+         &lt;!--- Select Tipo Block ---&gt;
+         &lt;div class&#x3D;&quot;form-group&quot;&gt;
+          &lt;label for&#x3D;&quot;select&quot;&gt;Tipo &lt;span class&#x3D;&quot;text-danger&quot;&gt;*&lt;/span&gt;&lt;/label&gt;
+          &lt;select id&#x3D;&quot;select&quot; [ngModel]&#x3D;&quot;service.type&quot; name&#x3D;&quot;type&quot; class&#x3D;&quot;form-control&quot; required&gt;
+            &lt;option *ngFor&#x3D;&quot;let g of tipo&quot; [value]&#x3D;&quot;g&quot;&gt; {{g}}
+            &lt;/option&gt;
+          &lt;/select&gt;
+        &lt;/div&gt;
+
+        &lt;!--- Buttons Block ---&gt;
+        &lt;div class&#x3D;&quot;form-group&quot;&gt;
+          &lt;button type&#x3D;&quot;reset&quot; class&#x3D;&quot;btn btn-default btn-space&quot;&gt;Cancelar&lt;/button&gt;
+          &lt;button type&#x3D;&quot;submit&quot; class&#x3D;&quot;btn btn-primary btn-space&quot; [disabled]&#x3D;&quot;!signupForm.form.valid&quot;&gt;Enviar&lt;/button&gt;
+        &lt;/div&gt;
+      &lt;/fieldset&gt;
+    &lt;/form&gt;
+  &lt;/div&gt;
 &lt;/div&gt;
+
 </code></pre>
     </div>
 
@@ -726,10 +741,10 @@ export class RequestServiceComponent implements OnInit {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><div class="container">    <div *ngIf="enfermerosDisponibles == undefined || enfermerosDisponibles.length == 0">           <h4 class="text-center top30">No hay enfermeros disponibles</h4>    </div>        <div *ngIf="enfermerosDisponibles != undefined && enfermerosDisponibles.length > 0">        <h4 class="text-center top30">Listado de enfermeros disponibles</h4>      <table class="top30 table">        <thead>          <tr>            <th scope="col">Nombre</th>            <th scope="col">Apellido</th>            <th scope="col">Puntaje</th>            <th scope="col">Opciones</th>          </tr>        </thead>        <tbody>          <tr *ngFor="let nurse of enfermerosDisponibles">            <td>{{nurse.first_name}}</td>            <td>{{nurse.last_name}}</td>            <td>{{nurse.nurse_evaluation_count}} </td>            <td><button type="button" class="btn btn btn-info btn-space" [routerLink]="[\'/servicio\', nurse.id]">Agendar</button>                <button type="button" class="btn btn btn-info btn-space" (click)="getComments(nurse.id)">Ver comentarios</button></td>                       </tr>                 </tbody>      </table>    </div>    <div *ngIf="watchComments">        <ul *ngFor="let service of services" class="list-group top5">            <li *ngIf="service.start_date != service.end_date" class="list-group-item d-flex justify-content-between align-items-center">                {{service.adult_comment}}                <span class="badge badge-primary badge-pill">{{service.nurse_evaluation}}</span>            </li>        </ul>    </div></div></div>'
+        var COMPONENT_TEMPLATE = '<div><div class="col-12 top50">  <div class="col-12 col-sm-8 offset-sm-2 col-md-6 offset-md-3 col-lg-4 offset-lg-4 jumbotron">    <form novalidate (ngSubmit)="onFormSubmit(signupForm)" #signupForm="ngForm">      <fieldset>        <legend>Solicitar acompañamiento</legend>        <!--- Start Date Block --->        <div class="form-group">          <label for="inputstartDate">Fecha Inicio (yyyy/mm/dd) <span class="text-danger">*</span></label>          <input type="text" class="form-control" [ngModel]="service.startDate" name="startDate" #startDate="ngModel" id="inputstartDate"            placeholder="2018/10/31" required>          <!-- Start Date error block -->          <div *ngIf="( startDate.touched)" class="text-danger">            <div *ngIf="startDate.errors?.required">              Ingrese fecha válida            </div>          </div>        </div>        <!--- End of Full Name Block --->        <!--- End Date Block --->        <div class="form-group">          <label for="inputendDate">Fecha Fin(yyyy/mm/dd) <span class="text-danger">*</span></label>          <input type="text" class="form-control" [ngModel]="service.endDate" name="endDate" #endDate="ngModel" id="inputendDate"            placeholder="2018/11/10" required>          <!-- End Date error block -->          <div *ngIf="( endDate.touched)" class="text-danger">            <div *ngIf="endDate.errors?.required">              Ingrese fecha válida            </div>          </div>        </div>        <!--- End of Full Name Block --->        <!--- Descripción Block --->        <div class="form-group">          <label for="inputdescription">Descripción <span class="text-danger">*</span></label>          <input type="text" class="form-control" [ngModel]="service.description" name="description" #description="ngModel" id="inputdescription"            placeholder="Acompañamiento al centro centro comercial" required>          <!-- Descripción error block -->          <div *ngIf="( description.touched)" class="text-danger">            <div *ngIf="description.errors?.required">              Ingrese la descripción de la solicitud            </div>          </div>        </div>        <!--- End of Last Name Block --->         <!--- Select Tipo Block --->         <div class="form-group">          <label for="select">Tipo <span class="text-danger">*</span></label>          <select id="select" [ngModel]="service.type" name="type" class="form-control" required>            <option *ngFor="let g of tipo" [value]="g"> {{g}}            </option>          </select>        </div>        <!--- Buttons Block --->        <div class="form-group">          <button type="reset" class="btn btn-default btn-space">Cancelar</button>          <button type="submit" class="btn btn-primary btn-space" [disabled]="!signupForm.form.valid">Enviar</button>        </div>      </fieldset>    </form>  </div></div></div>'
     var COMPONENTS = [{'name': 'AdultRegistrationComponent', 'selector': 'app-adult-registration'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'AvailableDoctorsComponent', 'selector': 'app-available-doctors'},{'name': 'BannerComponent', 'selector': 'app-banner'},{'name': 'ClientValidationComponent', 'selector': 'app-client-validation'},{'name': 'ClinicalHistoryComponent', 'selector': 'app-clinical-history'},{'name': 'DoctorRegistrationComponent', 'selector': 'app-doctor-registration'},{'name': 'FooterComponent', 'selector': 'app-footer'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'InterviewInformationsComponent', 'selector': 'app-interview-informations'},{'name': 'LandingPageComponent', 'selector': 'app-landing-page'},{'name': 'MisServiciosComponent', 'selector': 'app-mis-servicios'},{'name': 'NurseRegistrationComponent', 'selector': 'app-nurse-registration'},{'name': 'RequestServiceComponent', 'selector': 'app-request-service'},{'name': 'SignInComponent', 'selector': 'app-sign-in'},{'name': 'SolicitarServicioComponent', 'selector': 'app-solicitar-servicio'},{'name': 'UpcomingInterviewsComponent', 'selector': 'app-upcoming-interviews'}];
     var DIRECTIVES = [];
-    var ACTUAL_COMPONENT = {'name': 'RequestServiceComponent'};
+    var ACTUAL_COMPONENT = {'name': 'SolicitarServicioComponent'};
 </script>
 <script src="../js/tree.js"></script>
 
@@ -763,7 +778,7 @@ export class RequestServiceComponent implements OnInit {
        <script>
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
             var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
-            var COMPODOC_CURRENT_PAGE_URL = 'RequestServiceComponent.html';
+            var COMPODOC_CURRENT_PAGE_URL = 'SolicitarServicioComponent.html';
        </script>
 
        <script src="../js/libs/custom-elements.min.js"></script>

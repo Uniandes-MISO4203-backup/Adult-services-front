@@ -93,6 +93,9 @@
                             <li>
                                 <a href="#postNurseReg">postNurseReg</a>
                             </li>
+                            <li>
+                                <a href="#postServReg">postServReg</a>
+                            </li>
                         </ul>
                     </td>
                 </tr>
@@ -116,7 +119,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">src/app/services/register-service.service.ts:19</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="21" class="link-to-prism">src/app/services/register-service.service.ts:21</a></div>
                             </td>
                         </tr>
 
@@ -190,7 +193,7 @@
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="99" class="link-to-prism">src/app/services/register-service.service.ts:99</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="119" class="link-to-prism">src/app/services/register-service.service.ts:119</a></div>
                             </td>
                         </tr>
 
@@ -266,7 +269,7 @@
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="41" class="link-to-prism">src/app/services/register-service.service.ts:41</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="43" class="link-to-prism">src/app/services/register-service.service.ts:43</a></div>
                             </td>
                         </tr>
 
@@ -331,7 +334,7 @@
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="26" class="link-to-prism">src/app/services/register-service.service.ts:26</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="28" class="link-to-prism">src/app/services/register-service.service.ts:28</a></div>
                             </td>
                         </tr>
 
@@ -396,7 +399,7 @@
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="71" class="link-to-prism">src/app/services/register-service.service.ts:71</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="91" class="link-to-prism">src/app/services/register-service.service.ts:91</a></div>
                             </td>
                         </tr>
 
@@ -461,7 +464,7 @@
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="56" class="link-to-prism">src/app/services/register-service.service.ts:56</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="76" class="link-to-prism">src/app/services/register-service.service.ts:76</a></div>
                             </td>
                         </tr>
 
@@ -504,6 +507,71 @@
                 </tr>
             </tbody>
         </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="postServReg"></a>
+                        <span class="name">
+                            <b>
+                            postServReg
+                            </b>
+                            <a href="#postServReg"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>postServReg(service: )</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="58" class="link-to-prism">src/app/services/register-service.service.ts:58</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>service</td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="../classes/NewService.html" target="_self" >Observable&lt;NewService&gt;</a></code>
+
+                            </div>
+                                <div class="io-description">
+                                    
+                                </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
 </section>
 
 
@@ -520,9 +588,11 @@ import { HttpClient, HttpHeaders, HttpParams  } from &#x27;@angular/common/http&
 import &#x27;rxjs/add/operator/catch&#x27;;
 
 import { environment } from &#x27;../../environments/environment&#x27;;
+import { NewService } from &#x27;../../models/serviceModel&#x27;;
 const API_URL &#x3D; environment.apiURL;
 const API_DOCTOR_REG &#x3D; &#x27;/doctors&#x27;;
 const API_ADULT_REG &#x3D; &#x27;/adult&#x27;;
+const API_SERV_REG &#x3D; &#x27;/companionService&#x27;;
 const API_NURSE_REG &#x3D; &#x27;/nurses&#x27;;
 const API_HISTORIES_REG &#x3D; &#x27;/clinicHistory&#x27;;
 
@@ -564,6 +634,24 @@ export class RegisterService {
       .set(&#x27;birthDate&#x27;, user.dateOfBirth)
       .set(&#x27;RH&#x27;, &quot;A+&quot;);
       return this.http.post&lt;userModel&gt;(API_URL + API_ADULT_REG,body, httpOptions);
+  }
+
+  postServReg(service): Observable&lt;NewService&gt; {
+    const httpOptions &#x3D; {
+      headers: new HttpHeaders({
+        &#x27;Content-Type&#x27;:  &#x27;application/x-www-form-urlencoded&#x27;
+      })};
+      const body &#x3D; new HttpParams()
+      .set(&#x27;startDate&#x27;, service.startDate)
+      .set(&#x27;endDate&#x27;, service.endDate)
+      .set(&#x27;type&#x27;, service.type)
+      .set(&#x27;description&#x27;, service.description)
+      .set(&#x27;price&#x27;, service.price)
+      .set(&#x27;adultEvaluation&#x27;, &#x27;-1&#x27;)
+      .set(&#x27;nurseEvaluation&#x27;, &#x27;-1&#x27;)
+      .set(&#x27;adultId&#x27;, service.adultId)
+      .set(&#x27;nurseId&#x27;, service.nurseId);
+      return this.http.post&lt;NewService&gt;(API_URL + API_SERV_REG,body, httpOptions);
   }
 
   postNurseReg(user): Observable&lt;userModel&gt; {
